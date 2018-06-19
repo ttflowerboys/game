@@ -1,0 +1,185 @@
+@root-line-height: 1.5;
+
+@white: white;
+@red: hsl(0, 80%, 50%);
+@light-blue: hsl(190, 80%, 97%);
+
+@color: hsl(0, 0%, 47%);
+@border-color: hsl(0, 0%, 90%);
+@light-color: hsl(0, 0%, 98%);
+@mute-color: hsl(0, 0%, 73%);
+@dark-color: hsl(0, 0%, 7%);
+@black: #333333;
+@light-grey:rgb(238, 238, 238);
+@grey: #a3a3a3;
+@light-orange:rgb(255, 249, 228);
+@border-hover-color:rgb(255, 138, 0);
+
+@font-normal: "Open Sans", Tahoma, Arial, "Source Han Sans CN", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "STHeiti", sans-serif;
+@font-song: "Open Sans", SimSun, STSong, sans-serif;
+@font-mono: Monaco, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace;
+
+@min-page-width:1280px;
+@max-width: 1200px;
+@sup-header-bg:rgb(34, 34, 34);
+@header-bg: rgb(51, 51, 51);
+@footer-bg: #f2f2f2;
+@copyright-bg: #333;
+@sup-header-height: 30px;
+@header-height: 90px;
+@footer-height: 220px;
+@copyright-height: 48px;
+@standard-margin: 8px;
+
+@house_card-height:213px;
+@house_card_image-height:213px;
+
+@list-section-header-z-index:40;
+@header-z-index:50;
+@property-nav-z-index:60;
+@drop-down-menu-z-index: 60;
+@supheader-z-index:51;
+
+@modal-shadow-z-index: 103;
+@modal-z-index: 104;
+
+@main_house_type_popup-shadow-z-index: 101;
+@main_house_type_popup-content-z-index: 102;
+
+@requirement_popup-shadow-z-index: 101;
+@requirement_popup-content-z-index: 102;
+
+@jquery_modal-blocker-z-index: 101;
+@jquery_modal-z-index: 102;
+
+@region_report_cover-z-index: 53;
+
+
+@float_bar-z-index: 60;
+@float_bar_phone-z-index: 60;
+
+@house_card-image-z-index: 11;
+@house_card-sold-out-background-z-index: 12;
+@house_card-image-text-z-index: 13;
+@house_card-undo-shadow-z-index: 14;
+@house-info-arrow-box-z-index: 15;
+
+//over house card to switch house in region report page
+@rslides-control-z-index: 20;
+
+@float-bar-z-index: 20;
+
+@phone: ~"(max-width:767px)";
+@pc: ~"(min-width:767px)";
+
+.clearfix() {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.wrapped() {
+    margin-left: auto;
+    margin-right: auto;
+    width: @max-width;
+    min-width: @max-width;
+}
+.opacity(@opacity) {
+  opacity: @opacity;
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
+.rotated {
+  transform: rotate(180deg);
+  -ms-transform: rotate(180deg); /* IE 9 */
+  -moz-transform: rotate(180deg); /* Firefox */
+  -webkit-transform: rotate(180deg); /* Safari and Chrome */
+  -o-transform: rotate(180deg); /* Opera */
+}
+
+.round-corner() {
+    padding: 0;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.limitedLines(@lines:5; @line-height: 20px;@bg: white) {
+    height: @line-height * @lines; line-height: @line-height;
+    overflow: hidden; position: relative; background: @bg;
+    &:after {
+        content: ''; display: block; position: absolute;
+        width: 30%;
+        height: @line-height;
+        bottom: 0;
+        right: 0;
+        background: @bg;
+        background: linear-gradient(to right, fade(@bg, 0%) 0%, @bg 80%);
+    }
+}
+
+.arrow(@direction; @fg:red; @width:8px; @bg:transparent; ) {
+    content: ' ';
+    border: @width/2 solid @bg;
+    width: 0;
+    height: 0;
+    display: block;
+    & when (@direction = up) {
+        border-bottom-color: @fg;
+        margin-left: -@width/2;
+    }
+    & when (@direction = down) {
+        border-top-color: @fg;
+        margin-left: -@width/2;
+    }
+    & when (@direction = left) {
+        border-right-color: @fg;
+        margin-top: -@width/2;
+    }
+    & when (@direction = right) {
+        border-left-color: @fg;
+        margin-top: -@width/2;
+    }
+}
+
+.hiddenOnMobile {
+    @media @phone {
+        display:none !important;
+    }
+}
+
+.hiddenOnPCWeb {
+    @media @pc {
+        display: none !important;
+    }
+}
+
+.verticalMiddleWrap{
+    &:before{
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        height: 100%;
+    }
+    > *{
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.icomoon() {
+    font-family: 'icomoon';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
