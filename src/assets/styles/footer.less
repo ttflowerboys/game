@@ -1,0 +1,55 @@
+/*! Created by leon on 18-6-19.  */
+@import "project/_imports.less";
+.footer {
+    padding: 44px 0 58px;
+    background: @footer-bg;
+    border-top: 1px solid @border-color;
+    &L{
+        float: left;
+        width: 104px;
+        height: 82px;
+        padding: 10px 25px 12px 0;
+        border-right: 1px solid @border-color;
+        .logo{
+            width: 104px;
+            height: 82px;
+            display: block;
+            background: url(../images/footer-logo.png) center top no-repeat;
+            text-indent: -999em;
+            overflow: hidden;
+            background-size: contain;
+        }
+    }
+    &C{
+        float: left;
+        padding-left: 23px;
+        p{
+            font-size: 12px;
+            line-height: 12px;
+            color: #999;
+            margin-bottom: 10px;
+            a{
+                color: #999;
+            }
+            span {
+                margin: 0 9px;
+            }
+        }
+    }
+    &R{
+        float: left;
+        padding-left: 40px;
+        margin-left: 39px;
+        display: inline;
+        border-left: 1px solid #e6e6e6;
+        p {
+            line-height: 24px;
+            color: #999;
+            margin-bottom: 15px;
+        }
+        i {
+            font-size: 20px;
+            font-style: italic;
+        }
+    }
+}
