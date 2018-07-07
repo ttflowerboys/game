@@ -8,8 +8,9 @@
                     <li v-for="(item, key) in gameData" :key="key"><a :href="item.url" target="_blank"><img :src="item.icon" alt="item.name">{{item.name}}</a></li>
                 </ul>
             </div>
-            <div class="user"><div class="before"><a >登录</a><span>|</span><a >注册</a></div></div>
+            <div class="user"><div class="before"><a @click="show_login">登录</a><span>|</span><a >注册</a></div></div>
         </div>
+
     </div>
 </template>
 
@@ -18,6 +19,8 @@
         name: 'HeaderTop',
         data() {
             return {
+                showLogin: false,
+                showJoin: false,
                 gameData: [
                     { url: '', icon: 'http://wan.265g.com/cache/index/logo/mffyj.jpg', name: '魔法风云纪' },
                     { url: '', icon: 'http://wan.265g.com/cache/index/logo/bfsg.jpg', name: '兵法三国' },
@@ -27,6 +30,11 @@
                     { url: '', icon: 'http://wan.265g.com/cache/index/logo/cjsguo.jpg', name: '皓月屠龙之裁决三国' },
                     { url: '', icon: 'http://wan.265g.com/cache/index/logo/zhjie.jpg', name: '镇魂街' }
                 ]
+            }
+        },
+        methods: {
+            show_login(){
+                console.log('a')
             }
         }
     }

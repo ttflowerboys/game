@@ -3,10 +3,10 @@
     	<div class="wrapped clearfix">
         	<h1 class="site-logo"><a href="/"><strong class="hide">798w.com</strong></a></h1>
             <div class="site-nav">
-            	<a href="/" class="hover">首页</a>
-                <a href="/ucenter/">个人中心</a>
-                <a href="/pay/">充值中心</a>
-                <a href="/">客服中心</a>
+                <router-link to="/">首页</router-link>
+                <router-link to="/ucenter">充值中心</router-link>
+                <router-link to="/pay">客服中心</router-link>
+                <router-link to="/help">个人中心</router-link>
             </div>
         </div>
     </div>
