@@ -1,4 +1,4 @@
-/***/
+@import "project/_imports.less";
 .topbar { height: 40px; line-height: 40px; background: #eee; }
 .topbar a { color: #666; }
 .topbar a:hover { color: #f00; }
@@ -21,10 +21,10 @@
     display: block;
 }
 
-.navigation { height: 60px; background: #1891d7; }
-.site-logo { float: left; width: 105px; height: 30px; margin: 15px 0; }
-.site-logo a { width: 105px; height: 30px; display: block; /*background: url("../images/logo.gif") no-repeat;*/ }
+.navigation { height: 60px; background: @red; }
+.site-logo { float: left; width: 120px; height: 44px; margin: 8px 0; }
+.site-logo a { width: 100%;height: 100%; display: block; background: url("../images/logo.png") center no-repeat; overflow: hidden;text-indent: -9999px;}
 .site-nav { float: right; height: 60px; overflow: hidden; position: relative; right: -33px; top: 0; }
 .site-nav a { float: left; font-size: 20px; line-height: 60px; padding: 0 32px; color: #fff; }
-.site-nav a.hover { background: #7eb300; }
+.site-nav a.active { background: @black; }
 
