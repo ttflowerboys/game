@@ -2,20 +2,20 @@
     <div class="Home wrapped clearfix">
         <div class="Left">
             <div class="lbox">
-                <h3 :class="recommend.type">{{recommend.name}}</h3>
-                <div :class="recommend.type + '-list'">
+                <h3 class="tjyx">推荐游戏</h3>
+                <div class="tjyx-list">
                     <ul>
-                        <li v-for="item in recommend.list">
-                            <a :href="item.url" target="_blank" :class="recommend.type + '-img'"><img :src="item.pic"></a>
+                        <li v-for="item in recommendGameList">
+                            <a :href="router.game + item.game_show_code" target="_blank" class="tjyx-img"><img :src="item.pic"></a>
                             <div class="imgHover">
                                 <div class="iht">
-                                    <a href="" target="_blank">{{item.name}}</a>
-                                    <span>最新开服：<a href="" target="_blank">双线1服(s1)</a></span>
+                                    <a :href="router.game + item.game_show_code" target="_blank">{{item.name}}</a>
+                                    <span>最新开服：<a :href="router.game + item.game_show_code" target="_blank">{{item.hotpaly}}</a></span>
                                 </div>
                                 <div class="ihb">
-                                    <a href="" target="_blank" class="start">开始游戏</a>
+                                    <a :href="router.game + item.game_show_code" target="_blank" class="start">开始游戏</a>
                                     <div class="tjyx-links">
-                                        <a href="" target="_blank">官网</a><span>|</span><a href="" target="_blank">活动</a><span>|</span><a href="" target="_blank">新手礼包</a>
+                                        <a :href="router.game + item.game_show_code" target="_blank">官网</a><span>|</span><a  :href="router.game + item.game_show_code" target="_blank">活动</a><span>|</span><a href="" target="_blank">新手礼包</a>
                                     </div>
                                 </div>
                             </div>
@@ -25,16 +25,16 @@
             </div>
 
             <div class="lbox">
-                <h3 :class="hot.type">{{hot.name}}</h3>
-                <div :class="hot.type + '-list'">
+                <h3 class="rmyx">热门游戏</h3>
+                <div class="rmyx-list">
                     <ul>
-                        <li v-for="item in hot.list">
-                            <a :href="item.url" target="_blank" :class="hot.type + '-img'"><img :src="item.pic"></a>
-                            <div :class="hot.type + '-links'"><a href="http://wan.265g.com/fsby/" target="_blank" :class="hot.type + '-name'">{{item.name}}</a>
-                                <a :href="item.url" target="_blank" class="start">开始游戏</a>
-                                <a :href="item.url" target="_blank">领礼包</a>
+                        <li v-for="item in hotGameList">
+                            <a :href="router.game + item.game_show_code" target="_blank" class="rmyx-img"><img :src="item.pic"></a>
+                            <div class="rmyx-links"><a :href="router.game + item.game_show_code" target="_blank" class="rmyx-name">{{item.name}}</a>
+                                <a :href="router.game + item.game_show_code" target="_blank" class="start">开始游戏</a>
+                                <a :href="router.game + item.game_show_code" target="_blank">领礼包</a>
                                 <span>|</span>
-                                <a :href="item.url" target="_blank">官网</a>
+                                <a :href="router.game + item.game_show_code" target="_blank">官网</a>
                             </div>
                         </li>
                     </ul>
@@ -46,7 +46,7 @@
                 <div :class="gift.type + '-list'">
                     <ul class="clearfix">
                         <li v-for="item in gift.list">
-                            <a :href="item.url" target="_blank">
+                            <a>
                                 <img :src="item.pic">
                                 <p>{{item.name}}</p>
                                 <em>剩余：{{item.num}}个</em>
@@ -61,7 +61,7 @@
                 <div :class="other.type + '-list'">
                     <ul>
                         <li v-for="item in other.list">
-                            <a :href="item.url" target="_blank"><img :src="item.pic">{{item.name}}</a>
+                            <a><img :src="item.pic">{{item.name}}</a>
                         </li>
                     </ul>
                 </div>
@@ -73,7 +73,7 @@
             	<h3>{{news.title}}</h3>
                 <div :class="news.type + '-list border'">
                 	<ul>
-                    	<li v-for="item in news.list"><a :href="item.url" target="_blank">{{item.title}}</a> <em></em></li>
+                    	<li v-for="item in news.list"><a>{{item.title}}</a> <em></em></li>
                     </ul>
                 </div>
             </div>
@@ -99,10 +99,10 @@
                 <div class="new-game border">
                 	<ul>
                         <li v-for="item in newgame.list">
-                            <a :href="item.url" target="_blank" class="ng-img"><img :src="item.pic" width="80" height="60"></a>
-                            <p><a :href="item.url" target="_blank" class="ng-name">{{item.title}}</a></p>
+                            <a class="ng-img"><img :src="item.pic" width="80" height="60"></a>
+                            <p><a class="ng-name">{{item.title}}</a></p>
                             <p>角色扮演</p>
-                            <p><a :href="item.url" target="_blank">[官网]</a><a href="" target="_blank">[领礼包]</a></p>
+                            <p><a>[官网]</a><a target="_blank">[领礼包]</a></p>
                         </li>
                     </ul>
                 </div>
@@ -126,62 +126,38 @@
 </template>
 
 <script>
+    import { AjaxRecommendGames, AjaxHotGames } from 'src/apis/list'
+
     export default {
         name: 'Home',
         data() {
             return {
-                recommend: {
-                    name: '推荐游戏',
-                    type: 'tjyx',
-                    list: [
-                        { name: '封神霸业', url: '', pic: 'http://i5.265g.com/images/201806/201806290140045190.jpg' },
-                        { name: '不灭轮回', url: '', pic: 'http://i5.265g.com/images/201806/201806210105568856.jpg' },
-                        { name: '大明征途', url: '', pic: 'http://i5.265g.com/images/201806/201806120123011803.jpg' }
-                    ]
+                router: {
+                    game: '/game/'
                 },
-                hot: {
-                    name: '热门游戏',
-                    type: 'rmyx',
-                    list: [
-                        { name: '封神霸业', url: '', pic: 'http://i7.265g.com/images/201806/201806290140139488.jpg' },
-                        { name: '不灭轮回', url: '', pic: 'http://i2.265g.com/images/201806/201806210106039532.jpg' },
-                        { name: '大明征途', url: '', pic: 'http://i2.265g.com/images/201806/201806120123061752.jpg' },
-                        { name: '仙境物语RO', url: '', pic: 'http://i4.265g.com/images/201804/201804100214077725.jpg' },
-                        { name: '兵法三国', url: '', pic: 'http://i6.265g.com/images/201803/201803130134541242.jpg' },
-                        { name: '极品三国志', url: '', pic: 'http://i3.265g.com/images/201801/201801150914219341.jpg' },
-                        { name: '封神霸业', url: '', pic: 'http://i7.265g.com/images/201806/201806290140139488.jpg' },
-                        { name: '封神霸业', url: '', pic: 'http://i7.265g.com/images/201806/201806290140139488.jpg' },
-                        { name: '封神霸业', url: '', pic: 'http://i7.265g.com/images/201806/201806290140139488.jpg' },
-                        { name: '封神霸业', url: '', pic: 'http://i7.265g.com/images/201806/201806290140139488.jpg' },
-                        { name: '封神霸业', url: '', pic: 'http://i7.265g.com/images/201806/201806290140139488.jpg' },
-                        { name: '封神霸业', url: '', pic: 'http://i7.265g.com/images/201806/201806290140139488.jpg' }
-                    ]
-                },
+                recommendGameList: [],
+                hotGameList: [],
                 gift: {
                     name: '热门礼包',
                     type: 'rmlb',
                     list: [
-                        { name: '不灭轮回 媒体礼包', url: '', pic: 'http://i7.265g.com/images/201806/201806210106167928.jpg', num: '9874' },
-                        { name: '大明征途 新手礼包', url: '', pic: 'http://i5.265g.com/images/201806/201806120123333426.jpg', num: '9874' },
-                        { name: '仙境物语RO 新手礼包', url: '', pic: 'http://i7.265g.com/images/201804/201804100214169101.jpg', num: '9874' },
-                        { name: 'NBA征程 高级礼包', url: '', pic: 'http://i4.265g.com/images/201804/201804020111185293.jpg', num: '9874' },
-                        { name: 'NBA征程 高级礼包', url: '', pic: 'http://i4.265g.com/images/201804/201804020111185293.jpg', num: '9874' }
+                        { name: '不灭轮回 媒体礼包', url: '', pic: '/static/upload/201806210106167928.jpg', num: '9874' },
+                        { name: '大明征途 新手礼包', url: '', pic: '/static/upload/201806120123333426.jpg', num: '1869' },
+                        { name: '仙境物语RO 新手礼包', url: '', pic: '/static/upload/201804100214169101.jpg', num: '9874' },
+                        { name: 'NBA征程 高级礼包', url: '', pic: '/static/upload/201804020111185293.jpg', num: '4800' }
                     ]
                 },
                 other: {
                     name: '其他游戏',
                     type: 'qtyx',
                     list: [
-                        { name: '大明征途', url: '', pic: 'http://wan.265g.com/cache/index/logo/dmzt.jpg' },
-                        { name: '斗罗大陆2D', url: '', pic: 'http://wan.265g.com/cache/index/logo/dldl.jpg' },
-                        { name: '剑道仙语', url: '', pic: 'http://wan.265g.com/cache/index/logo/jdxy.jpg' },
-                        { name: '仙境物语RO', url: '', pic: 'http://wan.265g.com/cache/index/logo/xjwy.jpg' },
-                        { name: 'NBA征程', url: '', pic: 'http://wan.265g.com/cache/index/logo/nbazc.jpg' },
-                        { name: '魔法风云纪', url: '', pic: 'http://wan.265g.com/cache/index/logo/mffyj.jpg' },
-                        { name: '兵法三国', url: '', pic: 'http://wan.265g.com/cache/index/logo/bfsg.jpg' },
-                        { name: '斗罗大陆2D', url: '', pic: 'http://wan.265g.com/cache/index/logo/dldl.jpg' },
-                        { name: '斗罗大陆2D', url: '', pic: 'http://wan.265g.com/cache/index/logo/dldl.jpg' },
-                        { name: '斗罗大陆2D', url: '', pic: 'http://wan.265g.com/cache/index/logo/dldl.jpg' },
+                        { name: '大明征途', url: '', pic: '/static/upload/logo/dmzt.jpg' },
+                        { name: '斗罗大陆2D', url: '', pic: '/static/upload/logo/dldl.jpg' },
+                        { name: '剑道仙语', url: '', pic: '/static/upload/logo/jdxy.jpg' },
+                        { name: '仙境物语RO', url: '', pic: '/static/upload/logo/xjwy.jpg' },
+                        { name: 'NBA征程', url: '', pic: '/static/upload/logo/nbazc.jpg' },
+                        { name: '魔法风云纪', url: '', pic: '/static/upload/logo/mffyj.jpg' },
+                        { name: '兵法三国', url: '', pic: '/static/upload/logo/bfsg.jpg' }
                     ]
                 },
                 news: {
@@ -213,13 +189,42 @@
                 newgame: {
                     title: '新游戏',
                     list: [
-                        { title: '封神霸业', url: '', pic: 'http://i6.265g.com/images/201806/201806270716329872.jpg' },
-                        { title: '不灭轮回', url: '', pic: 'http://i6.265g.com/images/201806/201806200644542827.jpg' },
-                        { title: '大明征途', url: '', pic: 'http://i7.265g.com/images/201806/201806110622172220.jpg' },
-                        { title: '仙境物语RO', url: '', pic: 'http://i6.265g.com/images/201804/201804080206335475.jpg' }
+                        { title: '封神霸业', url: '', pic: '/static/upload/201806270716329872.jpg' },
+                        { title: '不灭轮回', url: '', pic: '/static/upload/201806200644542827.jpg' },
+                        { title: '大明征途', url: '', pic: '/static/upload/201806110622172220.jpg' },
+                        { title: '仙境物语RO', url: '', pic: '/static/upload/201804080206335475.jpg' }
                     ]
                 }
             }
+        },
+        methods: {
+            getRecommendGames(){
+                const self = this;
+                AjaxRecommendGames().then(res => {
+                    if(res.status === 'success'){
+                        self.recommendGameList = res.data;
+                    }else{
+                        self.$Message.error(res.message)
+                    }
+                })
+            },
+            getHotGames(){
+                const self = this;
+                AjaxHotGames().then(res => {
+                    if(res.status === 'success'){
+                        self.hotGameList = res.data;
+                    }else{
+                        self.$Message.error(res.message)
+                    }
+                })
+            },
+            init(){
+                this.getRecommendGames()
+                this.getHotGames()
+            }
+        },
+        created(){
+            this.init()
         }
     }
 </script>
