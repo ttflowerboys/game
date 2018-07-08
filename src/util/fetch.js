@@ -13,10 +13,12 @@ const fetch = axios.create({
     timeout: 500000 // 请求超时时间
 });
 
+let qs = require('qs');
+
 // 2. http request 拦截器
 fetch.interceptors.request.use(config => {
-    config.headers['Content-type'] = 'application/json;charset=UTF-8';
-    // config.headers['Content-type'] = 'multipart/form-data';
+    config.headers['Content-type'] = 'application/x-www-form-urlencoded';
+    config.data = qs.stringify(config.data);
     return config;
 }, error => {
     return Promise.reject(error);
