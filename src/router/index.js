@@ -11,11 +11,12 @@ const join = r => require.ensure([], () => r(require('../pages/join/index')), 'j
 const forget = r => require.ensure([], () => r(require('../pages/forget/index')), 'forget')
 
 const ucenter = r => require.ensure([], () => r(require('../pages/ucenter/layout')), 'ucenter')
-const account = r => require.ensure([], () => r(require('../pages/ucenter/account')), 'account')
+const account = r => require.ensure([], () => r(require('../pages/ucenter/index')), 'account')
 const ugame = r => require.ensure([], () => r(require('../pages/ucenter/game')), 'ugame')
 const udata = r => require.ensure([], () => r(require('../pages/ucenter/data')), 'udata')
 const avatar = r => require.ensure([], () => r(require('../pages/ucenter/avatar')), 'avatar')
 const unews = r => require.ensure([], () => r(require('../pages/ucenter/news')), 'unews')
+const safety = r => require.ensure([], () => r(require('../pages/ucenter/safety')), 'safety')
 const recycling = r => require.ensure([], () => r(require('../pages/ucenter/recycling')), 'recycling')
 
 const help = r => require.ensure([], () => r(require('../pages/help/index')), 'help')
@@ -92,6 +93,12 @@ const routes = [
           component: avatar,
           meta: {
             title: '修改头像'
+          }
+        }, {
+          path: 'safety',
+          component: safety,
+          meta: {
+            title: '账号安全'
           }
         }, {
           path: 'news',
