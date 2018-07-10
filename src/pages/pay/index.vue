@@ -44,7 +44,7 @@
                                     :class="{'selected': 0 == pay.price}"
                                     ><input v-model.number="enterPrice"
                                         @keyup="checkEnterPrice"
-                                        placeholder="其它金额" maxlength="7"><i></i></li>
+                                        placeholder="其它" maxlength="7"><i></i></li>
                             </ul>
                         </div>
                         <p>您将获得 {{pay.price*10}} 元宝 (其他游戏兑换比例 1:10)</p>

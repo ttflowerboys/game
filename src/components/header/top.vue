@@ -10,7 +10,7 @@
             </div>
             <div class="user">
                 <div class="before" v-if="!username"><a @click="show_login()">登录</a><span>|</span><a @click="show_join()">注册</a></div>
-                <a v-if="username">{{username}}</a>
+                <a v-if="username">{{username}}</a> <a  v-if="username" @click="logout">注销</a>
             </div>
         </div>
         <join-popup :is-show="showJoin" @close="closeJoin"></join-popup>
@@ -55,6 +55,11 @@
             },
             show_join(){
                 this.showJoin = true;
+            },
+            logout(){
+                localStorage.clear('username')
+                localStorage.clear('token')
+                window.location = '/'
             }
         },
         created(){

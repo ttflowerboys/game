@@ -46,6 +46,7 @@
                 AjaxLogin(data).then(res => {
                     if(res.status === 'success'){
                         localStorage.setItem('token', res.data);
+                        localStorage.setItem('username', self.form.username);
                         let redirect = decodeURIComponent(self.$route.query.redirect || '/ucenter');
                         self.$router.push({
                             path: redirect

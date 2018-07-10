@@ -4,7 +4,7 @@
             <div class="clearfix">
                 <div class="server-box">
                     <div class="btns">
-                        <a href="javascript:void(0)" target="_blank" class="btn-start" onclick="get_start_url(174)"><i class="start-txt"></i></a>
+                        <a :href="'/server/'+gameCode" class="btn-start"><i class="start-txt"></i></a>
                         <a href="http://wan.265g.com/help/problems/" target="_blank" class="btn-download">客服中心</a>
                         <a href="http://pay.265g.com/?gameid=174" target="_blank" class="btn-recharge">游戏充值</a>
                     </div>
@@ -13,7 +13,7 @@
                         <dl>
                             <dt id="qf">
                             <h3>游戏服务器</h3>
-                            </dt> <dd> <span>双线1服（s1）</span> <em class="hot_game"> 火爆开启 <s></s> </em> <a href="http://pay.265g.com?tp=go&amp;areaid=9041" target="_blank">进入</a> </dd>
+                            </dt> <dd> <span>双线1服（s1）</span> <em class="hot_game"> 火爆开启 <s></s> </em> <a href="" target="_blank">进入</a> </dd>
                         </dl>
                     </div>
                 </div>
@@ -62,10 +62,10 @@
             </div>
 
             <div class="server-center center-wrap">
-                <a href="http://shang.qq.com/wpa/qunwpa?idkey=7fdf62887a3d69a4b00d3107e648153c321d4c9610a01a1fd34654387b18ef10" target="_blank" class="qq-group">加入Q群</a>
+                <a href="" class="qq-group">加入Q群</a>
                 <a href="javascript:void(0)" target="_blank" class="online-server" id="BizQQWPA">在线客服</a>
-                <a href="http://pay.265g.com/" target="_blank" class="recharge">充值中心</a>
-                <a href="http://wan.265g.com/help/appeal/account" target="_blank" class="complain">账号申诉</a>
+                <a href="/pay" target="_blank" class="recharge">充值中心</a>
+                <a href="" target="_blank" class="complain">账号申诉</a>
             </div>
         </div>
     </div>

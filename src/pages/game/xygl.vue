@@ -3,15 +3,14 @@
         <div class="container">
             <div class="inner-title">
                 <span>游戏攻略</span>
-                <p>当前位置：<a href="http://wan.265g.com">游戏大厅</a> &gt; <a href="/fsby/">封神霸业</a> &gt; <a href="javascript:void(0)">游戏攻略</a></p>
             </div>
             <div class="news-list">
                 <ul>
-                    <li class="">
+                    <li v-for="items in docList">
                         <i class="line"></i>
-                        <a href="http://wan.265g.com/fsby/yxgl/18686.html" target="_blank" class="news-title">VIP介绍</a>
-                        <p class="news-info"><span>2018.06.27 16:03:00</span><span>来源：265g</span></p>
-                        <p class="news-brief">&nbsp;描述123456789101112攻击加成102030405060708090100110120防御加成102030405060708090100110120生命加成100200300400500600700800900100011001200杀怪经验加成10%15%20%25%30%40%50%65%80%100%100%100%日光浴经验加成30%30%30%30%30%30%30%30%30%交易税...<a href="http://wan.265g.com/fsby/yxgl/18686.html" target="_blank">More</a></p>
+                        <a href="" target="_blank" class="news-title">{{items.xs_doc_title}}</a>
+                        <p class="news-info"><span>{{items.xs_createtime}}</span><span>来源：</span></p>
+                        <p class="news-brief">{{items.xs_doc_abs}}...<a href="" target="_blank"></a></p>
                     </li>
                 </ul>
             </div>
@@ -75,3 +74,37 @@
     </div>
 </template>
 
+<script>
+    import { AjaxGameDoc } from 'src/apis/game'
+
+    export default {
+        name: 'gameindex',
+        data() {
+            return {
+                gameCode: this.$route.params.code,
+                docList: []
+            }
+        },
+        methods: {
+            getDoc(){
+                const self = this;
+                let data = {
+                    gid: localStorage.getItem('gameID') // TODO
+                }
+                AjaxGameDoc(data).then(res => {
+                    if(res.status === 'success'){
+                        self.docList = res.data.game_strategies;
+                    }else{
+
+                    }
+                })
+            },
+            init(){
+                this.getDoc()
+            }
+        },
+        created(){
+            this.init()
+        }
+    }
+</script>

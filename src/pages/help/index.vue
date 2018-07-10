@@ -1,10 +1,9 @@
 <template>
 <div class="Help">
     <div class="service-banner service-index">
-    <p>客服QQ：2852505129</p>
+    <p>客服QQ：3458333481</p>
     <li>
-        <a target="iframe_qq" href="http://q.url.cn/s/ZpvNuVm">在线咨询</a>
-        <iframe name="iframe_qq" style="display: none"></iframe>
+        <a target="iframe_qq" href="http://wpa.qq.com/msgrd?v=3&uin=3458333481&site=qq&menu=yes">在线咨询</a>
     </li>
 </div>
 <div class="wrapped">

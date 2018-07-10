@@ -9,8 +9,8 @@
                         <router-link :to="'/game/'+ gameCode + '/yxgl'">游戏攻略</router-link>
                         <router-link :to="'/game/'+ gameCode + '/yxgg'">新闻公告</router-link>
                         <router-link :to="'/game/'+ gameCode + '/index'" class="logo"></router-link>
-                        <a href="/pay?gameid=174" target="_blank">游戏充值</a>
-                        <router-link to="/help">客服中心</router-link>
+                        <router-link to="/pay" target="_blank">游戏充值</router-link>
+                        <router-link to="/help" target="_blank">客服中心</router-link>
                         <router-link :to="'/game/'+ gameCode + '/hdzx'">活动咨询</router-link>
                     </div>
                 </div>

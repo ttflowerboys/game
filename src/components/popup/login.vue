@@ -70,7 +70,7 @@
                                 self.$router.push({
                                     path: redirect
                                 })
-                                self.isShow = false;
+                                self.close();
                             }else{
                                 self.$Message.error(res.message)
                             }

@@ -1,8 +1,8 @@
 <template>
     <div class="Home">
-        <Carousel class="banner" autoplay loop>
+        <Carousel class="banner" loop>
             <CarouselItem v-for="items in bannerList" :key="items.id">
-                <router-link :to="items.xs_banner_link"><img :src="items.xs_banner_img" :alt="items.xs_banner_title"></router-link>
+                <router-link :to="router.game + items.xs_banner_link"><img :src="items.xs_banner_img" :alt="items.xs_banner_title"></router-link>
             </CarouselItem>
         </Carousel>
         <div class="wrapped clearfix">
@@ -137,7 +137,7 @@
 </template>
 
 <script>
-    import { AjaxRecommendGames, AjaxHotGames } from 'src/apis/list'
+    import { AjaxRecommendGames, AjaxHotGames, AjaxBanner } from 'src/apis/list'
 
     export default {
         name: 'Home',
@@ -146,19 +146,13 @@
                 router: {
                     game: '/game/'
                 },
-                bannerList: [
-                    {
-                        "id": 12,
-                        "xs_banner_title": "测试1",
-                        "xs_banner_link": "111",
-                        "xs_banner_img": "http://i3.265g.com/images/201806/201806210103471441.jpg"
-                    }
-                ],
+                bannerList: [],
                 recommendGameList: [],
                 hotGameList: [],
                 loading: {
                     tjyx: true,
-                    rmyx: true
+                    rmyx: true,
+                    banner: true
                 },
                 loads: 3,
                 gift: {
@@ -227,7 +221,7 @@
                 AjaxRecommendGames().then(res => {
                     if(res.status === 'success'){
                         self.recommendGameList = res.data;
-                        self.loading.tjxy = false;
+                        self.loading.tjyx = false;
                     }else{
                         self.$Message.error(res.message)
                     }
@@ -238,12 +232,25 @@
                 AjaxHotGames().then(res => {
                     if(res.status === 'success'){
                         self.hotGameList = res.data;
+                        self.loading.rmyx = false;
+                    }else{
+                        self.$Message.error(res.message)
+                    }
+                })
+            },
+            getBanner(){
+                const self = this;
+                AjaxBanner().then(res => {
+                    if(res.status === 'success'){
+                        self.bannerList = res.data;
+                        self.loading.banner = false;
                     }else{
                         self.$Message.error(res.message)
                     }
                 })
             },
             init(){
+                this.getBanner()
                 this.getRecommendGames()
                 this.getHotGames()
             }
@@ -273,6 +280,10 @@
         margin-bottom: 40px;
         background: lightgrey;
         overflow: hidden;
+        .ivu-carousel-item{
+            height: 400px;
+            text-align: center;
+        }
     }
 }
 .loading-list{
