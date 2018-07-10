@@ -12,25 +12,25 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://a3jnmn.natappfree.cc',
+        target: 'http://tiwwmu.natappfree.cc',
         pathRewrite: {
           '^/api': '/api'
         }
       },
       '/xsGame': {
-        target: 'http://a3jnmn.natappfree.cc',
+        target: 'http://tiwwmu.natappfree.cc',
         pathRewrite: {
           '^/xsGame': '/xsGame'
         }
       },
       '/auth': {
-        target: 'http://a3jnmn.natappfree.cc',
+        target: 'http://tiwwmu.natappfree.cc',
         pathRewrite: {
           '^/auth': '/auth'
         }
       },
       '/gameDetail': {
-        target: 'http://a3jnmn.natappfree.cc',
+        target: 'http://tiwwmu.natappfree.cc',
         pathRewrite: {
           '^/gameDetail': '/gameDetail'
         }

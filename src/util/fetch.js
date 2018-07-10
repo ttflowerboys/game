@@ -5,7 +5,7 @@ if (process.env.NODE_ENV == 'development') {
 } else if (process.env.NODE_ENV == 'debug') {
     axios.defaults.baseURL = '';
 } else if (process.env.NODE_ENV == 'production') {
-    axios.defaults.baseURL = '';
+    axios.defaults.baseURL = 'http://127.0.0.1:8081';
 }
 
 // 1. 创建axios实例
@@ -19,8 +19,7 @@ let qs = require('qs');
 fetch.interceptors.request.use(config => {
     config.headers['Content-type'] = 'application/x-www-form-urlencoded';
     config.data = qs.stringify(config.data);
-    config.headers['Authorization'] = localStorage.getItem('token');
-    config.headers['withCredentials'] = true
+    config.headers['Authorization'] = localStorage.getItem('token') ? localStorage.getItem('token') : '';
     return config;
 }, error => {
     return Promise.reject(error);
