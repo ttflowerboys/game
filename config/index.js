@@ -28,6 +28,12 @@ module.exports = {
         pathRewrite: {
           '^/auth': '/auth'
         }
+      },
+      '/gameDetail': {
+        target: 'http://a3jnmn.natappfree.cc',
+        pathRewrite: {
+          '^/gameDetail': '/gameDetail'
+        }
       }
     },
 
