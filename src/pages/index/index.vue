@@ -1,126 +1,137 @@
 <template>
-    <div class="Home wrapped clearfix">
-        <div class="Left">
-            <div class="lbox">
-                <h3 class="tjyx">推荐游戏</h3>
-                <div class="tjyx-list">
-                    <ul>
-                        <li v-for="item in recommendGameList">
-                            <a :href="router.game + item.game_show_code" target="_blank" class="tjyx-img"><img :src="item.pic"></a>
-                            <div class="imgHover">
-                                <div class="iht">
-                                    <a :href="router.game + item.game_show_code" target="_blank">{{item.name}}</a>
-                                    <span>最新开服：<a :href="router.game + item.game_show_code" target="_blank">{{item.hotpaly}}</a></span>
-                                </div>
-                                <div class="ihb">
-                                    <a :href="router.game + item.game_show_code" target="_blank" class="start">开始游戏</a>
-                                    <div class="tjyx-links">
-                                        <a :href="router.game + item.game_show_code" target="_blank">官网</a><span>|</span><a  :href="router.game + item.game_show_code" target="_blank">活动</a><span>|</span><a href="" target="_blank">新手礼包</a>
+    <div class="Home">
+        <Carousel class="banner" autoplay loop>
+            <CarouselItem v-for="items in bannerList" :key="items.id">
+                <router-link :to="items.xs_banner_link"><img :src="items.xs_banner_img" :alt="items.xs_banner_title"></router-link>
+            </CarouselItem>
+        </Carousel>
+        <div class="wrapped clearfix">
+            <div class="Left">
+                <div class="lbox">
+                    <h3 class="tjyx">推荐游戏</h3>
+                    <div class="tjyx-list">
+                        <ul>
+                            <li v-for="item in recommendGameList" v-if="!loading.tjyx">
+                                <a :href="router.game + item.game_show_code" target="_blank" class="tjyx-img"><img :src="item.pic"></a>
+                                <div class="imgHover">
+                                    <div class="iht">
+                                        <a :href="router.game + item.game_show_code" target="_blank">{{item.name}}</a>
+                                        <span>最新开服：<a :href="router.game + item.game_show_code" target="_blank">{{item.hotpaly}}</a></span>
+                                    </div>
+                                    <div class="ihb">
+                                        <a :href="router.game + item.game_show_code" target="_blank" class="start">开始游戏</a>
+                                        <div class="tjyx-links">
+                                            <a :href="router.game + item.game_show_code" target="_blank">官网</a><span>|</span><a  :href="router.game + item.game_show_code" target="_blank">活动</a><span>|</span><a href="" target="_blank">新手礼包</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                            </li>
 
-            <div class="lbox">
-                <h3 class="rmyx">热门游戏</h3>
-                <div class="rmyx-list">
-                    <ul>
-                        <li v-for="item in hotGameList">
-                            <a :href="router.game + item.game_show_code" target="_blank" class="rmyx-img"><img :src="item.pic"></a>
-                            <div class="rmyx-links"><a :href="router.game + item.game_show_code" target="_blank" class="rmyx-name">{{item.name}}</a>
-                                <a :href="router.game + item.game_show_code" target="_blank" class="start">开始游戏</a>
-                                <a :href="router.game + item.game_show_code" target="_blank">领礼包</a>
-                                <span>|</span>
-                                <a :href="router.game + item.game_show_code" target="_blank">官网</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                            <li class="loading-list" v-for="i in loads" v-if="loading.tjyx"></li>
+                        </ul>
 
-            <div class="lbox">
-                <h3 :class="gift.type">{{gift.name}}</h3>
-                <div :class="gift.type + '-list'">
-                    <ul class="clearfix">
-                        <li v-for="item in gift.list">
-                            <a>
-                                <img :src="item.pic">
-                                <p>{{item.name}}</p>
-                                <em>剩余：{{item.num}}个</em>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="lbox">
-                <h3 :class="other.type">{{other.name}}</h3>
-                <div :class="other.type + '-list'">
-                    <ul>
-                        <li v-for="item in other.list">
-                            <a><img :src="item.pic">{{item.name}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-        <div class="Right">
-            <div class="rbox">
-            	<h3>{{news.title}}</h3>
-                <div :class="news.type + '-list border'">
-                	<ul>
-                    	<li v-for="item in news.list"><a>{{item.title}}</a> <em></em></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="rbox">
-            	<h3>{{play.title}}</h3>
-                <div class="als-container  border">
-                    <div class="kf-title">
-                    	<strong class="time">时间</strong>
-                        <strong class="name">游戏名称</strong>
-                        <strong class="qufu">区服</strong>
+                        
                     </div>
-                	<ul :class="play.type + '-list'">
-                        <li v-for="item in play.list">
-					        <i class="today">{{item.time}}</i><a :href="item.url" target="_blank">{{item.title}}</a><em>s3857服</em>
-                        </li>
-                    </ul>
+                </div>
+
+                <div class="lbox">
+                    <h3 class="rmyx">热门游戏</h3>
+                    <div class="rmyx-list">
+                        <ul>
+                            <li v-for="item in hotGameList" v-if="!loading.rmyx">
+                                <a :href="router.game + item.game_show_code" target="_blank" class="rmyx-img"><img :src="item.pic"></a>
+                                <div class="rmyx-links"><a :href="router.game + item.game_show_code" target="_blank" class="rmyx-name">{{item.name}}</a>
+                                    <a :href="router.game + item.game_show_code" target="_blank" class="start">开始游戏</a>
+                                    <a :href="router.game + item.game_show_code" target="_blank">领礼包</a>
+                                    <span>|</span>
+                                    <a :href="router.game + item.game_show_code" target="_blank">官网</a>
+                                </div>
+                            </li>
+                            <li class="loading-list" v-for="i in loads" v-if="loading.rmyx"></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lbox">
+                    <h3 :class="gift.type">{{gift.name}}</h3>
+                    <div :class="gift.type + '-list'">
+                        <ul class="clearfix">
+                            <li v-for="item in gift.list">
+                                <a>
+                                    <img :src="item.pic">
+                                    <p>{{item.name}}</p>
+                                    <em>剩余：{{item.num}}个</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lbox">
+                    <h3 :class="other.type">{{other.name}}</h3>
+                    <div :class="other.type + '-list'">
+                        <ul>
+                            <li v-for="item in other.list">
+                                <a><img :src="item.pic">{{item.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="Right">
+                <div class="rbox">
+                    <h3>{{news.title}}</h3>
+                    <div :class="news.type + '-list border'">
+                        <ul>
+                            <li v-for="item in news.list"><a>{{item.title}}</a> <em></em></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="rbox">
+                    <h3>{{play.title}}</h3>
+                    <div class="als-container  border">
+                        <div class="kf-title">
+                            <strong class="time">时间</strong>
+                            <strong class="name">游戏名称</strong>
+                            <strong class="qufu">区服</strong>
+                        </div>
+                        <ul :class="play.type + '-list'">
+                            <li v-for="item in play.list">
+                                <i class="today">{{item.time}}</i><a :href="item.url" target="_blank">{{item.title}}</a><em>s3857服</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="rbox">
+                    <h3>{{newgame.title}}</h3>
+                    <div class="new-game border">
+                        <ul>
+                            <li v-for="item in newgame.list">
+                                <a class="ng-img"><img :src="item.pic" width="80" height="60"></a>
+                                <p><a class="ng-name">{{item.title}}</a></p>
+                                <p>角色扮演</p>
+                                <p><a>[官网]</a><a target="_blank">[领礼包]</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="rbox">
+                    <h3>快速通道</h3>
+                    <div class="quick-links border">
+                        <ul>
+                            <li><a href="/ucenter/user/vgetpwd" target="_blank"><i class="zhzh"></i>账号找回</a></li>
+                            <li><a href="tencent://message/?uin=2850901596&amp;Site=wan.265g.com&amp;Menu=yes" target="_blank"><i class="swhz"></i>商务合作</a></li>
+                            <li><a href="/ucenter/safety/" target="_blank"><i class="bdsj"></i>绑定手机</a></li>
+                            <li><a href="/ucenter/safety/" target="_blank"><i class="bdyx"></i>绑定邮箱</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-            <div class="rbox">
-            	<h3>{{newgame.title}}</h3>
-                <div class="new-game border">
-                	<ul>
-                        <li v-for="item in newgame.list">
-                            <a class="ng-img"><img :src="item.pic" width="80" height="60"></a>
-                            <p><a class="ng-name">{{item.title}}</a></p>
-                            <p>角色扮演</p>
-                            <p><a>[官网]</a><a target="_blank">[领礼包]</a></p>
-                        </li>
-                    </ul>
-                </div>
-           	</div>
-
-            <div class="rbox">
-            	<h3>快速通道</h3>
-                <div class="quick-links border">
-                	<ul>
-                    	<li><a href="/ucenter/user/vgetpwd" target="_blank"><i class="zhzh"></i>账号找回</a></li>
-                        <li><a href="tencent://message/?uin=2850901596&amp;Site=wan.265g.com&amp;Menu=yes" target="_blank"><i class="swhz"></i>商务合作</a></li>
-                        <li><a href="/ucenter/safety/" target="_blank"><i class="bdsj"></i>绑定手机</a></li>
-                        <li><a href="/ucenter/safety/" target="_blank"><i class="bdyx"></i>绑定邮箱</a></li>
-                    </ul>
-                </div>
-           	</div>
         </div>
-
      </div>
 
 </template>
@@ -135,8 +146,21 @@
                 router: {
                     game: '/game/'
                 },
+                bannerList: [
+                    {
+                        "id": 12,
+                        "xs_banner_title": "测试1",
+                        "xs_banner_link": "111",
+                        "xs_banner_img": "http://i3.265g.com/images/201806/201806210103471441.jpg"
+                    }
+                ],
                 recommendGameList: [],
                 hotGameList: [],
+                loading: {
+                    tjyx: true,
+                    rmyx: true
+                },
+                loads: 3,
                 gift: {
                     name: '热门礼包',
                     type: 'rmlb',
@@ -203,6 +227,7 @@
                 AjaxRecommendGames().then(res => {
                     if(res.status === 'success'){
                         self.recommendGameList = res.data;
+                        self.loading.tjxy = false;
                     }else{
                         self.$Message.error(res.message)
                     }
@@ -232,14 +257,25 @@
 <style lang="less">
 @import "~assets/styles/list.less";
 .Home {
-  padding: 40px 0;
-  .Left{
+    padding-bottom: 40px;
+    .Left{
         float: left;
         width: 940px;
-  }
-  .Right{
+    }
+    .Right{
         float: right;
         width: 240px;
-  }
+    }
+    .banner{
+        position: relative;
+        width: 100%;
+        height: 400px;
+        margin-bottom: 40px;
+        background: lightgrey;
+        overflow: hidden;
+    }
+}
+.loading-list{
+    background: lightgrey ;
 }
 </style>

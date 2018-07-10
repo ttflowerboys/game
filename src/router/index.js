@@ -29,6 +29,8 @@ const gamexygl = r => require.ensure([], () => r(require('../pages/game/xygl')),
 const gameyxgg = r => require.ensure([], () => r(require('../pages/game/yxgg')), 'gameyxgg')
 const gamehdzx = r => require.ensure([], () => r(require('../pages/game/hdzx')), 'gamehdzx')
 
+const server = r => require.ensure([], () => r(require('../pages/server/index')), 'server')
+
 const notFound = r => require.ensure([], () => r(require('components/error/404')), 'notFound')
 
 const routes = [
@@ -139,6 +141,12 @@ const routes = [
       { path: "/game/:code/yxgg", name: "gameyxgg", component: gameyxgg, meta: { title: '新闻公告' } },
       { path: "/game/:code/hdzx", name: "gamehdzx", component: gamehdzx, meta: { title: '活动资讯' } }
     ]
+  },{
+    path: '/server/:code', //客服中心
+    component: server,
+    meta: {
+      title: '服务器列表页'
+    }
   },{
     path: "/*", name: "error", component: notFound, meta: { title: '404' }
   }]
