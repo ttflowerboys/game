@@ -2,7 +2,7 @@
     <div class="Home">
         <Carousel class="banner" loop>
             <CarouselItem v-for="items in bannerList" :key="items.id">
-                <router-link :to="router.game + items.xs_banner_link"><img :src="items.xs_banner_img" :alt="items.xs_banner_title"></router-link>
+                <img :src="items.xs_banner_img" :alt="items.xs_banner_title">
             </CarouselItem>
         </Carousel>
         <div class="wrapped clearfix">
@@ -123,10 +123,10 @@
                     <h3>快速通道</h3>
                     <div class="quick-links border">
                         <ul>
-                            <li><a href="/ucenter/user/vgetpwd" target="_blank"><i class="zhzh"></i>账号找回</a></li>
-                            <li><a href="tencent://message/?uin=2850901596&amp;Site=wan.265g.com&amp;Menu=yes" target="_blank"><i class="swhz"></i>商务合作</a></li>
-                            <li><a href="/ucenter/safety/" target="_blank"><i class="bdsj"></i>绑定手机</a></li>
-                            <li><a href="/ucenter/safety/" target="_blank"><i class="bdyx"></i>绑定邮箱</a></li>
+                            <li><a href=""><i class="zhzh"></i>账号找回</a></li>
+                            <li><a href=""><i class="swhz"></i>商务合作</a></li>
+                            <li><a href=""><i class="bdsj"></i>绑定手机</a></li>
+                            <li><a href=""><i class="bdyx"></i>绑定邮箱</a></li>
                         </ul>
                     </div>
                 </div>

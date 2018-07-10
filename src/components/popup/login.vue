@@ -22,6 +22,7 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex'
     import { AjaxLogin } from 'src/apis/user'
 
     export default {
@@ -50,6 +51,9 @@
             }
         },
         methods: {
+            ...mapActions([
+                'recordUserInfo'
+            ]),
             close(){
                 this.$emit("close");
             },
@@ -64,8 +68,7 @@
                         }
                         AjaxLogin(params).then(res => {
                             if(res.status === 'success'){
-                                localStorage.setItem('token', res.data);
-                                localStorage.setItem('username', self.formInline.username)
+                                self.recordUserInfo(res.data)
                                 let redirect = decodeURIComponent(self.$route.query.redirect || '/ucenter');
                                 self.$router.push({
                                     path: redirect

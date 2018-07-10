@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import { AjaxCheckAuth } from 'src/apis/user'
-
+import store from 'src/store'
+import * as types from 'src/store/mutation-types'
 
 const layout = r => require.ensure([], () => r(require('../pages/layout')), 'layout')
 
@@ -158,6 +159,10 @@ const router = new Router({
   linkActiveClass: 'active',
   routes
 })
+
+if(localStorage.getItem('token')) {
+  store.commit(types.RECORD_USERTOKEN, localStorage.getItem('token'))
+}
 
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title ? to.meta.title : '798游戏';

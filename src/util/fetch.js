@@ -5,7 +5,7 @@ if (process.env.NODE_ENV == 'development') {
 } else if (process.env.NODE_ENV == 'debug') {
     axios.defaults.baseURL = '';
 } else if (process.env.NODE_ENV == 'production') {
-    axios.defaults.baseURL = 'http://127.0.0.1:8081';
+    axios.defaults.baseURL = 'http://www.798wan.com:8081';
 }
 
 // 1. 创建axios实例

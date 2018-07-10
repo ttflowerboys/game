@@ -57,14 +57,16 @@
                     idcard: '',
                     real_name: '',
                     nick_name: '',
-                    phone: ''
+                    phone: '',
+                    uid: ''
                 },
                 editinfo: {
                     member_uid: '',
                     idcard: '',
                     real_name: '',
                     nick_name: '',
-                    phone: ''
+                    phone: '',
+                    uid: ''
                 },
                 isEdit: false
             }

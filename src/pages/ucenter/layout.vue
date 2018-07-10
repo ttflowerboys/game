@@ -12,6 +12,7 @@
             <div class="user-info">
                 <p>账户：{{userinfo.member_uid}}</p>
                 <p>昵称：{{userinfo.nick_name}}</p>
+                <p>充值帐号：{{userinfo.uid}}</p>
                 <!-- <p>经验：<span class="exp"><em style="width:30%"></em></span><span class="exp-num"><em>3</em>/10</span><i class="doubt"></i></p>
                 <p>资料：10% <a href="/ucenter/data/" target="_blank">完善资料</a></p> -->
             </div>
@@ -57,7 +58,8 @@
                     idcard: '',
                     real_name: '',
                     nick_name: '',
-                    phone: ''
+                    phone: '',
+                    uid: ''
                 }
             }
         },

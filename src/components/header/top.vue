@@ -1,7 +1,7 @@
 <template>
     <div class="topbar">
     	<div class="wrapped clearfix">
-    		<a href="javascript:;" class="save-to-desktop">保存到桌面</a>
+    		<!-- <a href="javascript:;" class="save-to-desktop">保存到桌面</a> -->
             <div class="all-game">
             	<a href="javascript:void(0);">全部游戏</a>
             	<ul class="ag-list">

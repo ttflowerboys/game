@@ -12,7 +12,7 @@
                         <Input type="password" v-model="formInline.password" placeholder="密码"></Input>
                     </FormItem>
                     <FormItem prop="password">
-                        <Input type="password" v-model="formInline.cpassword" placeholder="密码"></Input>
+                        <Input type="password" v-model="formInline.cpassword" placeholder="确认密码"></Input>
                     </FormItem>
                     <!-- <FormItem prop="code">
                         <Input type="text" v-model="formInline.code" placeholder="密码"></Input>
@@ -79,7 +79,7 @@
                                 self.$router.push({
                                     path: redirect
                                 })
-                                self.isShow = false;
+                                self.close();
                             }else{
                                 self.$Message.error(res.message)
                             }
