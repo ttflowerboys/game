@@ -19,6 +19,8 @@ let qs = require('qs');
 fetch.interceptors.request.use(config => {
     config.headers['Content-type'] = 'application/x-www-form-urlencoded';
     config.data = qs.stringify(config.data);
+    config.headers['Authorization'] = localStorage.getItem('token');
+    config.headers['withCredentials'] = true
     return config;
 }, error => {
     return Promise.reject(error);

@@ -1,3 +1,64 @@
 <template>
-    <h1>login</h1>
+    <div>
+        <div class="content">
+            <div class="loginbox">
+                <input v-model="form.username" type="text" placeholder="账号" class="username">
+                <input v-model="form.password" type="password" placeholder="密码" class="pwd">
+                <button action="login" class="btn-login" @click="login">登录</button>
+                <p><label><input type="checkbox">下次自动登录</label></p>
+                <div class="links">
+                    <div class="links-l"><a target="_blank" href="/ucenter/user/vgetpwd">忘记密码？</a></div>
+                    <div class="links-r">没有WAN账号？<a href="/ucenter/user/vreg">免费注册</a></div>
+                </div>
+            </div>        
+        </div>
+    </div>
 </template>
+
+<script>
+    import { AjaxLogin } from 'src/apis/user'
+
+    export default {
+        name: 'login',
+        data() {
+            return {
+                form: {
+                    username: '',
+                    password: ''
+                }
+            }
+        },
+        methods:{
+            login(){
+                if(this.form.username === ''){
+                    this.$Message.error('请填写帐号')
+                    return false;
+                }
+                if(this.form.password === ''){
+                    this.$$Message.error('请填写密码');
+                    return false;
+                }
+                let data = {
+                    'username': this.form.username,
+                    'password': this.form.password
+                }
+                const self = this;
+                AjaxLogin(data).then(res => {
+                    if(res.status === 'success'){
+                        localStorage.setItem('token', res.data);
+                        let redirect = decodeURIComponent(self.$route.query.redirect || '/ucenter');
+                        self.$router.push({
+                            path: redirect
+                        })
+                    }else{
+                        self.$Message.error(res.message)
+                    }
+                })
+            }
+        }
+    }
+</script>
+
+<style lang="less">
+@import "~assets/styles/login.less";
+</style>

@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import { AjaxCheckAuth } from 'src/apis/user'
+
 
 const layout = r => require.ensure([], () => r(require('../pages/layout')), 'layout')
 
@@ -20,6 +22,12 @@ const safety = r => require.ensure([], () => r(require('../pages/ucenter/safety'
 const recycling = r => require.ensure([], () => r(require('../pages/ucenter/recycling')), 'recycling')
 
 const help = r => require.ensure([], () => r(require('../pages/help/index')), 'help')
+
+const gamelayout = r => require.ensure([], () => r(require('../pages/game/layout')), 'gamelayout')
+const gameindex = r => require.ensure([], () => r(require('../pages/game/index')), 'gameindex')
+const gamexygl = r => require.ensure([], () => r(require('../pages/game/xygl')), 'gamexygl')
+const gameyxgg = r => require.ensure([], () => r(require('../pages/game/yxgg')), 'gameyxgg')
+const gamehdzx = r => require.ensure([], () => r(require('../pages/game/hdzx')), 'gamehdzx')
 
 const notFound = r => require.ensure([], () => r(require('components/error/404')), 'notFound')
 
@@ -42,7 +50,8 @@ const routes = [
         path: '/pay', //充值中心
         component: pay,
         meta: {
-          title: '充值中心'
+          title: '充值中心',
+          requireAuth: true
         }
       }, {
         path: '/login', //登录注册页
@@ -71,7 +80,7 @@ const routes = [
           requireAuth: true
         },
         children: [{
-          path: 'index',
+          path: 'data',
           component: account,
           meta: {
             title: '我的帐号'
@@ -83,7 +92,7 @@ const routes = [
             title: '我的游戏'
           }
         }, {
-          path: 'data',
+          path: 'index',
           component: udata,
           meta: {
             title: '个人资料'
@@ -122,6 +131,15 @@ const routes = [
       }
     ]
   }, {
+    path: "/game/", name: "gamelayout", component: gamelayout, meta: { title: '游戏' },
+    children: [
+      { path: "/game/:code/", redirect: '/game/:code/index' },
+      { path: "/game/:code/index", name: "gameindex", component: gameindex, meta: { title: '游戏' } },
+      { path: "/game/:code/yxgl", name: "gamexygl", component: gamexygl, meta: { title: '游戏攻略' } },
+      { path: "/game/:code/yxgg", name: "gameyxgg", component: gameyxgg, meta: { title: '新闻公告' } },
+      { path: "/game/:code/hdzx", name: "gamehdzx", component: gamehdzx, meta: { title: '活动资讯' } }
+    ]
+  },{
     path: "/*", name: "error", component: notFound, meta: { title: '404' }
   }]
 
@@ -134,7 +152,26 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title ? to.meta.title : '798游戏'
+  document.title = to.meta.title ? to.meta.title : '798游戏';
+  if(to.matched.some(r => r.meta.requireAuth)) {
+    let data = {
+      token: localStorage.getItem('token')
+    }
+    AjaxCheckAuth(data).then(res => {
+      if(res.data === false){
+        next({
+          path: '/login',
+          query: {
+            redirect: to.fullPath
+          }
+        })
+      }else{
+        next()
+      }
+    })
+  }else{
+    next()
+  }
   next()
 })
 

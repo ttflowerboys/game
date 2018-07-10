@@ -1,7 +1,7 @@
 <template>
-    <div class="Layout">
+    <div id="Layout" class="Layout">
         <app-header/>
-        <div class="Main">
+        <div id="Main" class="Main">
             <router-view></router-view>
         </div>
         <app-footer/>

@@ -1,6 +1,6 @@
 <template>
 <div class="Pay wrapped">
-    <div class="center-main">
+    <div class="center-main" style="width: 100%;">
       <div class="g-center-nav">
           <ul>
             <li><a href="javascript:;" class="hover">游戏充值</a></li>
@@ -10,140 +10,55 @@
 
         <div class="center-nav">
             <ul>
-                <li type_id="1" class=""><a href="javascript:;" class="hover" id="">支付宝</a></li>
-                <li type_id="7" class=""><a href="javascript:;" id="">网上银行(快钱)</a></li>
-                <li type_id="10" class=""><a href="javascript:;" id="">微信支付</a></li>
-                <li type_id="11" class="showOnGame"><a href="javascript:;" id="payCoin">G币支付</a></li>
+                <li v-for="item in config.type"
+                    @click="selectPayType(item.value)"
+                    :class="{ 'select': (item.value == pay.type)}">{{item.label}}</li>
             </ul>
         </div>
 
-
             <div class="recharge-form">
-                <form>
                     <div class="recharge-grid recharge-account">
                         <label>充值账号：</label>
-                                                	<div class="user_account" style="display: none;">
-                                <span></span>
-                                <a href="javascript:void(0)" id="changeUser">[更改]</a><em class="gb-balance">
-                            </em></div><em class="gb-balance">
-                        	<div class="user_input">
-                                <input type="text">
-                                <a href="javascript:void(0)" id="define_user">[确定]</a><em class="gb-balance">
-                            </em></div><em class="gb-balance">
-                                            </em></em></div><em class="gb-balance"><em class="gb-balance">
-
-                    <div class="recharge-grid recharge-surplus">
-                        <label>账户余额：</label>
-                        <div>
-                            <i class="gb-nub">0</i>G币
-                            <i id="balance" style="display:none">0</i>
-                            <a class="coin-info">详情</a>
-                            <dl class="scoreboard-tip">
-                                <dt><em>类型</em><em>数量</em></dt>
-                                <dd><em>通用币</em><em>0</em></dd>
-                                                            </dl>
+                        <div class="user_input">
+                            <Input size="large" v-model="pay.account" placeholder="充值账号" style="width: 140px"></Input>
                         </div>
                     </div>
-
-                    <div class="recharge-grid recharge-text">
-                    <dl class="text">
-                      <dt>G币说明:</dt>
-                        <dd>1. 1RMB=1G币;</dd>
-                        <dd>2. G币可以用来充值wan.265g.com所有游戏;</dd>
-                        <dd>3. G币仅能用于充值wan.265g.com直接运营的产品和服务，不能兑换现金，不能进行转账交易，不能兑换wan.265g.com以外的产品和服务。</dd>
-                      </dl>
-                    </div>
-                    <div class="recharge-grid recharge-select">
+                    <div class="recharge-grid" style="margin-top: 40px;">
                         <label>选择游戏：</label>
-                        <div class="select-game"><i>1</i>选择充值的游戏</div>
-                        <div class="select-server"><i>2</i>选择游戏服务器</div>
-                        <div class="game-list" id="game_list" style="display:none">
-                            <em class="close"></em>
-                            <div class="glt">
-                                <ul>
-                                    <li class="hover">最近玩过</li>
-                                    <li data="ABCD">ABCD</li>
-                                    <li data="EFGH">EFGH</li>
-                                    <li data="IJKL">IJKL</li>
-                                    <li data="MNOP">MNOP</li>
-                                    <li data="QRST">QRST</li>
-                                    <li data="UVW">UVW</li>
-                                    <li data="XYZ">XYZ</li>
-                                </ul>
-                            </div>
-                            <div class="glb">
-                                <div class="alert-list latest"></div>
-                                <div class="alert-list" style="display:none"></div>
-                                <div class="alert-list" style="display:none"></div>
-                                <div class="alert-list" style="display:none"></div>
-                                <div class="alert-list" style="display:none"></div>
-                                <div class="alert-list" style="display:none"></div>
-                                <div class="alert-list" style="display:none"></div>
-                                <div class="alert-list" style="display:none"></div>
-                            </div>
-                        </div>
-                        <div class="game-list" id="server_list" style="display:none">
-                            <em class="close"></em>
-                            <div class="glt">
-                                <ul>
-                                    <li class="hover">最近玩过</li>
-                                    <li data="1-99">1-99</li>
-                                    <li data="100-299">100-299</li>
-                                    <!--<li data="500-300">500-300</li>-->
-                                </ul>
-                            </div>
-                            <div class="go-server">
-                                <label>选服：</label>
-                                <input type="text" id="select_server">
-                                <button type="button">确定</button>
-                            </div>
-                            <div class="glb">
-                                <div class="alert-list latest"></div>
-                                <div class="alert-list" style="display:none"></div>
-                                <div class="alert-list" style="display:none"></div>
-                                <div class="alert-list" style="display:none"></div>
-                            </div>
-                        </div>
+                        <Select v-model="pay.gid" size="large" style="width:200px" placeholder="请选择充值的游戏" @on-change="selectGame">
+                            <Option v-for="item in config.gameList" :value="item.id" :key="item.id">{{ item.name }}</Option>
+                        </Select>
+                        <Select v-model="pay.sid" size="large" style="width:200px" placeholder="请选择游戏服务器">
+                            <Option v-for="item in config.serverList" :value="item.area_server_code" :key="item.area_server_code">{{ item.area_server_name }}</Option>
+                        </Select>
                     </div>
                     <div class="recharge-grid recharge-money">
                         <label>选择金额：</label>
                         <div class="select-money">
                             <ul>
-                                <li class="m1 selected" onclick="getmoney('5')">5元<i></i></li>
-                                <li class="m2" onclick="getmoney('10')">10元<i></i></li>
-                                <li class="m3" onclick="getmoney('20')">20元<i></i></li>
-                                <li class="m4" onclick="getmoney('30')">30元<i></i></li>
-                                <li class="m5" onclick="getmoney('50')">50元<i></i></li>
-                                <li class="m6" onclick="getmoney('100')">100元<i></i></li>
-                                <li class="m7" onclick="getmoney('300')">300元<i></i></li>
-                                <li class="m8" onclick="getmoney('500')">500元<i></i></li>
-                                <li class="m9" onclick="getmoney('1000')">1000元<i></i></li>
-                                <li class="m10" onclick="getmoney('3000')">3000元<i></i></li>
-                                <li class="m11" onclick="getmoney('5000')">5000元<i></i></li>
-                                <li class="m12" onclick="getmoney('0')"><input type="text" value="其他金额" maxlength="7"><i></i></li>
+                                <li v-for="item in config.price"
+                                    @click="selectPrice(item.value)"
+                                    :class="{'selected': item.value == pay.price}"
+                                    >{{item.label}}<i></i></li>
+                                <li @click="selectPrice(0)"
+                                    :class="{'selected': 0 == pay.price}"
+                                    ><input v-model.number="enterPrice"
+                                        @keyup="checkEnterPrice"
+                                        placeholder="其它金额" maxlength="7"><i></i></li>
                             </ul>
                         </div>
-                        <p>您将获得 50 元宝 (传奇类游戏兑换比例 1:100,其他游戏兑换比例 1:10)</p>
+                        <p>您将获得 {{pay.price*10}} 元宝 (其他游戏兑换比例 1:10)</p>
                     </div>
-                    <div class="recharge-grid recharge-bank" style="display: none">
+                    <div class="recharge-grid recharge-bank" v-show="pay.type == 2">
                         <label>选择银行：</label>
                         <div class="bank-list">
                             <ul>
-                                <li class="selected"><a title="中国工商银行" href="javascript:void(0);" onclick="getbank('ICBC-NET')"><img width="148" height="34" alt="" src="/static/index/images/01.gif"><i></i></a></li>
-                                <li><a title="中国建设银行" href="javascript:void(0);" onclick="getbank('CCB-NET')"><img width="148" height="34" alt="" src="/static/index/images/02.gif"><i></i></a></li>
-                                <li><a title="中国农业银行" href="javascript:void(0);" onclick="getbank('ABC-NET')"><img width="148" height="34" alt="" src="/static/index/images/03.gif"><i></i></a></li>
-                                <li><a title="中国邮政" href="javascript:void(0);" onclick="getbank('POST-NET')"><img width="148" height="34" alt="" src="/static/index/images/04.gif"><i></i></a></li>
-                                <li><a title="交通银行" href="javascript:void(0);" onclick="getbank('BOCO-NET')"><img width="148" height="34" alt="" src="/static/index/images/05.gif"><i></i></a></li>
-                                <li><a title="招商银行" href="javascript:void(0);" onclick="getbank('CMBCHINA-NET')"><img width="148" height="34" alt="" src="/static/index/images/06.gif"><i></i></a></li>
-                                <li><a title="中国银行" href="javascript:void(0);" onclick="getbank('BOC-NET')"><img width="148" height="34" alt="" src="/static/index/images/07.gif"><i></i></a></li>
-                                <li><a title="平安银行" href="javascript:void(0);" onclick="getbank('SDB-NET')"><img width="148" height="34" alt="" src="/static/index/images/10.gif"><i></i></a></li>
-                                <li><a title="浦发银行" href="javascript:void(0);" onclick="getbank('SPDB-NET')"><img width="148" height="34" alt="" src="/static/index/images/11.gif"><i></i></a></li>
-                                <li><a title="中国民生银行" href="javascript:void(0);" onclick="getbank('CMBC-NET')"><img width="148" height="34" alt="" src="/static/index/images/12.gif"><i></i></a></li>
-                                <li><a title="兴业银行" href="javascript:void(0);" onclick="getbank('CIB-NET')"><img width="148" height="34" alt="" src="/static/index/images/13.gif"><i></i></a></li>                            		<li><a title="北京银行" href="javascript:void(0);" onclick="getbank('BCCB-NET')"><img width="148" height="34" alt="" src="/static/index/images/15.gif"><i></i></a></li>                            	</ul>
+                                <li v-for="items in config.bank"><img width="148" height="34" :alt="items.label" :src="items.logo"><i></i></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="recharge-grid recharge-confirm">
-                        <button type="button" onclick="gofix()">立即充值</button>
+                        <button type="button" @click="doPay">立即充值</button>
                     </div>
                 
             </em></em></form></div><em class="gb-balance"><em class="gb-balance">
@@ -151,6 +66,163 @@
     </em></em></div>
 </div>
 </template>
+
+<script>
+    import { AjaxPay, AjaxPayGameList, AjaxPayServerList } from 'src/apis/user'
+    import * as tools from 'src/util/tools'
+
+    export default {
+        name: 'pay',
+        data() {
+            return {
+                pay:{
+                    type: 1,
+                    account: '',
+                    price: 5,
+                    gid: '',
+                    sid: ''
+                },
+                config:{
+                    type: [
+                        { label: '支付宝', value: '1' },
+                        { label: '网上银行(快钱)', value: '2' },
+                        { label: '微信支付', value: '10' }
+                    ],
+                    price: [
+                        { label: '5元', value: 5 },
+                        { label: '10元', value: 10 },
+                        { label: '20元', value: 20 },
+                        { label: '30元', value: 30 },
+                        { label: '50元', value: 50 },
+                        { label: '100元', value: 100 },
+                        { label: '300元', value: 300 },
+                        { label: '500元', value: 500 },
+                        { label: '1000元', value: 1000 },
+                        { label: '3000元', value: 3000 },
+                        { label: '5000元', value: 5000 }
+                    ],
+                    bank: [
+                        { label: '中国工商银行', value: 'ICBC-NET', logo: '/static/images/bank/01.gif' },
+                        { label: '中国建设银行', value: 'CCB-NET', logo: '/static/images/bank/02.gif' },
+                        { label: '中国农业银行', value: 'ABC-NET', logo: '/static/images/bank/03.gif' },
+                        { label: '中国邮政', value: 'POST-NET', logo: '/static/images/bank/04.gif' },
+                        { label: '交通银行', value: 'BOCO-NET', logo: '/static/images/bank/05.gif' },
+                        { label: '招商银行', value: 'CMBCHINA-NET', logo: '/static/images/bank/06.gif' },
+                        { label: '中国银行', value: 'BOC-NET', logo: '/static/images/bank/07.gif' },
+                        { label: '平安银行', value: 'SDB-NET', logo: '/static/images/bank/10.gif' },
+                        { label: '浦发银行', value: 'SPDB-NET', logo: '/static/images/bank/11.gif' },
+                        { label: '中国民生银行', value: 'CMBC-NET', logo: '/static/images/bank/12.gif' },
+                        { label: '兴业银行', value: 'CIB-NET', logo: '/static/images/bank/13.gif' },
+                        { label: '北京银行', value: 'BCCB-NET', logo: '/static/images/bank/15.gif' }
+                    ],
+                    gameList:[],
+                    serverList:[]
+                },
+                enterPrice: ''
+            }
+        },
+        methods: {
+            selectPayType(value){
+                if(value !== '1'){
+                    this.$Message.error('暂不支持此支付方式！');
+                    return false;
+                }else{
+                    this.pay.type = value;
+                }
+            },
+            selectPrice(value){
+                this.pay.price = value;
+            },
+            checkPay(){
+                const self = this;
+                let result = false;
+                if(!self.pay.account){
+                    self.$Message.error('请填写充值帐号');
+                    result = false;
+                    return false;
+                }else if(!self.pay.gid){
+                    self.$Message.error('请选择充值的游戏')
+                    result = false;
+                    return false;
+                }else if(!self.pay.sid){
+                    self.$Message.error('请选择游戏服务器')
+                    result = false;
+                    return false;
+                }else if(!self.pay.price && !this.enterPrice){
+                    self.$Message.error('请选择填写充值金额')
+                    result = false;
+                    return false;
+                }else{
+                    result = true;
+                }
+                return result;
+            },
+            doPay(){
+                const self = this;
+                if(this.checkPay()){
+                    let data = {
+                        uid: this.pay.account,
+                        money: this.pay.price ? this.pay.price : this.enterPrice,
+                        gid: this.pay.gid,
+                        sid: this.pay.sid,
+                        pid: this.pay.type
+                    }
+                    AjaxPay(data).then(res => {
+                        if(res.status === 'success'){
+                            window.location = res.data;
+                        }else{
+                            self.$Message.error(res.message)
+                        }
+                    })
+                }
+            },
+            getGame(){
+                const self = this;
+                let gid = null;
+                AjaxPayGameList().then(res => {
+                    if(res.status === 'success'){
+                        self.config.gameList = res.data;
+                    }else{
+                        self.$Message.error(res.message)
+                    }
+                })
+            },
+            selectGame(){
+                const self = this;
+                if(self.pay.gid){
+                    let data = {
+                        gid: self.pay.gid
+                    }
+                    AjaxPayServerList(data).then(res => {
+                        if(res.status === 'success'){
+                            self.config.serverList = res.data;
+                        }else{
+                            self.$Message.error(res.message)
+                        }
+                    })
+                }
+            },
+            checkEnterPrice(){
+                let value = this.enterPrice;
+                if (parseFloat(value).toString() == "NaN") {
+                    this.enterPrice = ''
+            　　　　return false; 
+            　　} else { 
+            　　　　return true; 
+            　　}               
+            }
+        },
+        computed: {
+            selectGameId(){
+                const self = this;
+                return tools.getGameId(self.config.gameList, self.pay.gid);
+            }
+        },
+        created(){
+            this.getGame()
+        }
+    }
+</script>
 
 <style lang="less">
 @import "~assets/styles/pay.less";

@@ -1,6 +1,6 @@
 @red: #e95634;
 
-.center-main { width: 945px; padding: 0 38px 0 215px; border: 1px solid #f2f2f2; background: #fff; position: relative; margin-top: 40px; min-height: 760px; height: auto !important; height: 760px; }
+.center-main {padding: 0 38px 0 215px; border: 1px solid #f2f2f2; background: #fff; position: relative; margin-top: 40px; min-height: 760px; height: auto !important; height: 760px; }
 .center-nav ,.g-center-nav{ width: 180px; height: 100%; border-right: 1px solid #f2f2f2; position: absolute; top: 0; left: 0; }
 .center-nav li, .g-center-nav li{ height: 70px; border-bottom: 1px solid #f2f2f2; }
 .center-nav a ,.g-center-nav li a{ width: 178px; height: 68px; border: 1px solid #fff; display: block; font-size: 18px; line-height: 68px; text-align: center; color: #999; }
@@ -13,7 +13,7 @@
 .recharge-grid { padding-left: 86px; position: relative; }
 .recharge-grid label { width: 86px; display: block; font-size: 16px; color: #333; position: absolute; top: 0; left: 0; }
 .recharge-account { height: 34px; line-height: 34px; }
-.recharge-account input { width: 138px; height: 20px; padding: 6px 10px; background: #fff; border: 1px solid #e6e6e6; }
+.recharge-account input { width: 138px; height: 32px; padding: 6px 10px; background: #fff; border: 1px solid #e6e6e6; }
 .recharge-account span { font-size: 16px; font-weight: bold; color: #333; }
 .recharge-account a { font-size: 16px; margin-left: 20px; color: @red; }
 .recharge-account a:hover { color: #f00; }
@@ -24,19 +24,13 @@
 .recharge-select .select-server { left: 336px; }
 .recharge-money { margin-top: 40px; }
 .select-money { width: 607px; height: 103px; position: relative; }
-.select-money li { width: 85px; height: 50px; line-height: 50px; padding-left: 15px; color: #999; border: 1px solid #e6e6e6; cursor: pointer; position: absolute; }
-.m1, .m2, .m3, .m4, .m5, .m6 { top: 0; }
-.m7, .m8, .m9, .m10, .m11, .m12 { top: 51px; }
-.m1, .m7 { left: 0; }
-.m2, .m8 { left: 101px; }
-.m3, .m9 { left: 202px; }
-.m4, .m10 { left: 303px; }
-.m5, .m11 { left: 404px; }
-.m6, .m12 { left: 505px; }
-.select-money li.selected { width: 84px; height: 48px; padding-left: 14px; line-height: 48px; border: 2px solid @red; z-index: 3; }
+.select-money ul{
+    width: 505px;
+}
+.select-money li { position: relative; width: 85px; height: 50px; line-height: 50px; padding-left: 15px; color: #999;margin-left: -1px;margin-top: -1px; border: 1px solid #e6e6e6; cursor: pointer;float: left;}
+.select-money li.selected { width: 85px; height: 50px;padding-left: 14px; line-height: 48px; border: 2px solid @red; z-index: 3; }
 .select-money li.selected i { width: 23px; height: 23px; display: block; background: url("../images/selected.png") no-repeat; cursor: pointer; position: absolute; bottom: 0; right: 0; z-index: 3; }
-.select-money li input { width: 65px; height: 21px; padding: 7px 10px; border: 1px solid #e6e6e6; color: #999; position: absolute; left: 7px; top: 7px; z-index: 2; }
-.select-money li.selected input { top: 6px; left: 6px; }
+.select-money li input { width: 65px; height: 32px; font-size: 14px; padding: 7px 10px; border: 1px solid #e6e6e6; color: #999; position: absolute; left: 7px; top: 7px; z-index: 2; }
 .recharge-money p { line-height: 36px; color: #f00; }
 .recharge-bank { margin-top: 26px; }
 .recharge-bank label { height: 40px; line-height: 40px; }
@@ -106,9 +100,13 @@
 .center-grid .center-nav{position: inherit;width: auto;border-right: none;}
 .center-grid .center-nav ul{margin: 15px 0 35px -20px}
 .center-grid .center-nav ul:after{content: "."; height: 0; display: block; clear: both; visibility: hidden;}
-.center-grid .center-nav li{width: 140px;height: 50px;float: left;margin: 20px 0 0 20px;border-bottom: none;}
-.center-grid .center-nav a{display: inline-block;width: 138px;height: 48px;line-height: 48px;border: 1px solid #e6e6e6;background: #fff;font-size: 18px;color: #999;text-align: center;}
-.center-grid .center-nav a.hover{background: @red;color:#fff;border: 1px solid @red;}
+.center-grid .center-nav li{width: 140px;height: 50px;line-height: 50px;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    font-size: 18px;
+    color: #999;cursor: pointer;
+    text-align: center;float: left;margin: 20px 0 0 20px;}
+.center-grid .center-nav li.select{background: @red;color:#fff;border-color: @red;}
 .recharge-text{margin-top:24px;display:none;}
 .recharge-text .text{padding:12px;background: #f2f2f2;border:1px solid #e9e9e9;width:582px;line-height:22px;color:#666;}
 .text dt{font-size:18px;font-weight:bold;margin-bottom:6px;color:#333;}
