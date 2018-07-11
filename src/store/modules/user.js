@@ -37,8 +37,8 @@ const mutations = {
     state.userToken = res
   },
   [types.RECORD_USERINFO](state, res) {
-    localStorage.setItem('token', res.token)
-    localStorage.setItem('username', JSON.stringify(res.username))
+    localStorage.setItem('userToken', res.token)
+    localStorage.setItem('userData', JSON.stringify(res.data))
     state.userData = res.data
     state.userToken = res.token
     state.loginStatus = true

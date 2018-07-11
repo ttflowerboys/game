@@ -74,7 +74,7 @@
                         }
                         AjaxLoginPanel(params).then(res => {
                             if(res.status === 'success'){
-                                localStorage.setItem('token', res.data);
+                                localStorage.setItem('userToken', res.data);
                                 let redirect = decodeURIComponent(self.$route.query.redirect || '/ucenter');
                                 self.$router.push({
                                     path: redirect

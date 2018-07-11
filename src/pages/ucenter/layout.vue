@@ -10,11 +10,9 @@
                 <!-- <span>修改头像</span> -->
             </a>
             <div class="user-info">
-                <p>账户：{{userinfo.member_uid}}</p>
-                <p>昵称：{{userinfo.nick_name}}</p>
-                <p>充值帐号：{{userinfo.uid}}</p>
-                <!-- <p>经验：<span class="exp"><em style="width:30%"></em></span><span class="exp-num"><em>3</em>/10</span><i class="doubt"></i></p>
-                <p>资料：10% <a href="/ucenter/data/" target="_blank">完善资料</a></p> -->
+                <p>账户：{{userData.username}}</p>
+                <p>昵称：{{userData.nick_name}}</p>
+                <p>充值帐号：{{userData.uid}}</p>
             </div>
 
             <!-- <div class="count">
@@ -47,8 +45,8 @@
 </template>
 
 <script>
+    import { mapGetters, mapActions } from 'vuex'
 
-    import { AjaxGetUserinfo } from 'src/apis/user'
     export default {
         data () {
             return {
@@ -64,19 +62,12 @@
             }
         },
         methods: {
-            getUserInfo(){
-                const self = this;
-                AjaxGetUserinfo().then(res => {
-                    if(res.status === 'success'){
-                        self.userinfo = res.data;
-                    }else{
-                        self.$Message.error(res.message)
-                    }
-                })
-            }
+            
+        },
+        computed: {
+            ...mapGetters([ 'userToken', 'userData' ])
         },
         created(){
-            this.getUserInfo()
             document.body.setAttribute("class", "grayBg");
         }
     }

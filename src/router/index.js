@@ -160,15 +160,19 @@ const router = new Router({
   routes
 })
 
-if(localStorage.getItem('token')) {
-  store.commit(types.RECORD_USERTOKEN, localStorage.getItem('token'))
+// 防刷新
+if(localStorage.getItem('userData')) {
+  store.commit(types.RECORD_USERINFO, {
+    token: localStorage.getItem('userToken'),
+    data: JSON.parse(localStorage.getItem('userData'))
+  })
 }
 
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title ? to.meta.title : '798游戏';
   if(to.matched.some(r => r.meta.requireAuth)) {
     let data = {
-      token: localStorage.getItem('token')
+      token: localStorage.getItem('userToken')
     }
     AjaxCheckAuth(data).then(res => {
       if(res.data === false){

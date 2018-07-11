@@ -68,7 +68,13 @@
                         }
                         AjaxLogin(params).then(res => {
                             if(res.status === 'success'){
-                                self.recordUserInfo(res.data)
+                                let data = {
+                                    token: res.data,   // 因为只有token
+                                    data: {
+                                        username: self.formInline.username // TODO，登录成功后后台应该回显用户基本信息
+                                    }
+                                }
+                                self.recordUserInfo(data)
                                 let redirect = decodeURIComponent(self.$route.query.redirect || '/ucenter');
                                 self.$router.push({
                                     path: redirect

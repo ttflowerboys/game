@@ -48,6 +48,8 @@
     </div>    
 </template>
 <script>
+    import { mapGetters, mapActions } from 'vuex'
+
     import { AjaxGetUserinfo, AjaxEidtUserinfo } from 'src/apis/user'
     export default {
         data () {
@@ -72,14 +74,23 @@
             }
         },
         methods: {
+            ...mapActions([ 'recordUserInfo' ]),
             getUserInfo(){
                 const self = this;
                 AjaxGetUserinfo().then(res => {
                     if(res.status === 'success'){
-                        self.userinfo = res.data;
-                        self.editinfo = res.data;
+                        let data = res.data;
+                        data.username = data.member_uid
+                        self.recordUserInfo({
+                            data: data,
+                            token: localStorage.getItem('userToken')
+                        })
+                        self.editinfo = data;
                     }else{
                         self.$Message.error(res.message)
+                        setTimeout(function(){
+                            window.location = '/'
+                        },3000)
                     }
                 })
             },
@@ -103,6 +114,9 @@
                     }
                 })
             }
+        },
+        computed: {
+            ...mapGetters([ 'userToken', 'userData' ])
         },
         created(){
             this.getUserInfo()

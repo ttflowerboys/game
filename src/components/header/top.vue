@@ -9,8 +9,8 @@
                 </ul>
             </div>
             <div class="user">
-                <div class="before" v-if="!username"><a @click="show_login()">登录</a><span>|</span><a @click="show_join()">注册</a></div>
-                <a v-if="username">{{username}}</a> <a  v-if="username" @click="logout">注销</a>
+                <div class="before" v-if="!userData.username"><a @click="show_login()">登录</a><span>|</span><a @click="show_join()">注册</a></div>
+                <a v-if="userData.username">{{userData.username}}</a> <a  v-if="userData.username" @click="logout">注销</a>
             </div>
         </div>
         <join-popup :is-show="showJoin" @close="closeJoin"></join-popup>
@@ -21,6 +21,9 @@
 <script>
     import JoinPopup from "@/components/popup/join";
     import LoginPopup from "@/components/popup/login";
+
+    import { mapGetters, mapActions } from 'vuex'
+
     export default {
         name: 'HeaderTop',
         components: {
@@ -44,6 +47,7 @@
             }
         },
         methods: {
+            ...mapActions([ 'userLogout' ]),
             show_login(){
                 this.showLogin = true;
             },
@@ -57,13 +61,12 @@
                 this.showJoin = true;
             },
             logout(){
-                localStorage.clear('username')
-                localStorage.clear('token')
                 window.location = '/'
+                this.userLogout()
             }
         },
-        created(){
-            this.username = localStorage.getItem('username') ? localStorage.getItem('username') : '';
+        computed: {
+            ...mapGetters([ 'userToken', 'userData' ])
         }
     }
 </script>
