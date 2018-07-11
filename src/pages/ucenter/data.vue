@@ -9,33 +9,33 @@
                     	<table>
                         	<tbody><tr>
                             	<td class="label">账号：</td>                   
-                                <td class="full">{{userinfo.member_uid ? userinfo.member_uid : '未填写'}}</td>
+                                <td class="full">{{userData.username ? userData.username : '未填写'}}</td>
                             </tr>
                             <tr data="show">
                             	<td class="label">昵称：</td>
                     			<td class="full">
-                                    <span  v-if="!isEdit">{{userinfo.nick_name ? userinfo.nick_name : '未填写'}}</span>
+                                    <span  v-if="!isEdit">{{userData.nick_name ? userData.nick_name : '未填写'}}</span>
                                     <Input v-if="isEdit" v-model="editinfo.nick_name"></Input>
                                 </td>
                             </tr>
                             <tr data="show">
                             	<td class="label">电话：</td>
                                 <td class="full">
-                                    <span  v-if="!isEdit">{{userinfo.phone ? userinfo.phone : '未填写'}}</span>
+                                    <span  v-if="!isEdit">{{userData.phone ? userData.phone : '未填写'}}</span>
                                     <Input v-if="isEdit" v-model="editinfo.phone"></Input>
                                 </td>
                             </tr>
                             <tr data="show">
                             	<td class="label">姓名：</td>
                                 <td class="full">
-                                    <span  v-if="!isEdit">{{userinfo.real_name ? userinfo.real_name : '未填写'}}</span>
+                                    <span  v-if="!isEdit">{{userData.real_name ? userData.real_name : '未填写'}}</span>
                                     <Input v-if="isEdit" v-model="editinfo.real_name"></Input>
                                 </td>
                             </tr>
                             <tr>
                             	<td class="label">身份证：</td>
                                 <td class="full">
-                                    <span  v-if="!isEdit">{{userinfo.idcard ? userinfo.idcard : '未填写'}}</span>
+                                    <span  v-if="!isEdit">{{userData.idcard ? userData.idcard : '未填写'}}</span>
                                     <Input v-if="isEdit" v-model="editinfo.idcard"></Input>
                                 </td>
                             </tr>
@@ -80,12 +80,12 @@
                 AjaxGetUserinfo().then(res => {
                     if(res.status === 'success'){
                         let data = res.data;
-                        data.username = data.member_uid
+                        data = Object.assign(data, {'username': data.member_uid})
+                        self.editinfo = data;
                         self.recordUserInfo({
                             data: data,
                             token: localStorage.getItem('userToken')
                         })
-                        self.editinfo = data;
                     }else{
                         self.$Message.error(res.message)
                         setTimeout(function(){
@@ -108,9 +108,17 @@
                 AjaxEidtUserinfo(data).then(res => {
                     if(res.status === 'success'){
                         self.isEdit = false;
-                        self.$$Message.success(res.message);
+                        console.log(data, 111)
+                        data.username = self.userData.username;
+                        data.uid = self.userData.uid;
+                        console.log(data,113)
+                        self.recordUserInfo({
+                            data: data,
+                            token: localStorage.getItem('userToken')
+                        })
+                        self.$Message.success(res.message ? res.message : '操作成功');
                     }else{
-                        self.$Message.error(res.message)
+                        self.$Message.error(res.message ? res.message : '操作失败')
                     }
                 })
             }

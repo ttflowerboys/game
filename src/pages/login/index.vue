@@ -17,6 +17,7 @@
 
 <script>
     import { AjaxLogin } from 'src/apis/user'
+    import { mapActions } from 'vuex'
 
     export default {
         name: 'login',
@@ -29,6 +30,9 @@
             }
         },
         methods:{
+            ...mapActions([
+                'recordUserInfo'
+            ]),
             login(){
                 if(this.form.username === ''){
                     this.$Message.error('请填写帐号')
@@ -45,8 +49,13 @@
                 const self = this;
                 AjaxLogin(data).then(res => {
                     if(res.status === 'success'){
-                        localStorage.setItem('token', res.data);
-                        localStorage.setItem('username', self.form.username);
+                        let data = {
+                            token: res.data,   // 因为只有token
+                            data: {
+                                username: self.form.username // TODO，登录成功后后台应该回显用户基本信息
+                            }
+                        }
+                        self.recordUserInfo(data)
                         let redirect = decodeURIComponent(self.$route.query.redirect || '/ucenter');
                         self.$router.push({
                             path: redirect
