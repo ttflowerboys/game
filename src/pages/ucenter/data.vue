@@ -40,8 +40,8 @@
                                 </td>
                             </tr>
                         </tbody></table>                                         
-                        <button @click="edit" v-if="!isEdit">编辑资料</button>
-                        <button @click="updata" v-if="isEdit">保存资料</button>
+                        <button style="background-color: #363533;" @click="edit" v-if="!isEdit">编辑资料</button>
+                        <button style="background-color: #363533;" @click="updata" v-if="isEdit">保存资料</button>
                     </form>
                 </div>
            	</div>

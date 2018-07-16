@@ -220,6 +220,7 @@
         },
         created(){
             this.getGame()
+            document.body.setAttribute("class", "");
         }
     }
 </script>

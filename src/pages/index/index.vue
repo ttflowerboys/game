@@ -26,11 +26,8 @@
                                     </div>
                                 </div>
                             </li>
-
                             <li class="loading-list" v-for="i in loads" v-if="loading.tjyx"></li>
                         </ul>
-
-                        
                     </div>
                 </div>
 
@@ -84,7 +81,7 @@
                     <h3>{{news.title}}</h3>
                     <div :class="news.type + '-list border'">
                         <ul>
-                            <li v-for="item in news.list"><a>{{item.title}}</a> <em></em></li>
+                            <li v-for="item in news.list"><a>{{item.title}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -257,6 +254,7 @@
         },
         created(){
             this.init()
+            document.body.setAttribute("class", "");
         }
     }
 </script>
@@ -265,6 +263,7 @@
 @import "~assets/styles/list.less";
 .Home {
     padding-bottom: 40px;
+    background-color: #fff;
     .Left{
         float: left;
         width: 940px;
@@ -284,6 +283,9 @@
             height: 400px;
             text-align: center;
         }
+    }
+    .news-list{
+        padding: 8px 20px;
     }
 }
 .loading-list{

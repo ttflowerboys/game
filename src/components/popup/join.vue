@@ -29,6 +29,7 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex'
     import { AjaxLoginPanel, AjaxgetCaptcha } from 'src/apis/user'
 
     export default {
@@ -60,8 +61,16 @@
             }
         },
         methods: {
+            ...mapActions([
+                'recordUserInfo'
+            ]),
             close(){
                 this.$emit("close");
+            },
+            GetQueryString(name) { 
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i"); 
+                var r = window.location.search.substr(1).match(reg); 
+                if (r!=null) return (r[2]); return null; 
             },
             handleSubmit(name){
                 const self = this;
@@ -70,12 +79,37 @@
                         self.formInline.loading = true;
                         let params = {
                             "username": self.formInline.username,
-                            "password": self.formInline.password
+                            "password": self.formInline.password                            
                         }
+
+                        let GID = self.GetQueryString('gid')
+                        if(GID){
+                            params = Object.assign(params, { 'gid': GID})
+                        }
+                        let SID = self.GetQueryString('sid')
+                        if(SID){
+                            params = Object.assign(params, { 'serverId': SID})
+                        }
+                        let CID = self.GetQueryString('cid')
+                        if(CID){
+                            params = Object.assign(params, { 'cid': CID})
+                        }
+                        let TG = self.GetQueryString('tg')
+                        if(TG){
+                            params = Object.assign(params, { 'tgId': TG})
+                        }
+
                         AjaxLoginPanel(params).then(res => {
                             if(res.status === 'success'){
-                                localStorage.setItem('userToken', res.data);
-                                let redirect = decodeURIComponent(self.$route.query.redirect || '/ucenter');
+                                // localStorage.setItem('userToken', res.data);
+                                let data = {
+                                    token: res.data,
+                                    data: {
+                                        username: self.formInline.username // TODO，登录成功后后台应该回显用户基本信息
+                                    }
+                                }
+                                self.recordUserInfo(data)
+                                let redirect = self.$route.path ? self.$route.path : decodeURIComponent(self.$route.query.redirect || '/ucenter');
                                 self.$router.push({
                                     path: redirect
                                 })

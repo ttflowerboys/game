@@ -65,6 +65,9 @@
                     }
                 })
             }
+        },
+        created(){
+            document.body.setAttribute("class", "loginLayer");
         }
     }
 </script>

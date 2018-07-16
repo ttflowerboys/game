@@ -19,11 +19,14 @@
                 </div>
 
                 <div class="server-focus">
-                    <Carousel class="focusBox" loop autoplay v-if="info.bannerList.length">
-                        <CarouselItem v-for="item in info.bannerList" :key="item.xs_banner_title">
-                            <div class="demo-carousel"><a :href="item.xs_banner_link"><img :src="item.xs_banner_img" :alt="item.xs_banner_title"></a></div>
-                        </CarouselItem>
-                    </Carousel>
+                    <div class="focusPlacehoder">
+                        <div class="plocalhoder" v-if="!info.bannerList.length">暂无数据</div>
+                        <Carousel class="focusBox" loop autoplay autoplay-speed="5000" v-if="info.bannerList.length">
+                            <CarouselItem v-for="item in info.bannerList" :key="item.xs_banner_title">
+                                <div class="demo-carousel"><a :href="item.xs_banner_link"><img :src="item.xs_banner_img" :alt="item.xs_banner_title"></a></div>
+                            </CarouselItem>
+                        </Carousel>
+                    </div>
                     <div class="activ-link">
                         <a href="" target="_blank" title="新手礼包">
                             <img src="/static/upload/201806270626082587.jpg" width="186" height="80">
@@ -40,12 +43,13 @@
                 <div class="topNews">
                     <div class="news-nav">
                         <ul>
-                            <li v-for="(items,index) in doc.title" :class="doc.index === index ? 'active': ''" @click="doc.index = index">{{items}}</li>
+                            <li v-for="(items,index) in doc.title" :class="doc.Type === items.value ? 'active': ''" @click="doc.Type = items.value">{{items.name}}</li>
                         </ul>
                     </div>
                     <div class="news-tab">
-                        <ul class="tab-list" v-for="(items,index) in info.docList" v-show="doc.index" >
-                            <li v-for="item in items"><i class="square"></i><a href="" target="_blank">{{item.xs_doc_title}}</a><em>{{item.xs_createtime}}</em></li>
+                        <ul class="tab-list" v-for="(items,index) in info.docList" v-show="doc.Type === index">
+                            <div v-if="!items" class="plocalhoder">暂无数据</div>
+                            <li v-if="items.length" v-for="item in items"><i class="square"></i><a href="" target="_blank">{{item.xs_doc_title}}</a><em>{{item.xs_createtime.slice(11,16)}}</em></li>
                         </ul>
                     </div>
                 </div>
@@ -56,7 +60,8 @@
                 </div>
                 <div class="image-list">
                     <ul class="clearfix">
-                        <li v-for="item in info.picList"><a :href="item" target="_blank"><img :src="item" width="258px" height="178px"></a></li>
+                        <li v-for="item in 4" v-if="info.picLoading"></li>
+                        <li v-for="item in info.picList" v-if="!info.picLoading"><a :href="item" target="_blank"><img :src="item" width="258px" height="178px"></a></li>
                     </ul>
                 </div>
             </div>
@@ -80,12 +85,18 @@
             return {
                 gameCode: this.$route.params.code,
                 doc: {
-                    title: ['最新', '公告', '活动', '攻略'],
-                    index: 0
+                    title: [
+                        { name: '最新', value: 'news_notices' },
+                        { name: '公告', value: 'activity_advices' },
+                        { name: '活动', value: 'game_strategies' },
+                        { name: '攻略', value: 'newDocs' }
+                    ],
+                    Type: 'activity_advices'
                 },
                 info: {
                     bannerList: [],
                     picList: [],
+                    picLoading: false,
                     docList: []
                 }
             }
@@ -98,20 +109,26 @@
                 }
                 AjaxGameBanner(data).then(res => {
                     if(res.status === 'success'){
-                        self.info.bannerList = res.data;
-                    }else{
-
+                        self.info.bannerList = res.data ? res.data : [];
                     }
                 })
             },
             getPic(){
                 const self = this;
+                this.info.picLoading = true;
                 let data = {
                     gid: localStorage.getItem('gameID') // TODO
                 }
+                
                 AjaxGamePic(data).then(res => {
                     if(res.status === 'success'){
-                        self.info.picList = res.data;
+                        let result = res.data;
+                        if(result && result.length){
+                            self.info.picList = res.data;
+                            self.info.picLoading = false;
+                        }else{
+                            
+                        }                        
                     }else{
 
                     }

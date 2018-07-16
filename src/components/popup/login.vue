@@ -75,7 +75,7 @@
                                     }
                                 }
                                 self.recordUserInfo(data)
-                                let redirect = decodeURIComponent(self.$route.query.redirect || '/ucenter');
+                                let redirect = self.$route.path ? self.$route.path : decodeURIComponent(self.$route.query.redirect || '/ucenter');
                                 self.$router.push({
                                     path: redirect
                                 })

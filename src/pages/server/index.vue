@@ -10,9 +10,9 @@
         </div>
         <div class="logn_head">用户登录</div>
         <div class="logn_state">
-            <a v-if="!username" @click="show_login" class="start_btn"></a>
-            <div class="logn_info" v-if="username" style="padding-top: 64px;">
-                <h3>您好<i>，</i><span>{{username}}</span><i>，</i><a target="_blank" href="/ucenter/">完善资料</a><i>，</i><a @click="logout">注销</a></h3>
+            <a v-if="!userData.username" @click="show_login" class="start_btn"></a>
+            <div class="logn_info" v-if="userData.username" style="padding-top: 64px;">
+                <h3>您好<i>，</i><span>{{userData.username}}</span><i>，</i><a target="_blank" href="/ucenter/">完善资料</a><i>，</i><a @click="logout">注销</a></h3>
                 <p></p>
             </div>
         </div>
@@ -37,6 +37,7 @@
     import { AjaxGameDetail, AjaxGameLogin } from 'src/apis/game'
     import JoinPopup from "@/components/popup/join";
     import LoginPopup from "@/components/popup/login";
+    import { mapGetters, mapActions } from 'vuex'
         
     export default {
         name: 'gameindex',
@@ -50,11 +51,11 @@
                 docList: [],
                 showLogin: false,
                 showJoin: false,
-                username: '',
                 gameId: ''
             }
         },
         methods: {
+            ...mapActions([ 'userLogout' ]),
             show_login(){
                 this.showLogin = true;
             },
@@ -82,9 +83,9 @@
                 })
             },
             jump(gid,sid){
-                let token = localStorage.getItem('token');
+                let token = localStorage.getItem('userToken');
                 if(!token){
-                    window.location = '/login'
+                    window.open('/login')
                 }else{
                     const self = this;
                     let data = {
@@ -95,7 +96,7 @@
                     }
                     AjaxGameLogin(data).then(res => {
                         if(res.status === 'success'){
-                            window.location = res.data
+                            window.open(res.data)
                         }else{
                             self.$Message.error(res.message)
                         }
@@ -103,17 +104,19 @@
                 }
             },
             logout(){
-                localStorage.clear('username')
-                localStorage.clear('token')
-                window.location = '/'
+                this.userLogout()
+                // window.location = '/'
             },
             init(){
                 this.getDoc()
             }
         },
+        computed: {
+            ...mapGetters([ 'userToken', 'userData' ])
+        },
         created(){
             this.init()
-            this.username = localStorage.getItem('username') ? localStorage.getItem('username') : '';
+            // this.username = localStorage.getItem('username') ? localStorage.getItem('username') : '';
         }
     }
 </script>
