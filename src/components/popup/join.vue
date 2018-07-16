@@ -38,15 +38,7 @@
             isShow: {
                 type: Boolean,
                 default: false
-            },
-            ruleformInline: {
-                username: [
-                    { required: true,  message: "请填写您的用户名", trigger: 'blur' },
-                ],
-                password: [
-                    { required: true, message: "请填写密码", trigger: 'blur' }
-                ]
-            },
+            }
         },
         data() {
             return {
@@ -57,7 +49,15 @@
                     loading: false,
                     code: ''
                 },
-                codePic: ''
+                codePic: '',
+                ruleformInline: {
+                    username: [
+                        { required: true,  message: "请填写您的用户名", trigger: 'blur' },
+                    ],
+                    password: [
+                        { required: true, message: "请填写密码", trigger: 'blur' }
+                    ]
+                }
             }
         },
         methods: {
@@ -117,8 +117,9 @@
                             }else{
                                 self.$Message.error(res.message)
                             }
+                            self.formInline.loading = false;
                         })
-                        self.formInline.loading = false;
+                        
                     }
                 })
             },

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="isShow" class="popup_login">
-            <a @click="close" class="lay_colse">关闭</a>
+            <a @click="close('formInline')" class="lay_colse">关闭</a>
 
                 <div class="title title_join">登录789W通行证</div>
                 <Form class="popup_form" ref="formInline" :model="formInline" :rules="ruleformInline">
@@ -31,15 +31,7 @@
             isShow: {
                 type: Boolean,
                 default: false
-            },
-            ruleformInline: {
-                username: [
-                    { required: true,  message: "请填写您的用户名", trigger: 'blur' },
-                ],
-                password: [
-                    { required: true, message: "请填写密码", trigger: 'blur' }
-                ]
-            },
+            }
         },
         data() {
             return {
@@ -47,6 +39,14 @@
                     username: '',
                     password: '',
                     loading: false
+                },
+                ruleformInline: {
+                    username: [
+                        { required: true,  message: "请填写您的用户名", trigger: 'blur' },
+                    ],
+                    password: [
+                        { required: true, message: "请填写密码", trigger: 'blur' }
+                    ]
                 }
             }
         },
@@ -54,7 +54,8 @@
             ...mapActions([
                 'recordUserInfo'
             ]),
-            close(){
+            close(name){
+                this.$refs[name].resetFields();
                 this.$emit("close");
             },
             handleSubmit(name){
@@ -79,12 +80,12 @@
                                 self.$router.push({
                                     path: redirect
                                 })
-                                self.close();
+                                self.close(name);
                             }else{
                                 self.$Message.error(res.message)
                             }
+                            self.formInline.loading = false;
                         })
-                        self.formInline.loading = false;
                     }
                 })
             },
