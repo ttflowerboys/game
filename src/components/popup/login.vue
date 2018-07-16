@@ -22,7 +22,6 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex'
 
     export default {
         name: 'gameindex',
@@ -69,7 +68,7 @@
                         self.$emit("login", params)
                     }
                 })
-            },
+            }
         }
     }
 </script>

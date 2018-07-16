@@ -13,7 +13,7 @@
                 <a v-if="userData.username">{{userData.username}}</a> <a  v-if="userData.username" @click="logout">注销</a>
             </div>
         </div>
-        <join-popup :is-show="showJoin" @close="closeJoin"></join-popup>
+        <join-popup :is-show="showJoin" @close="closeJoin" :JoinLoading="JoinLoading" @join="join"></join-popup>
         <login-popup :is-show="showLogin" :LoginLoading="LoginLoading" @close="closeLogin" @login="login"></login-popup>
     </div>
 </template>
@@ -23,7 +23,7 @@
     import LoginPopup from "@/components/popup/login";
 
     import { mapGetters, mapActions } from 'vuex'
-    import { AjaxLogin } from 'src/apis/user'
+    import { AjaxLogin, AjaxJoinPanel } from 'src/apis/user'
 
     export default {
         name: 'HeaderTop',
@@ -36,6 +36,7 @@
                 showLogin: false,
                 LoginLoading: false,
                 showJoin: false,
+                JoinLoading: false,
                 gameData: [
                     { url: '', icon: 'http://wan.265g.com/cache/index/logo/mffyj.jpg', name: '魔法风云纪' },
                     { url: '', icon: 'http://wan.265g.com/cache/index/logo/bfsg.jpg', name: '兵法三国' },
@@ -88,6 +89,51 @@
                     }
                     self.LoginLoading = false;
                 })
+            },
+            join(params){
+                const self = this;
+                let GID = this.GetQueryString('gid')
+                if(GID){
+                    params = Object.assign(params, { 'gid': GID})
+                }
+                let SID = this.GetQueryString('sid')
+                if(SID){
+                    params = Object.assign(params, { 'serverId': SID})
+                }
+                let CID = this.GetQueryString('cid')
+                if(CID){
+                    params = Object.assign(params, { 'cid': CID})
+                }
+                let TG = this.GetQueryString('tg')
+                if(TG){
+                    params = Object.assign(params, { 'tgId': TG})
+                }
+
+                this.JoinLoading = true;
+                AjaxJoinPanel(params).then(res => {
+                    if(res.status === 'success'){
+                        let data = {
+                            token: res.data,
+                            data: {
+                                username: params.username // TODO，登录成功后后台应该回显用户基本信息
+                            }
+                        }
+                        self.recordUserInfo(data)
+                        let redirect = self.$route.path ? self.$route.path : decodeURIComponent(self.$route.query.redirect || '/ucenter');
+                        self.$router.push({
+                            path: redirect
+                        })
+                        self.closeJoin();
+                    }else{
+                        self.$Message.error(res.message)
+                    }
+                    self.JoinLoading = false;
+                })
+            },
+            GetQueryString(name) {  // TODO，提取成公共函数
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i"); 
+                var r = window.location.search.substr(1).match(reg); 
+                if (r!=null) return (r[2]); return null; 
             }
         },
         computed: {
