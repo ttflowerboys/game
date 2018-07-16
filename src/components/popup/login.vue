@@ -12,7 +12,7 @@
                         <Input type="password" v-model="formInline.password" placeholder="密码"></Input>
                     </FormItem>
                     <FormItem>
-                        <Button class="submitButton" type="primary"  :loading="formInline.loading" @click.prevent="handleSubmit('formInline')">登录</Button>
+                        <Button class="submitButton" type="primary" :loading="LoginLoading" @click.prevent="handleSubmit('formInline')">登录</Button>
                     </FormItem>
                 </Form>
         </div>
@@ -23,12 +23,15 @@
 
 <script>
     import { mapActions } from 'vuex'
-    import { AjaxLogin } from 'src/apis/user'
 
     export default {
         name: 'gameindex',
         props: {
             isShow: {
+                type: Boolean,
+                default: false
+            },
+            LoginLoading: {
                 type: Boolean,
                 default: false
             }
@@ -51,9 +54,6 @@
             }
         },
         methods: {
-            ...mapActions([
-                'recordUserInfo'
-            ]),
             close(name){
                 this.$refs[name].resetFields();
                 this.$emit("close");
@@ -62,30 +62,11 @@
                 const self = this;
                 this.$refs[name].validate((valid) => {
                     if(valid) {
-                        self.formInline.loading = true;
                         let params = {
                             "username": self.formInline.username,
                             "password": self.formInline.password
                         }
-                        AjaxLogin(params).then(res => {
-                            if(res.status === 'success'){
-                                let data = {
-                                    token: res.data,   // 因为只有token
-                                    data: {
-                                        username: self.formInline.username // TODO，登录成功后后台应该回显用户基本信息
-                                    }
-                                }
-                                self.recordUserInfo(data)
-                                let redirect = self.$route.path ? self.$route.path : decodeURIComponent(self.$route.query.redirect || '/ucenter');
-                                self.$router.push({
-                                    path: redirect
-                                })
-                                self.close(name);
-                            }else{
-                                self.$Message.error(res.message)
-                            }
-                            self.formInline.loading = false;
-                        })
+                        self.$emit("login", params)
                     }
                 })
             },

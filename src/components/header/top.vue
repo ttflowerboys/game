@@ -14,7 +14,7 @@
             </div>
         </div>
         <join-popup :is-show="showJoin" @close="closeJoin"></join-popup>
-        <login-popup :is-show="showLogin" @close="closeLogin"></login-popup>
+        <login-popup :is-show="showLogin" :LoginLoading="LoginLoading" @close="closeLogin" @login="login"></login-popup>
     </div>
 </template>
 
@@ -23,6 +23,7 @@
     import LoginPopup from "@/components/popup/login";
 
     import { mapGetters, mapActions } from 'vuex'
+    import { AjaxLogin } from 'src/apis/user'
 
     export default {
         name: 'HeaderTop',
@@ -33,6 +34,7 @@
         data() {
             return {
                 showLogin: false,
+                LoginLoading: false,
                 showJoin: false,
                 gameData: [
                     { url: '', icon: 'http://wan.265g.com/cache/index/logo/mffyj.jpg', name: '魔法风云纪' },
@@ -47,7 +49,7 @@
             }
         },
         methods: {
-            ...mapActions([ 'userLogout' ]),
+            ...mapActions([ 'userLogout', 'recordUserInfo' ]),
             show_login(){
                 this.showLogin = true;
             },
@@ -63,6 +65,29 @@
             logout(){
                 window.location = '/'
                 this.userLogout()
+            },
+            login(params){
+                const self = this;
+                self.LoginLoading = true;
+                AjaxLogin(params).then(res => {
+                    if(res.status === 'success'){
+                        let data = {
+                            token: res.data,   // 因为只有token
+                            data: {
+                                username: params.username // TODO，登录成功后后台应该回显用户基本信息
+                            }
+                        }
+                        self.recordUserInfo(data)
+                        let redirect = self.$route.path ? self.$route.path : decodeURIComponent(self.$route.query.redirect || '/ucenter');
+                        self.$router.push({
+                            path: redirect
+                        })
+                        self.closeLogin();
+                    }else{
+                        self.$Message.error(res.message)
+                    }
+                    self.LoginLoading = false;
+                })
             }
         },
         computed: {
