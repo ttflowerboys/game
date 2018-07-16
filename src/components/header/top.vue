@@ -23,7 +23,7 @@
     import LoginPopup from "@/components/popup/login";
 
     import { mapGetters, mapActions } from 'vuex'
-    import { AjaxLogin, AjaxJoinPanel } from 'src/apis/user'
+    import { AjaxLoginPanel, AjaxJoinPanel } from 'src/apis/user'
 
     export default {
         name: 'HeaderTop',
@@ -70,7 +70,7 @@
             login(params){
                 const self = this;
                 self.LoginLoading = true;
-                AjaxLogin(params).then(res => {
+                AjaxLoginPanel(params).then(res => {
                     if(res.status === 'success'){
                         let data = {
                             token: res.data,   // 因为只有token

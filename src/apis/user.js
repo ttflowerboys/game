@@ -14,7 +14,8 @@ export const AjaxPayServerList= (params) => fetch({ url: '/xsGame/serverList', m
 
 export const AjaxCheckAuth = (data) => fetch({ url: '/auth/check', method: 'post', data })
 
-export const AjaxJoinPanel = (data) => fetch({ url: '/auth/register', method: 'post', data })
+export const AjaxJoinPanel = (data) => fetch({ url: '/auth/register', method: 'post', data }) // 平台注册
+export const AjaxLoginPanel = (data) => fetch({ url: '/auth/token', method: 'post', data}) // 平台登录
 
 export const AjaxgetCaptcha = () => fetch({ url: '/auth/getCaptcha', method: 'post' })
 
