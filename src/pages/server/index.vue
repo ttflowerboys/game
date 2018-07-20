@@ -117,28 +117,6 @@
             login(params){
                 const self = this;
                 self.LoginLoading = true;
-                AjaxLogin(params).then(res => {
-                    if(res.status === 'success'){
-                        let data = {
-                            token: res.data,   // 因为只有token
-                            data: {
-                                username: params.username // TODO，登录成功后后台应该回显用户基本信息
-                            }
-                        }
-                        self.recordUserInfo(data)
-                        let redirect = self.$route.path ? self.$route.path : decodeURIComponent(self.$route.query.redirect || '/ucenter');
-                        self.$router.push({
-                            path: redirect
-                        })
-                        self.closeLogin();
-                    }else{
-                        self.$Message.error(res.message)
-                    }
-                    self.LoginLoading = false;
-                })
-            },
-            join(params){
-                const self = this;
                 let GID = this.GetQueryString('gid')
                 if(GID){
                     params = Object.assign(params, { 'gid': GID})
@@ -155,26 +133,20 @@
                 if(TG){
                     params = Object.assign(params, { 'tgId': TG})
                 }
-
-                this.JoinLoading = true;
-                AjaxJoin(params).then(res => {
+                AjaxLogin(params).then(res => {
                     if(res.status === 'success'){
                         let data = {
-                            token: res.data,
+                            token: res.data,   // 因为只有token
                             data: {
                                 username: params.username // TODO，登录成功后后台应该回显用户基本信息
                             }
                         }
                         self.recordUserInfo(data)
-                        let redirect = self.$route.path ? self.$route.path : decodeURIComponent(self.$route.query.redirect || '/ucenter');
-                        self.$router.push({
-                            path: redirect
-                        })
-                        self.closeJoin();
+                        self.closeLogin();
                     }else{
                         self.$Message.error(res.message)
                     }
-                    self.JoinLoading = false;
+                    self.LoginLoading = false;
                 })
             },
             GetQueryString(name) {  // TODO，提取成公共函数
@@ -191,7 +163,6 @@
         },
         created(){
             this.init()
-            // this.username = localStorage.getItem('username') ? localStorage.getItem('username') : '';
         }
     }
 </script>

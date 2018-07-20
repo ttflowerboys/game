@@ -42,99 +42,23 @@ const routes = [
     redirect: '/index',
     meta: { title: '789W' },
     children: [
-      {
-        path: '/index',
-        name: 'index',
-        component: index,
-        meta: {
-          title: '首页'
-        }
-      }, {
-        path: '/pay', //充值中心
-        component: pay,
-        meta: {
-          title: '充值中心',
-          requireAuth: true
-        }
-      }, {
-        path: '/login', //登录注册页
-        component: login,
-        meta: {
-          title: '登录'
-        }
-      }, {
-        path: '/join', //注册页
-        component: join,
-        meta: {
-          title: '注册'
-        }
-      }, {
-        path: '/forget', //找回密码页
-        component: forget,
-        meta: {
-          title: '找回密码'
-        }
-      }, {
-        path: '/ucenter', // 个人中心
-        component: ucenter,
-        redirect: '/ucenter/index',
-        meta: {
-          title: '个人中心',
-          requireAuth: true
-        },
-        children: [{
-          path: 'data',
-          component: account,
-          meta: {
-            title: '我的帐号'
-          }
-        }, {
-          path: 'game',
-          component: ugame,
-          meta: {
-            title: '我的游戏'
-          }
-        }, {
-          path: 'index',
-          component: udata,
-          meta: {
-            title: '个人资料'
-          }
-        }, {
-          path: 'avatar',
-          component: avatar,
-          meta: {
-            title: '修改头像'
-          }
-        }, {
-          path: 'safety',
-          component: safety,
-          meta: {
-            title: '账号安全'
-          }
-        }, {
-          path: 'news',
-          component: unews,
-          meta: {
-            title: '站内消息'
-          }
-        }, {
-          path: 'recycling',
-          component: recycling,
-          meta: {
-            title: '账号回收'
-          }
-        }]
-      },{
-        path: '/help', //客服中心
-        component: help,
-        meta: {
-          title: '客服中心'
-        }
+      { path: '/index', name: 'index', component: index, meta: { title: '首页' }},
+      { path: '/pay', component: pay, meta: { title: '充值中心', requireAuth: true }}, //充值中心
+      { path: '/help', component: help, meta: { title: '客服中心' }},  //客服中心
+      { path: '/ucenter', component: ucenter, redirect: '/ucenter/index', meta: { title: '个人中心', requireAuth: true },// 个人中心
+        children: [
+          { path: 'data', component: account, meta: { title: '我的帐号', requireAuth: true }},
+          { path: 'game', component: ugame, meta: { title: '我的游戏', requireAuth: true }},
+          { path: 'index', component: udata, meta: { title: '个人资料', requireAuth: true }},
+          { path: 'avatar', component: avatar, meta: { title: '修改头像', requireAuth: true }},
+          { path: 'safety', component: safety, meta: { title: '账号安全', requireAuth: true }},
+          { path: 'news', component: unews, meta: { title: '站内消息', requireAuth: true }},
+          { path: 'recycling', component: recycling, meta: { title: '账号回收', requireAuth: true }}
+        ]
       }
     ]
-  }, {
-    path: "/game/", name: "gamelayout", component: gamelayout, meta: { title: '游戏' },
+  },
+  { path: "/game/", name: "gamelayout", component: gamelayout, meta: { title: '游戏' },
     children: [
       { path: "/game/:code/", redirect: '/game/:code/index' },
       { path: "/game/:code/index", name: "gameindex", component: gameindex, meta: { title: '游戏' } },
@@ -142,15 +66,13 @@ const routes = [
       { path: "/game/:code/yxgg", name: "gameyxgg", component: gameyxgg, meta: { title: '新闻公告' } },
       { path: "/game/:code/hdzx", name: "gamehdzx", component: gamehdzx, meta: { title: '活动资讯' } }
     ]
-  },{
-    path: '/server/:code', //客服中心
-    component: server,
-    meta: {
-      title: '服务器列表页'
-    }
-  },{
-    path: "/*", name: "error", component: notFound, meta: { title: '404' }
-  }]
+  },
+  { path: '/server/:code', component: server, meta: { title: '服务器列表页' }},
+  { path: '/login', component: login, meta: { title: '登录' }},
+  { path: '/join', component: join, meta: { title: '注册' }},
+  { path: '/forget', component: forget, meta: { title: '找回密码' }},
+  { path: "/*", name: "error", component: notFound, meta: { title: '404' }}
+]
 
 Vue.use(Router)
 
@@ -161,7 +83,7 @@ const router = new Router({
 })
 
 // 防刷新
-if(localStorage.getItem('userData')) {
+if (localStorage.getItem('userData')) {
   store.commit(types.RECORD_USERINFO, {
     token: localStorage.getItem('userToken'),
     data: JSON.parse(localStorage.getItem('userData'))
@@ -170,26 +92,34 @@ if(localStorage.getItem('userData')) {
 
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title ? to.meta.title : '798游戏';
-  if(to.matched.some(r => r.meta.requireAuth)) {
-    let data = {
-      token: localStorage.getItem('userToken')
-    }
-    AjaxCheckAuth(data).then(res => {
-      if(res.data === false){
-        next({
-          path: '/login',
-          query: {
-            redirect: to.fullPath
-          }
-        })
-      }else{
-        next()
+  if (to.matched.some(r => r.meta.requireAuth)) {
+    if(!localStorage.getItem('userToken')){
+      next({
+        path: '/login',
+        query: {
+          redirect: to.fullPath
+        }
+      })
+    }else{
+      let data = {
+        token: localStorage.getItem('userToken')
       }
-    })
-  }else{
+      AjaxCheckAuth(data).then(res => {
+        if (res.status === 'success') {
+          next()
+        } else {
+          next({
+            path: '/login',
+            query: {
+              redirect: to.fullPath
+            }
+          })
+        }
+      })
+    }
+  } else {
     next()
   }
-  next()
 })
 
 export default router;

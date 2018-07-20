@@ -20,7 +20,8 @@
                     <div class="recharge-grid recharge-account">
                         <label>充值账号：</label>
                         <div class="user_input">
-                            <Input size="large" v-model="pay.account" placeholder="充值账号" style="width: 140px"></Input>
+                            <div v-if="userData.username">{{userData.username}}</div>
+                            <Input v-if="!userData.username" size="large" v-model="pay.account" placeholder="充值账号" style="width: 140px"></Input>
                         </div>
                     </div>
                     <div class="recharge-grid" style="margin-top: 40px;">
@@ -28,7 +29,7 @@
                         <Select v-model="pay.gid" size="large" style="width:200px" placeholder="请选择充值的游戏" @on-change="selectGame">
                             <Option v-for="item in config.gameList" :value="item.id" :key="item.id">{{ item.name }}</Option>
                         </Select>
-                        <Select v-model="pay.sid" size="large" style="width:200px" placeholder="请选择游戏服务器">
+                        <Select v-model="pay.sid" size="large" style="width:200px" placeholder="请选择游戏服务器" @on-change="roleValidate">
                             <Option v-for="item in config.serverList" :value="item.area_server_code" :key="item.area_server_code">{{ item.area_server_name }}</Option>
                         </Select>
                     </div>
@@ -47,7 +48,6 @@
                                         placeholder="其它" maxlength="7"><i></i></li>
                             </ul>
                         </div>
-                        <p>您将获得 {{pay.price*10}} 元宝 (其他游戏兑换比例 1:10)</p>
                     </div>
                     <div class="recharge-grid recharge-bank" v-show="pay.type == 2">
                         <label>选择银行：</label>
@@ -58,23 +58,42 @@
                         </div>
                     </div>
                     <div class="recharge-grid recharge-confirm">
-                        <button type="button" @click="doPay">立即充值</button>
+                        <Button type="primary"
+                            @click.prevent="doPay('formInline')"
+                             :disabled="!roleState ? true : false"
+                            >立即充值</Button>
                     </div>
                 
             </em></em></form></div><em class="gb-balance"><em class="gb-balance">
         </em></em></div><em class="gb-balance"><em class="gb-balance">
     </em></em></div>
+
+    <Modal
+        v-model="roleModel"
+        class-name="vertical-center-modal"
+        width="360">
+        <p slot="header" style="color:#f60;">
+            <Icon type="information-circled"></Icon>
+            <span>提示</span>
+        </p>
+        <div style="font-size: 14px;">{{roleTips}}</div>
+        <div slot="footer"></div>
+    </Modal>
 </div>
 </template>
 
 <script>
-    import { AjaxPay, AjaxPayGameList, AjaxPayServerList } from 'src/apis/user'
+    import { AjaxPay, AjaxPayGameList, AjaxPayServerList, AjaxRoleValidate } from 'src/apis/user'
     import * as tools from 'src/util/tools'
+    import { mapGetters } from 'vuex'
 
     export default {
         name: 'pay',
         data() {
             return {
+                roleState: false,
+                roleModel: false,
+                roleTips: '',
                 pay:{
                     type: 1,
                     account: '',
@@ -161,7 +180,7 @@
                 const self = this;
                 if(this.checkPay()){
                     let data = {
-                        uid: this.pay.account,
+                        uid: this.userData.username? this.userData.username : this.pay.account,
                         money: this.pay.price ? this.pay.price : this.enterPrice,
                         gid: this.pay.gid,
                         sid: this.pay.sid,
@@ -169,7 +188,7 @@
                     }
                     AjaxPay(data).then(res => {
                         if(res.status === 'success'){
-                            window.location = res.data;
+                            window.open(res.data);
                         }else{
                             self.$Message.error(res.message)
                         }
@@ -189,6 +208,7 @@
             },
             selectGame(){
                 const self = this;
+                this.pay.sid = '';
                 if(self.pay.gid){
                     let data = {
                         gid: self.pay.gid
@@ -201,6 +221,23 @@
                         }
                     })
                 }
+            },
+            roleValidate(){
+                const self = this;
+                let data = {
+                    uid: this.userData.username? this.userData.username : this.pay.account,
+                    gid: this.pay.gid,
+                    sid: this.pay.sid,
+                }
+                AjaxRoleValidate(data).then(res => {
+                    if(res.status === 'success'){
+                        self.roleState = true;
+                    }else{
+                        self.roleState = false;
+                        self.roleModel = true;
+                        self.roleTips = res.message ? res.message : '当前帐户不存在';
+                    }
+                })
             },
             checkEnterPrice(){
                 let value = this.enterPrice;
@@ -216,7 +253,8 @@
             selectGameId(){
                 const self = this;
                 return tools.getGameId(self.config.gameList, self.pay.gid);
-            }
+            },
+            ...mapGetters([ 'userData' ])
         },
         created(){
             this.getGame()
@@ -226,6 +264,15 @@
 </script>
 
 <style lang="less">
+.vertical-center-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ivu-modal{
+        top: 0;
+    }
+}
 @import "~assets/styles/pay.less";
 </style>
 

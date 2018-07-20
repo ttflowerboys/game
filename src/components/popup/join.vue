@@ -11,7 +11,7 @@
                     <FormItem prop="password">
                         <Input type="password" v-model="formInline.password" placeholder="密码"></Input>
                     </FormItem>
-                    <FormItem prop="password">
+                    <FormItem prop="cpassword">
                         <Input type="password" v-model="formInline.cpassword" placeholder="确认密码"></Input>
                     </FormItem>
                     <!-- <FormItem prop="code">
@@ -22,6 +22,10 @@
                         <Button class="submitButton" type="primary" :loading="JoinLoading" @click.prevent="handleSubmit('formInline')">注册</Button>
                     </FormItem>
                 </Form>
+                 <div class="clearfix">
+                    <a href="/login" style="float: left;">立即登录</a>
+                    <a href="/forget" style="float: right;">找回密码</a>
+                </div>
         </div>
         <div v-if="isShow" class="login_mask"></div>
     </div>
@@ -42,6 +46,26 @@
             }
         },
         data() {
+            const validatePass = (rule, value, callback) => {
+                if (value === '') {
+                    callback(new Error('请输入密码'));
+                } else {
+                    if (this.formInline.cpassword !== '') {
+                        // 对第二个密码框单独验证
+                        this.$refs.formInline.validateField('cpassword');
+                    }
+                    callback();
+                }
+            };
+            const validatePassCheck = (rule, value, callback) => {
+                if (value === '') {
+                    callback(new Error('请输入确认密码'));
+                } else if (value !== this.formInline.password) {
+                    callback(new Error('密码不一致'));
+                } else {
+                    callback();
+                }
+            };
             return {
                 formInline: {
                     username: '',
@@ -56,8 +80,11 @@
                         { required: true,  message: "请填写您的用户名", trigger: 'blur' },
                     ],
                     password: [
-                        { required: true, message: "请填写密码", trigger: 'blur' }
-                    ]
+                        { validator: validatePass, trigger: 'blur' }
+                    ],
+                    cpassword: [
+                        { validator: validatePassCheck, trigger: 'blur' }
+                    ],
                 }
             }
         },

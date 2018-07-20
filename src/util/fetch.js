@@ -1,11 +1,12 @@
 import axios from 'axios';
+import * as basicConfig from 'src/config/basicConfig'
 
 if (process.env.NODE_ENV == 'development') {
     axios.defaults.baseURL = '';
 } else if (process.env.NODE_ENV == 'debug') {
     axios.defaults.baseURL = '';
 } else if (process.env.NODE_ENV == 'production') {
-    axios.defaults.baseURL = 'http://www.798wan.com:8081';
+    axios.defaults.baseURL = basicConfig.APIUrl;
 }
 
 // 1. 创建axios实例

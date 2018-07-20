@@ -1,17 +1,18 @@
 <template>
-    <div>
+    <div class="loginLayer">
+        <login-header currentTitle="用户登录"/>
         <div class="content">
             <div class="loginbox">
                 <input v-model="form.username" type="text" placeholder="账号" class="username">
                 <input v-model="form.password" type="password" placeholder="密码" class="pwd">
                 <button action="login" class="btn-login" @click="login">登录</button>
-                <p><label><input type="checkbox">下次自动登录</label></p>
                 <div class="links">
-                    <div class="links-l"><a target="_blank" href="/ucenter/user/vgetpwd">忘记密码？</a></div>
-                    <div class="links-r">没有WAN账号？<a href="/ucenter/user/vreg">免费注册</a></div>
+                    <div class="links-l"><a href="/forget">忘记密码？</a></div>
+                    <div class="links-r">没有WAN账号？<a href="/join">免费注册</a></div>
                 </div>
             </div>        
         </div>
+        <app-footer/>
     </div>
 </template>
 
@@ -19,8 +20,15 @@
     import { AjaxLogin } from 'src/apis/user'
     import { mapActions } from 'vuex'
 
+    import LoginHeader from "@/components/login/header.vue";
+    import AppFooter from "@/components/footer";
+
     export default {
         name: 'login',
+        components: {
+            LoginHeader,
+            AppFooter
+        },
         data() {
             return {
                 form: {
@@ -65,9 +73,6 @@
                     }
                 })
             }
-        },
-        created(){
-            document.body.setAttribute("class", "loginLayer");
         }
     }
 </script>

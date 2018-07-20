@@ -36,8 +36,8 @@
                     <div class="rmyx-list">
                         <ul>
                             <li v-for="item in hotGameList" v-if="!loading.rmyx">
-                                <a :href="router.game + item.game_show_code" target="_blank" class="rmyx-img"><img :src="item.pic"></a>
-                                <div class="rmyx-links"><a :href="router.game + item.game_show_code" target="_blank" class="rmyx-name">{{item.name}}</a>
+                                <a :href="router.game + item.game_show_code" :title="item.name" target="_blank" class="rmyx-img"><img :src="item.pic" :alt="item.name"></a>
+                                <div class="rmyx-links"><a :href="router.game + item.game_show_code" :title="item.name" target="_blank" class="rmyx-name">{{item.name}}</a>
                                     <a :href="router.game + item.game_show_code" target="_blank" class="start">开始游戏</a>
                                     <a :href="router.game + item.game_show_code" target="_blank">领礼包</a>
                                     <span>|</span>

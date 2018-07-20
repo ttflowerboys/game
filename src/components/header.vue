@@ -20,6 +20,4 @@
         }
     }
 </script>
-<style lang="less">
-  @import "~assets/styles/header.less";
-</style>
+

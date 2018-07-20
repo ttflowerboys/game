@@ -5,8 +5,8 @@
                 <div class="server-box">
                     <div class="btns">
                         <a :href="'/server/'+gameCode" class="btn-start"><i class="start-txt"></i></a>
-                        <a href="http://wan.265g.com/help/problems/" target="_blank" class="btn-download">客服中心</a>
-                        <a href="http://pay.265g.com/?gameid=174" target="_blank" class="btn-recharge">游戏充值</a>
+                        <!-- <a href="http://wan.265g.com/help/problems/" target="_blank" class="btn-download">客服中心</a> -->
+                        <a href="/pay" target="_blank" class="btn-recharge">游戏充值</a>
                     </div>
                     <!-- 服务器列表 -->
                     <div class="server-list">

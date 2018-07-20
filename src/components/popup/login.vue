@@ -15,6 +15,10 @@
                         <Button class="submitButton" type="primary" :loading="LoginLoading" @click.prevent="handleSubmit('formInline')">登录</Button>
                     </FormItem>
                 </Form>
+                <slot class="clearfix" name="footer">
+                    <a href="/join" style="float: left;">立即注册</a>
+                    <a href="/forget" style="float: right;">找回密码</a>
+                </slot>
         </div>
         <div v-if="isShow" class="login_mask"></div>
     </div>
