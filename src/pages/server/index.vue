@@ -21,12 +21,15 @@
         <!-- 区服推荐列表 -->
         <div class="server_box" id="scroll">
             <ul class="server_list">
-                <li v-for="items in docList"><a @click="jump(items.gid,items.area_server_code)">{{items.game_name}}<span>已开启</span></a></li>
+                <li v-for="items in docList"><a @click="jump(items.gid,items.area_server_code)">{{items.area_server_code}}服<span>已开启</span></a></li>
             </ul>
         </div>
     </div>
-    <join-popup :is-show="showJoin" @close="closeJoin" :JoinLoading="JoinLoading" @join="join"></join-popup>
-    <login-popup :is-show="showLogin" :LoginLoading="LoginLoading" @close="closeLogin" @login="login"></login-popup>
+    <login-popup :is-show="showLogin" :LoginLoading="LoginLoading" @close="closeLogin" @login="login">
+        <div slot="footer">
+            <a href="/forget" style="float: right;">找回密码</a>
+        </div>
+    </login-popup>
 </div>
 </template>
 
@@ -100,7 +103,7 @@
                     }
                     AjaxGameLogin(data).then(res => {
                         if(res.status === 'success'){
-                            window.open(res.data)
+                            window.location = res.data;
                         }else{
                             self.$Message.error(res.message)
                         }
