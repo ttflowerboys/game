@@ -2,13 +2,13 @@
 <div class="loginLayer">
     <login-header currentTitle="用户注册"/>
     <div class="content">
-        <Form :model="form" ref="LoginForm" :rules="form.rules" class="loginbox custom-form ">
+        <Form :model="form" ref="form" :rules="form.rules" class="loginbox custom-form ">
             <FormItem prop="username">
                 <Input v-model="form.username" class="input-text" placeholder="账号">
                     <Icon slot="prepend" type="person"></Icon>
                 </Input>
             </FormItem>
-            <FormItem prop="phone">
+            <!-- <FormItem prop="phone">
                 <Input v-model="form.phone" class="input-text" placeholder="手机号">
                     <Icon slot="prepend" type="android-phone-portrait"></Icon>
                 </Input>
@@ -25,16 +25,21 @@
                 <Input v-model.trim="form.code" class="input-text" placeholder="请输入短信验证码" style="width: 220px;">
                     <Icon slot="prepend" type="ios-keypad"></Icon>
                 </Input>
-                <Button type="primary" size="large" @click.prevent="SendSMSCode('LoginForm')" v-show="!form.computedTime">发送验证码</Button>
+                <Button type="primary" size="large" @click.prevent="SendSMSCode('form')" v-show="!form.computedTime">发送验证码</Button>
                 <Button size="large" disabled v-show="form.computedTime">{{form.computedTime}}s后再次发送</Button>
-            </FormItem>
+            </FormItem> -->
             <FormItem prop="password">
-                <Input v-model="form.password" class="input-text" placeholder="密码">
+                <Input type="password" v-model="form.password" class="input-text" placeholder="密码">
+                    <Icon slot="prepend" type="ios-locked"></Icon>
+                </Input>
+            </FormItem>
+            <FormItem prop="cpassword">
+                <Input type="password" class="input-text" v-model="form.cpassword" placeholder="确认密码">
                     <Icon slot="prepend" type="ios-locked"></Icon>
                 </Input>
             </FormItem>
             <FormItem>
-                <Button type="primary" class="btn-login" @click.prevent="handleLogin('LoginForm')">注册</Button>
+                <Button type="primary" class="btn-login" @click.prevent="handleLogin('form')">注册</Button>
             </FormItem>
             <div class="links" style="padding-top: 0;">
                 <div class="links-l"><a target="_blank" href="/forget">忘记密码？</a></div>
@@ -55,35 +60,36 @@
 
     import * as basicConfig from 'src/config/basicConfig'
 
-    const customValidatePass = (rule, value, callback) => {
-        if (value === '') {
-            callback(new Error('请输入新密码'));
-        } else {
-            if (this.LoginForm.cpassword !== '') {
-                // 对第二个密码框单独验证
-                this.$refs.LoginForm.validateField('cpassword');
-            }
-            callback();
-        }
-    };
-    const customValidatePassCheck = (rule, value, callback) => {
-        if (value === '') {
-            callback(new Error('请再次输入密码'));
-        } else if (value !== this.LoginForm.password) {
-            callback(new Error('两次密码不一致'));
-        } else {
-            callback();
-        }
-    };
     const picUrl = basicConfig.APIUrl + '/auth/getCaptcha';
 
     export default {
         name: 'login',
         data() {
+            const validatePass = (rule, value, callback) => {
+                if (value === '') {
+                    callback(new Error('请输入密码'));
+                } else {
+                    if (this.form.cpassword !== '') {
+                        // 对第二个密码框单独验证
+                        this.$refs.form.validateField('cpassword');
+                    }
+                    callback();
+                }
+            };
+            const validatePassCheck = (rule, value, callback) => {
+                if (value === '') {
+                    callback(new Error('请输入确认密码'));
+                } else if (value !== this.form.password) {
+                    callback(new Error('密码不一致'));
+                } else {
+                    callback();
+                }
+            };
             return {
                 form: {
                     username: '',
                     password: '',
+                    cpassword: '',
                     code: '',
                     picCode: '',
                     computedTime: 0,
@@ -92,18 +98,21 @@
                         username: [
                             { required: true, message: '必填', trigger: 'blur' }
                         ],
-                        phone: [
-                            { required: true, message: '请输入手机号', trigger: 'blur' },
-                            { pattern: /^((1[3-8][0-9])+\d{8})$/, message: '请填写正确的手机号码' }
-                        ],
-                        picCode: [
-                            { required: true, message: '必填', trigger: 'blur' }
-                        ],
-                        code: [
-                            { required: true, message: '必填', trigger: 'blur' }
-                        ],
+                        // phone: [
+                        //     { required: true, message: '请输入手机号', trigger: 'blur' },
+                        //     { pattern: /^((1[3-8][0-9])+\d{8})$/, message: '请填写正确的手机号码' }
+                        // ],
+                        // picCode: [
+                        //     { required: true, message: '必填', trigger: 'blur' }
+                        // ],
+                        // code: [
+                        //     { required: true, message: '必填', trigger: 'blur' }
+                        // ],
                         password: [
-                            { required: true, message: '必填', trigger: 'blur' }
+                            { validator: validatePass, trigger: 'blur' }
+                        ],
+                        cpassword: [
+                            { validator: validatePassCheck, trigger: 'blur' }
                         ]
                     }
                 },
@@ -156,8 +165,11 @@
                 let self = this;
                 this.$refs[name].validate((valid) => {
                     if(valid) {
-                        
-                        AjaxLogin(data).then(res => {
+                        let params = {
+                            "username": self.form.username,
+                            "password": self.form.password                            
+                        }
+                        AjaxLogin(params).then(res => {
                             if(res.status === 'success'){
                                 let data = {
                                     token: res.data,   // 因为只有token
@@ -174,7 +186,6 @@
                                 self.$Message.error(res.message)
                             }
                         })
-                        
                     }
                 })
             }
