@@ -155,11 +155,12 @@
             checkPay(){
                 const self = this;
                 let result = false;
-                if(!self.pay.account){
-                    self.$Message.error('请填写充值帐号');
-                    result = false;
-                    return false;
-                }else if(!self.pay.gid){
+                // if(!self.pay.account){
+                //     self.$Message.error('请填写充值帐号');
+                //     result = false;
+                //     return false;
+                // } 
+                if(!self.pay.gid){
                     self.$Message.error('请选择充值的游戏')
                     result = false;
                     return false;
@@ -188,6 +189,7 @@
                     }
                     AjaxPay(data).then(res => {
                         if(res.status === 'success'){
+                            // window.location = '/pay'
                             window.open(res.data);
                         }else{
                             self.$Message.error(res.message)
