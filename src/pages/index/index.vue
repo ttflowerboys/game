@@ -54,7 +54,7 @@
                     <div :class="gift.type + '-list'">
                         <ul class="clearfix">
                             <li v-for="item in gift.list">
-                                <a>
+                                <a target="_blank" :href="item.url">
                                     <img :src="item.pic">
                                     <p>{{item.name}}</p>
                                     <em>剩余：{{item.num}}个</em>
@@ -156,10 +156,10 @@
                     name: '热门礼包',
                     type: 'rmlb',
                     list: [
-                        { name: '不灭轮回 媒体礼包', url: '', pic: '/static/upload/201806210106167928.jpg', num: '9874' },
-                        { name: '大明征途 新手礼包', url: '', pic: '/static/upload/201806120123333426.jpg', num: '1869' },
-                        { name: '仙境物语RO 新手礼包', url: '', pic: '/static/upload/201804100214169101.jpg', num: '9874' },
-                        { name: 'NBA征程 高级礼包', url: '', pic: '/static/upload/201804020111185293.jpg', num: '4800' }
+                        { name: '不灭轮回 媒体礼包', url: '/gift/1', pic: '/static/upload/201806210106167928.jpg', num: '9874' },
+                        { name: '大明征途 新手礼包', url: '/gift/2', pic: '/static/upload/201806120123333426.jpg', num: '1869' },
+                        { name: '仙境物语RO 新手礼包', url: '/gift/3', pic: '/static/upload/201804100214169101.jpg', num: '9874' },
+                        { name: 'NBA征程 高级礼包', url: '/gift/4', pic: '/static/upload/201804020111185293.jpg', num: '4800' }
                     ]
                 },
                 other: {
@@ -180,7 +180,7 @@
                     type: 'news',
                     list: [
                         { title: 'QQ登陆用户自助登陆微端方法说明', url: '' },
-                        { title: '265G游戏服务器冠名争霸赛', url: '' },
+                        { title: '798wan游戏服务器冠名争霸赛', url: '' },
                         { title: '《游戏共享帐号被盗号及私下交易帐号等事件的处理相关声明》', url: '' },
                         { title: 'QQ登陆用户自助登陆微端方法说明', url: '' }
                     ]

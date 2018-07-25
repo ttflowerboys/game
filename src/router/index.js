@@ -71,7 +71,7 @@ const routes = [
   { path: '/login', component: login, meta: { title: '登录' }},
   { path: '/join', component: join, meta: { title: '注册' }},
   { path: '/forget', component: forget, meta: { title: '找回密码' }},
-  { path: "/*", name: "error", component: notFound, meta: { title: '404' }}
+  { path: "/*", name: "error", component: notFound, meta: { title: '404-页面不存在' }}
 ]
 
 Vue.use(Router)

@@ -17,11 +17,11 @@
             </div>
         </div>
         <div class="list_head">服务器列表</div>
-        <div class="server_title clear"><span>最新区服推荐</span><a @click="jump(gameId)">双线1服&nbsp;&nbsp;&nbsp;&nbsp;火爆开启</a></div>
+        <div class="server_title clear"><span>最新区服推荐</span><a @click="jump(gameId)">{{docList[0].area_server_name}}服&nbsp;&nbsp;&nbsp;&nbsp;火爆开启</a></div>
         <!-- 区服推荐列表 -->
         <div class="server_box" id="scroll">
             <ul class="server_list">
-                <li v-for="items in docList"><a @click="jump(items.gid,items.area_server_code)">{{items.area_server_code}}服<span>已开启</span></a></li>
+                <li v-for="items in docList"><a @click="jump(items.gid,items.area_server_code)">{{items.area_server_name}}服<span>已开启</span></a></li>
             </ul>
         </div>
     </div>
