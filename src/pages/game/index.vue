@@ -23,7 +23,7 @@
                         <div class="plocalhoder" v-if="!info.bannerList.length">暂无数据</div>
                         <Carousel class="focusBox" loop autoplay autoplay-speed="5000" v-if="info.bannerList.length">
                             <CarouselItem v-for="item in info.bannerList" :key="item.xs_banner_title">
-                                <div class="demo-carousel"><a :href="item.xs_banner_link"><img :src="item.xs_banner_img" :alt="item.xs_banner_title"></a></div>
+                                <div class="demo-carousel"><a :href="item.xs_banner_link" target="_blank"><img :src="item.xs_banner_img" :alt="item.xs_banner_title"></a></div>
                             </CarouselItem>
                         </Carousel>
                     </div>

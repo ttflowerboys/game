@@ -1,8 +1,8 @@
 <template>
-<div class="s_body">
+<div class="s_body" :style="'background-image:url('+ bgImage +')'">
     <a class="logo" href="/" target="_blank">封神霸业</a>
     <div class="s_wrap">
-        <div class="head_nav clear">
+        <div class="head_nav clearfix">
             <a href="/"><span class="head_nav01">进入官网</span></a>
             <a href=""><span class="head_nav02">领取礼包</span></a>
             <a href=""><span class="head_nav03">用户充值</span></a>
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="list_head">服务器列表</div>
-        <div class="server_title clear"><span>最新区服推荐</span><a @click="jump(gameId)">{{docList[0].area_server_name}}服&nbsp;&nbsp;&nbsp;&nbsp;火爆开启</a></div>
+        <div class="server_title clearfix"><span>最新区服推荐</span><a @click="jump(gameId)">{{docList && docList[0] ? docList[0].area_server_name:''}}服&nbsp;&nbsp;&nbsp;&nbsp;火爆开启</a></div>
         <!-- 区服推荐列表 -->
         <div class="server_box" id="scroll">
             <ul class="server_list">
@@ -58,7 +58,8 @@
                 LoginLoading: false,
                 showJoin: false,
                 JoinLoading: false,
-                gameId: ''
+                gameId: '',
+                bgImage: ''
             }
         },
         methods: {
@@ -84,6 +85,7 @@
                     if(res.status === 'success'){
                         self.docList = res.data.servers;
                         self.gameId = res.data.gid;
+                        self.bgImage = res.data.login_img;
                     }else{
                         self.$Message.error(res.message)
                     }
@@ -92,7 +94,8 @@
             jump(gid,sid){
                 let token = localStorage.getItem('userToken');
                 if(!token){
-                    window.open('/login')
+                    // window.open('/login')
+                    this.showLogin = true;
                 }else{
                     const self = this;
                     let data = {

@@ -13,25 +13,25 @@ module.exports = {
     proxyTable: {
       '/api': {
         // target: 'http://192.168.101.11:8081',
-        target: 'http://192.168.101.95:8081',
+        target: 'http://www.798wan.com:8081',
         pathRewrite: {
           '^/api': '/api'
         }
       },
       '/xsGame': {
-        target: 'http://192.168.101.95:8081',
+        target: 'http://www.798wan.com:8081',
         pathRewrite: {
           '^/xsGame': '/xsGame'
         }
       },
       '/auth': {
-        target: 'http://192.168.101.95:8081',
+        target: 'http://www.798wan.com:8081',
         pathRewrite: {
           '^/auth': '/auth'
         }
       },
       '/gameDetail': {
-        target: 'http://192.168.101.95:8081',
+        target: 'http://www.798wan.com:8081',
         pathRewrite: {
           '^/gameDetail': '/gameDetail'
         }

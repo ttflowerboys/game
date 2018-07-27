@@ -2,7 +2,7 @@
     <div class="Home">
         <Carousel class="banner" loop>
             <CarouselItem v-for="items in bannerList" :key="items.id">
-                <img :src="items.xs_banner_img" :alt="items.xs_banner_title">
+                <a :href="items.xs_banner_link" target="_blank"><img :src="items.xs_banner_img" :alt="items.xs_banner_title"></a>
             </CarouselItem>
         </Carousel>
         <div class="wrapped clearfix">
