@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="">
+    <title>红色基地</title>
+    <meta name="Keywords" content="荆楚红">
+    <meta name="Description" content="荆楚红">
+</head>
+<link rel="stylesheet" href="common/reset.css">
+<link rel="stylesheet" href="lab/layui/css/layui.css">
+<link rel="stylesheet" href="common/common.css">
+<link rel="stylesheet" href="css/redAreaDetail.css">
+<link rel="stylesheet" href="css/another.css">
+<script src="lab/layui/layui.js"></script>
+<script src="lab/jquery1.9.0.min.js"></script>
+<script src="lab/slide.js"></script>
+<script src="common/common.js"></script>
+<script src="js/redAreaDetail.js"></script>
+<script src="common/template-web.js"></script>
+<body>
+<header></header>
+<div class="container">
+    <div class="banner">
+        <div class="location">
+            当前位置：<a href="index.html">首页</a> >
+            <a href="redArea.html">红色基地</a> >
+            <a href="javascript:void(0)">武汉博物馆</a>
+        </div>
+        <div class="bannerCont">
+            <!--info-->
+        </div>
+    </div>
+    <div class="centerCont">
+        <div class="contL">
+            <div class="introduceArea">
+                <ul class="introduceList">
+                    <!--sub-->
+                </ul>
+                <div class="introduceCont poR">
+
+                </div>
+            </div>
+            <div class="writeComment">
+                <div class="myUserImg" style="background-image: url(img/index32.png);"></div>
+                <div class="writeCommentArea">
+                    <div class="commentForm">
+                        <div class="commentInputArea">
+                            <div class="commentTitle">填写心声</div>
+                            <textarea class="commentPlace" placeholder="填写心声，游览后有何感受哦(写够15字，才是好同志)"></textarea>
+                            <div class="commentTitle">提出问题</div>
+                            <textarea class="commentPlace" placeholder="填写心声，游览后有何感受哦(写够15字，才是好同志) 拷贝"></textarea>
+                            <div class="commentPicture">
+                                <div class="addImg">添加图片</div>
+                                <div class="showImg" style="background-image: url(img/AppCode.png);">
+                                    <div>删除</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="commentFaceArea">
+                            <p class="commentLabel">我的评分</p>
+                            <div class="faceBox">
+                                <div class="faceClk">
+                                    <div class="faceType1"></div>
+                                    <div class="faceType2"></div>
+                                    <div class="faceType3 active"></div>
+                                    <div class="faceType4"></div>
+                                    <div class="faceType5"></div>
+                                </div>
+                                <div class="faceTxt">一般</div>
+                            </div>
+                            <p class="commentLabel">场馆评分</p>
+                            <ul class="fireTheStar">
+                                <li class="fireStar">
+                                    <div class="fireStarLabelL">讲解水平</div>
+                                    <div class="clkStarBox">
+                                        <div class="clkStar active"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                    </div>
+                                    <div class="fireStarLabelR">吐槽</div>
+                                </li>
+                                <li class="fireStar">
+                                    <div class="fireStarLabelL">场馆设施</div>
+                                    <div class="clkStarBox">
+                                        <div class="clkStar active"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                    </div>
+                                    <div class="fireStarLabelR">吐槽</div>
+                                </li>
+                                <li class="fireStar">
+                                    <div class="fireStarLabelL">展区环境</div>
+                                    <div class="clkStarBox">
+                                        <div class="clkStar active"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                    </div>
+                                    <div class="fireStarLabelR">吐槽</div>
+                                </li>
+                                <li class="fireStar">
+                                    <div class="fireStarLabelL">服务质量</div>
+                                    <div class="clkStarBox">
+                                        <div class="clkStar active"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                    </div>
+                                    <div class="fireStarLabelR">吐槽</div>
+                                </li>
+                                <li class="fireStar">
+                                    <div class="fireStarLabelL">主题内容</div>
+                                    <div class="clkStarBox">
+                                        <div class="clkStar active"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                        <div class="clkStar"></div>
+                                    </div>
+                                    <div class="fireStarLabelR">吐槽</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="subBtn">提交评价</div>
+                </div>
+            </div>
+            <div class="userComment">
+                <div class="userCommentTitle">
+                    <span class="userC">用户评价<span></span></span><span class="userN">(12838)</span>
+                </div>
+                <ul class="userCommentList">
+                    <!--comment-->
+                </ul>
+            </div>
+        </div>
+        <div class="contR">
+            <div class="hotActivity">
+                <div class="itemTop" style="background-image: url(img/index27.png);">
+                    <p>热门推荐</p>
+                    <a href="#">更多></a>
+                </div>
+                <ul class="hotL">
+                    <li><a href="#" style="background-image: url(img/index33.png);"></a></li>
+                    <li><a href="#" style="background-image: url(img/index33.png);"></a></li>
+                    <li><a href="#" style="background-image: url(img/index33.png);"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>
+</body>
+<script type="text/template" id="bannerCont">
+    <div class="contImg layui-carousel" id="mySlide">
+        <div class="full" carousel-item>
+            {{each data.rd_stadium_carousel value index}}
+            <div class="poR full">
+                <img class="cenS full" src="{{value.rd_banner_link}}" onerror="$.imgErr()">
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="contSimple">
+        <div class="simpleT">
+            <p class="areaName">{{data.rd_stadium_name}}</p>
+            <div class="areaComment">
+                <span class="commentNum">{{data.visitCount}}人评分</span>
+                {{if data.score<1}}
+                <img class="commentImg" src="img/D-0.png" alt="img">
+                {{else if data.score>=1 && data.score<2}}
+                <img class="commentImg" src="img/D-1.png" alt="img">
+                {{else if data.score>=2 && data.score<3}}
+                <img class="commentImg" src="img/D-2.png" alt="img">
+                {{else if data.score>=3 && data.score<4}}
+                <img class="commentImg" src="img/D-3.png" alt="img">
+                {{else if data.score>=4 && data.score<5}}
+                <img class="commentImg" src="img/D-4.png" alt="img">
+                {{else if data.score>=5}}
+                <img class="commentImg" src="img/D-5.png" alt="img">
+                {{/if}}
+                <span class="commentScore">{{data.score}}分</span>
+            </div>
+        </div>
+        <div class="simpleDetail">
+            <div class="simpleItem">
+                <span class="label">开放时间</span>
+                <p>{{data.rd_stadium_time}}(法定节假日不休息）每周五闭馆展厅维护</p>
+            </div>
+            <div class="simpleItem">
+                <span class="label">交通方式</span>
+                <p>{{data.rd_stadium_traffic}}</p>
+            </div>
+            <div class="simpleItem">
+                <span class="label">联系电话</span>
+                <p>{{data.rd_stadium_phone}}</p>
+            </div>
+            <div class="simpleItem">
+                <span class="label">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</span>
+                <p>{{data.rd_stadium_addr}}</p>
+            </div>
+        </div>
+        <label for="appointment" class="appointment">立即预约
+            <input type="text"
+                   class="layui-input"
+                   id="appointment"
+                   value="">
+        </label>
+    </div>
+</script>
+<!--sub-->
+<script type="text/template" id="introduceList">
+    {{each data value index}}
+    {{if index==0}}
+    <li data-id={{value.id}} class="active"><p>{{value.rd_sub_title}}</p><span></span></li>
+    {{else}}
+    <li data-id={{value.id}}><p>{{value.rd_sub_title}}</p><span></span></li>
+    {{/if}}
+    {{/each}}
+</script>
+<!--描述-->
+<script type="text/template" id="introduceCont">
+    <span class="sy"></span>
+    <div class="timeLine full">
+        <p class="line"></p>
+        {{each data value index}}
+        <div class="event poR m_10B">
+            <p>
+                <span class="yd"></span>
+                <span class="font16">{{value.rd_detail_title}}</span>
+            </p>
+            <p class="font18">
+                {{value.rd_detail_title}}
+            </p>
+        </div>
+        {{/each}}
+    </div>
+    <span class="xy"></span>
+</script>
+<!--评论-->
+<script type="text/template" id="userCommentList">
+    {{each data value  index}}
+    <li>
+        <div class="userPhoto" style="background-image: url({{value.photo}})"></div>
+        <div class="userCommentBox">
+            <p class="userName">{{value.name}}</p>
+            <div class="userInfo">
+                <div class="organization">暂无</div>
+                <div class="timeAndScore">
+                    <div class="commentTime">{{value.rd_createtime}}</div>
+                    <div class="userScoreImg">
+                        {{if value.rd_score<1}}
+                        <img src="img/0.png" alt="img">
+                        {{else if value.rd_score>=1 && value.rd_score<2}}
+                        <img src="img/1.png" alt="img">
+                        {{else if value.rd_score>=2 && value.rd_score<3}}
+                        <img src="img/2.png" alt="img">
+                        {{else if value.rd_score>=3 && value.rd_score<4}}
+                        <img src="img/3.png" alt="img">
+                        {{else if value.rd_score>=4 && value.rd_score<5}}
+                        <img src="img/4.png" alt="img">
+                        {{else if value.rd_score>=5}}
+                        <img src="img/5.png" alt="img">
+                        {{/if}}
+                    </div>
+                    <div class="userScoreTxt">{{value.rd_score}}分</div>
+                </div>
+            </div>
+            <div class="commentContext">
+                {{value.rd_stadium_comment}}
+            </div>
+            <div class="commentContextImgBox">
+                <a class="commentContextImg"
+                   href="{{value.rd_pic}}"
+                   target="view_window"
+                   style="display: block; background-image: url({{value.rd_pic}})">
+                </a>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</script>
+</html>

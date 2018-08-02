@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="">
+    <title>荆楚文化</title>
+    <meta name="Keywords" content="荆楚红">
+    <meta name="Description" content="荆楚红">
+</head>
+<link rel="stylesheet" href="common/reset.css">
+<link rel="stylesheet" href="lab/layui/css/layui.css">
+<link rel="stylesheet" href="common/common.css">
+<link rel="stylesheet" href="css/culture.css">
+<link rel="stylesheet" href="css/another.css">
+<script src="lab/layui/layui.js"></script>
+<script src="lab/jquery1.9.0.min.js"></script>
+<script src="common/common.js"></script>
+<script src="js/culture.js"></script>
+<script src="common/template-web.js"></script>
+<body>
+<header></header>
+<div class="container">
+    <div class="banner layui-carousel" id="bannerIndex"></div>
+    <div class="centerCont">
+        <div class="contL">
+            <div class="introduceArea">
+                <ul class="introduceList">
+                    <li class="active"><p>场馆介绍</p><span></span></li>
+                </ul>
+                <ul class="introduceCont">
+                    <li>
+                        <img src="img/index17.png" alt="img">
+                        <div class="contextBox">
+                            <div class="context"><a href="cultureDetail.html">第51期光谷·青桐汇成功举办，医疗器械“黑科技”抢眼</a></div>
+                            <div class="webAndTime">
+                                <span class="website">九派新闻</span>
+                                <span class="time">2018-5-6</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="addMore">查看更多</div>
+            </div>
+        </div>
+        <div class="contR">
+            <div class="hotActivity">
+                <div class="itemTop" style="background-image: url(img/index27.png);">
+                    <p>热门推荐</p>
+                    <a href="moreHot.html">更多></a>
+                </div>
+                <ul class="hotL">
+                    <li><a href="#" style="background-image: url(img/index33.png);"></a></li>
+                    <li><a href="#" style="background-image: url(img/index33.png);"></a></li>
+                    <li><a href="#" style="background-image: url(img/index33.png);"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>
+</body>
+<script type="text/template" id="introduceList">
+    {{each data value index}}
+    {{if index==0}}
+    <li data-id="{{value.id}}" class="active"><p>{{value.rd_sub_title}}</p><span></span></li>
+    {{else}}
+    <li data-id="{{value.id}}"><p>{{value.rd_sub_title}}</p><span></span></li>
+    {{/if}}
+    {{/each}}
+</script>
+<script type="text/template" id="introduceCont">
+    {{each data value index}}
+    <li>
+        <img src="{{value.rd_detail_cover}}" alt="img" onerror="$.imgErr()">
+        <div class="contextBox">
+            <a href="cultureDetail.html?id={{value.id}}">
+                <div class="context">
+                    <p>{{value.rd_detail_title}}</p>
+                    <p style="font-size: 14px;color: #999">{{value.rd_detail_desc}}</p>
+                </div>
+            </a>
+            <div class="webAndTime">
+                <span class="website">{{value.createbyName}}</span>
+                <span class="time">{{value.rd_createtime}}</span>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</script>
+<script type="text/template" id="banner">
+    <div carousel-item class="full">
+        {{each data value index}}
+        <a style="display: block" class="full poR" href="#">
+            <img src="{{value.rd_banner_link}}" class="cenS" onerror="$.imgErr()">
+        </a>
+        {{/each}}
+    </div>
+</script>
+</html>

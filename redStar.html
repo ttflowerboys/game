@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="">
+    <title>荆楚小红星</title>
+    <meta name="Keywords" content="荆楚红">
+    <meta name="Description" content="荆楚红">
+</head>
+<link rel="stylesheet" href="common/reset.css">
+<link rel="stylesheet" href="lab/layui/css/layui.css">
+<link rel="stylesheet" href="common/common.css">
+<link rel="stylesheet" href="css/redStar.css">
+<script src="lab/layui/layui.js"></script>
+<script src="lab/jquery1.9.0.min.js"></script>
+<script src="common/common.js"></script>
+<script src="common/template-web.js"></script>
+<script src="js/redStar.js"></script>
+<body>
+<header></header>
+<div class="container">
+    <div class="banner"></div>
+    <div class="centerCont">
+        <ul class="introduceList">
+            <li class="active"><p>学生专区</p><span></span></li>
+            <li><p>教师专区</p><span></span></li>
+            <li><p>职工专区</p><span></span></li>
+        </ul>
+        <ul class="smallStarL">
+            <li>
+                <a href="#">
+                    <div style="background-image: url(img/index33.png)">
+                        <div>红色之星</div>
+                    </div>
+                    <p class="pointTxt">王晓亮</p>
+                    <span class="pointTxt">武汉市第四中学</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div style="background-image: url(img/index33.png)">
+                        <div>红色之星</div>
+                    </div>
+                    <p class="pointTxt">王晓亮</p>
+                    <span class="pointTxt">武汉市第四中学</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div style="background-image: url(img/index33.png)">
+                        <div>红色之星</div>
+                    </div>
+                    <p class="pointTxt">王晓亮</p>
+                    <span class="pointTxt">武汉市第四中学</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div style="background-image: url(img/index33.png)">
+                        <div>红色之星</div>
+                    </div>
+                    <p class="pointTxt">王晓亮</p>
+                    <span class="pointTxt">武汉市第四中学</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div style="background-image: url(img/index33.png)">
+                        <div>红色之星</div>
+                    </div>
+                    <p class="pointTxt">王晓亮</p>
+                    <span class="pointTxt">武汉市第四中学</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div style="background-image: url(img/index33.png)">
+                        <div>红色之星</div>
+                    </div>
+                    <p class="pointTxt">王晓亮</p>
+                    <span class="pointTxt">武汉市第四中学</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div style="background-image: url(img/index33.png)">
+                        <div>红色之星</div>
+                    </div>
+                    <p class="pointTxt">王晓亮</p>
+                    <span class="pointTxt">武汉市第四中学</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div style="background-image: url(img/index33.png)">
+                        <div>红色之星</div>
+                    </div>
+                    <p class="pointTxt">王晓亮</p>
+                    <span class="pointTxt">武汉市第四中学</span>
+                </a>
+            </li>
+        </ul>
+        <div class="addMore">查看更多</div>
+    </div>
+</div>
+<!--弹窗-->
+<div class="shadow">
+    <div class="alertArea">
+        <div class="alertTop">
+            <span class="alertShut"></span>
+            <p>个人简介</p>
+        </div>
+        <div class="alertDetail">
+            <div class="alertSimple">
+                <img src="img/index9.png" alt="img">
+                <p class="alertName pointTxt">弘扬红色文化专题讲座</p>
+                <div class="alertPosition">湖北省武汉市武汉市汉口青年路373号</div>
+            </div>
+            <div class="alertContext">
+                <p>军徽闪耀，军旗飘扬。战胜无数艰难险阻、创造无数人间奇迹、建立无数卓越功勋的人民军队，即将迎来８０华诞。</p>
+                <p>军徽闪耀，军旗飘扬。战胜无数艰难险阻、创造无数人间奇迹、建立无数卓越功勋的人民军队，即将迎来８０华诞。</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>
+</body>
+<script type="text/template" id="introduceList">
+    {{each data value index}}
+    {{if index==0}}
+    <li data-id="{{value.id}}" class="active"><p>{{value.rd_sub_title}}</p><span></span></li>
+    {{else}}
+    <li data-id="{{value.id}}"><p>{{value.rd_sub_title}}</p><span></span></li>
+    {{/if}}
+    {{/each}}
+</script>
+<script type="text/template" id="smallStarL">
+    {{each data value index}}
+    <li data-id="value.id">
+        <a href="javascript:void(0)">
+            <div style="background-image: url({{value.rd_detail_cover}})">
+                <div>红色之星</div>
+            </div>
+            <p class="pointTxt">{{value.rd_detail_title}}</p>
+            <span class="pointTxt">{{value.orgName}}</span>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<script type="text/template" id="alertDetail">
+    {{if data.rd_media_type==1}}
+    <div class="alertSimple">
+        <img src="{{data.rd_detail_cover}}" alt="img">
+        <p class="alertName pointTxt">{{data.rd_detail_title}}</p>
+        <div class="alertPosition">湖北省武汉市武汉市汉口青年路373号</div>
+    </div>
+    <div class="alertContext">
+        <p>{{data.rd_detail_desc}}</p>
+    </div>
+    {{else if data.rd_media_type==2 }}
+    <video controls style="width: 100%" src="{{data.rd_udfchar02}}"></video>
+    {{/if}}
+</script>
+</html>

@@ -1,0 +1,33 @@
+html,body{background: #f2f3f4;}
+.location{height: 40px;width: 1200px;margin: 0 auto;font-size: 12px;color: #999999;line-height: 40px;}
+.location>a{font-size: 12px;color: #999999;}
+
+.centerCont{overflow: hidden;width: 1200px;margin: 0 auto;padding: 0 0 46px 0;}
+.contL{float: left;width: 790px;background: #ffffff;padding: 48px 42px 166px 42px;}
+.title{font-size: 22px;color: #333333;line-height: 28px;text-align: center;font-weight: 600;}
+.posTime{text-align: center;font-size: 12px;color: #999999;padding:12px 0 38px 0;}
+.posTime>span{display: inline-block;}
+.pos{max-width: 300px;}
+.time{margin-left: 12px;}
+.context{text-align: justify;}
+.context>p{font-size: 14px;color: #333333;padding-bottom: 16px;}
+.context img{display: block;width: 646px;height: auto;margin: 10px auto 42px auto;}
+
+.contR{float: right;}
+.hotActivity{width: 380px;float: right;}
+.itemTop{width: 100%;height: 65px;line-height: 65px;background-color: #fcfcfc;padding: 0 26px 0 65px;background-repeat: no-repeat;background-position: 30px center;}
+.itemTop>p{color: #222222;font-size: 22px;float: left;font-weight: 600;}
+.itemTop>a{display: block; color: #666666;font-size: 12px;float: right;}
+.itemTop>a:hover{color: #f54e33;}
+.hotL{background: #ffffff;height: 430px;padding: 30px;}
+.hotL>li{width: 320px; height: 112px;margin-bottom: 20px;}
+.hotL>li>a{display: block;width: 100%;height: 100%;background-repeat: no-repeat;background-size: 100% 100%;}
+
+
+
+
+
+
+
+
+

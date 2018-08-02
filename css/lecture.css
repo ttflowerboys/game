@@ -1,0 +1,262 @@
+html, body {
+    background: #f2f3f4;
+}
+
+.banner {
+    width: 100%;
+    height: 350px;
+    background-image: url("../img/lecture.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.centerCont {
+    width: 1218px;
+    margin: 0 auto;
+}
+
+.redAreaList {
+    overflow: hidden;
+    padding: 25px 0;
+}
+
+.redAreaList > li {
+    width: 386px;
+    height: 329px;
+    background: #ffffff;
+    border-radius: 5px;
+    float: left;
+    margin: 0 10px 30px 10px;
+}
+
+.redAreaList > li:hover {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+}
+
+.areaLink {
+    width: 100%;
+    height: 220px;
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+    padding: 168px 25px 28px 25px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.listItemSim {
+    padding: 18px 23px 0 23px;
+}
+
+.simpleT {
+    overflow: hidden;
+}
+
+.title {
+    font-size: 16px;
+    color: #333333;
+    font-weight: 600;
+}
+
+.simpleB {
+    overflow: hidden;
+    padding-top: 16px;
+}
+
+.time, .position {
+    font-size: 12px;
+    color: #999999;
+    line-height: 16px;
+    height: 16px;
+    padding-left: 22px;
+    background-image: url("../img/time.png");
+    background-repeat: no-repeat;
+    background-position: 0 center;
+}
+
+.position {
+    background-image: url("../img/pos.png");
+    margin-top: 5px;
+}
+
+.addMore {
+    width: 360px;
+    height: 42px;
+    line-height: 42px;
+    cursor: pointer;
+    background: #e9eaea;
+    color: #9e9f9f;
+    text-align: center;
+    margin: 0 auto 50px auto;
+}
+
+.shadow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.alertArea {
+    width: 768px;
+    height: 442px;
+    border-radius: 8px;
+    background: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -221px 0 0 -384px;
+}
+
+.alertTop {
+    width: 710px;
+    height: 72px;
+    border-bottom: 1px solid #eeeeee;
+    margin: 0 auto;
+}
+
+.alertTop > p {
+    line-height: 72px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 90px;
+}
+
+.alertShut {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/shutAlert.png");
+    float: right;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+.alertDetail {
+    overflow: hidden;
+    padding: 25px 60px;
+}
+
+.alertSimple {
+    float: left;
+    width: 218px;
+}
+
+.alertContext {
+    float: right;
+    width: 395px;
+}
+
+.alertSimple > img {
+    display: block;
+    width: 218px;
+    height: 121px;
+}
+
+.alertName {
+    font-size: 16px;
+    color: #333333;
+    font-weight: 600;
+    padding-bottom: 12px;
+    padding-top: 15px;
+}
+
+.alertTime, .alertPosition {
+    font-size: 12px;
+    color: #999999;
+    line-height: 16px;
+    padding-left: 22px;
+    background-image: url("../img/time.png");
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+}
+
+.alertPosition {
+    background-image: url("../img/pos.png");
+    margin-top: 2px;
+}
+
+.alertContext {
+    height: 300px;
+    overflow-y: auto;
+}
+
+.alertContext > p {
+    font-size: 14px;
+    color: #333333;
+    line-height: 18px;
+    padding-bottom: 12px;
+}
+
+/*list*/
+.introduceList {
+    border-bottom: 1px solid #eeeeee;
+    overflow: hidden;
+}
+
+.introduceList > li {
+    font-size: 18px;
+    color: #333333;
+    line-height: 20px;
+    float: left;
+    margin: 22px 25px;
+    font-weight: 600;
+    position: relative;
+}
+
+.introduceList > li > p {
+    cursor: pointer;
+}
+
+.introduceList > li > span {
+    display: none;
+    width: 48px;
+    height: 3px;
+    border-radius: 1px;
+    background: #ec5559;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin: 0 0 -22px -24px;
+}
+
+.introduceList > li.active > span {
+    display: block;
+}
+
+.introduceList > li.active > p {
+    color: #ec5559;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

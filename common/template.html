@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template</title>
+</head>
+<body>
+<div id="C_header">
+    <div class="C_topRed">
+        <div>
+            <div class="C_topL">
+                <div class="C_unlogin">
+                    <p>HI，欢迎进入荆楚红！</p>
+                    <div class="C_lOrR">
+                        <a href="login.html">登录&nbsp;&nbsp;|&nbsp;&nbsp;注册</a>
+                    </div>
+                </div>
+                <div class="C_login">
+                    <a href="personalCenter.html" class="C_userImg"></a>
+                    <p class="C_userName"><!--王小亮--></p>
+                    <a id="outLogin" href="javascript:void(0)">退出</a>
+                </div>
+            </div>
+            <div class="C_topR">
+                <a href="helpCenter.html">帮助中心</a>
+                <span>客服电话&nbsp;&nbsp;027-877505557</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="C_bottomWhite">
+        <div>
+            <div class="C_logo"></div>
+            <div class="C_centerBox">
+                <div class="C_cityBox">
+                    <div>
+                        <div class="C_cityInner">
+                            <div class="C_actCity">武汉</div>
+                            <ul class="C_tabs">
+                                <li class="active">武汉</li>
+                                <li>宜昌</li>
+                                <li>恩施</li>
+                                <li>荆州</li>
+                                <li>襄阳</li>
+                                <li>黄冈</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ul class="C_indexTabs">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="provinmap.html">红色地图</a></li>
+                    <li><a href="#">APP下载</a></li>
+                </ul>
+            </div>
+            <div class="C_centerR">
+                <a href="javascript:void(0);" class="C_search">搜索</a>
+                <a href="javascript:void(0);" class="C_enroll">我要报名</a>
+            </div>
+            <div id="C_searchArea">
+                <div class="C_SearchBar">
+                    <input type="text">
+                    <a href="search.html">搜索</a>
+                </div>
+                <div class="C_resultBox">
+                    <ul class="C_resultList">
+                        <li><a class="pointTxt" href="#">第51期光谷·青桐汇成功举办，医疗器械“黑科技“抢...</a></li>
+                        <li><a class="pointTxt" href="#">第51期光谷·青桐汇成功举办，医疗器械“黑科技“抢...</a></li>
+                        <li><a class="pointTxt" href="#">第51期光谷·青桐汇成功举办，医疗器械“黑科技“抢...</a></li>
+                    </ul>
+                    <p>相关搜索结果</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!--脚-->
+<div id="C_footer">
+    <div class="C_footerInner">
+        <div class="C_fListOuter">
+            <p class="C_fListT">关于</p>
+            <ul class="C_fList">
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">加入我们</a></li>
+                <li><a href="#">团队</a></li>
+            </ul>
+        </div>
+        <div class="C_fListOuter">
+            <p class="C_fListT">服务</p>
+            <ul class="C_fList">
+                <li><a href="#">服务条款</a></li>
+                <li><a href="#">隐私协议</a></li>
+            </ul>
+        </div>
+        <div class="C_fListOuter" style="border-right: none;">
+            <p class="C_fListT">产品</p>
+            <ul class="C_fList">
+                <li><a href="#">如何使用</a></li>
+                <li><a href="#">视频介绍</a></li>
+                <li><a href="#">更新历史</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="C_code">
+            <p class="C_fListT">关注我们</p>
+            <div class="C_WxCode">微信公众号</div>
+            <div class="C_AppCode">下载APP</div>
+        </div>
+    </div>
+    <!--弹窗-->
+    <div class="C_enrollShadow C_shutShadow">
+        <div class="C_identifyBox">
+            <div class="C_titleAndShut">
+                <span class="C_shutAll"></span>
+                <p>报名</p>
+            </div>
+            <p class="C_identifyLabel">选择报名对象</p>
+            <div class="C_identifyClk">
+                <div class="C_identify1" id="C_identify1">为孩子报名</div>
+                <div class="C_identify2" id="C_identify2">为自己报名</div>
+                <div class="C_identify3" id="C_identify3">我是老师</div>
+            </div>
+        </div>
+        <div class="C_childEnroll C_shutBox">
+            <div class="C_titleAndShut">
+                <span class="C_shut"></span>
+                <p>为孩子报名</p>
+            </div>
+            <p class="C_identifyLabel">选择报名对象 > 填写报名信息</p>
+            <div class="C_formChild">
+                <form class="layui-form" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">孩子姓名</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="childName"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入孩子姓名"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联系方式</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="phone"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入联系方式（必填项）"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">学历</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="education"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入学历（必填项）"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">地区</label>
+                        <div class="layui-input-inline selectTypeCity" style="width: 180px;">
+                            <select name="city" lay-verify="required" lay-filter="city">
+                                <option value="">请选择市</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline " style="width: 180px;margin-right: 0;">
+                            <select name="street" lay-verify="required" lay-filter="street">
+                                <option value="">请选择区</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">学校</label>
+                        <div class="layui-input-block selectTypeClk poR">
+                            <select name="school"
+                                    lay-verify="required"
+                                    lay-search
+                                    lay-filter="school">
+                                <option value="">请选择学校</option>
+                            </select>
+                            <span class="confirmSchool">确认</span>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">班级</label>
+                        <div class="layui-input-inline" style="width: 180px;">
+                            <select name="grade" lay-verify="required">
+                                <option value="">请选年级</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline" style="width: 180px;margin-right: 0;">
+                            <select name="class" lay-verify="required">
+                                <option value="">请选班级</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">家长姓名</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="fatherName"
+                                   required
+                                   placeholder="请输入家长姓名"
+                                   lay-verify="required"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="formDemo">提交资料</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="C_ownEnroll C_shutBox">
+            <div class="C_titleAndShut">
+                <span class="C_shut"></span>
+                <p>为自己报名</p>
+            </div>
+            <p class="C_identifyLabel">选择报名对象 > 填写报名信息</p>
+            <div class="C_formOwn">
+                <form class="layui-form" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">姓名</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="studentName"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入姓名"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联系方式</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="phone"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入联系方式（必填项）"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">身份</label>
+                        <div class="layui-input-block" id="C_identifyRadio1">
+                            <input type="radio" name="identify" value="学生" title="学生" checked>
+                            <input type="radio" name="identify" value="在职" title="在职">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">学历</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="education"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入学历（必填项）"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">地区</label>
+                        <div class="layui-input-inline" style="width: 180px;">
+                            <select name="city" lay-verify="required" lay-filter="city">
+                                <option value="">请选择市</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline" style="width: 180px;margin-right: 0;">
+                            <select name="street" lay-verify="required" lay-filter="street">
+                                <option value="">请选择区</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item C_studentType">
+                        <label class="layui-form-label">学校</label>
+                        <div class="layui-input-block selectTypeClk poR">
+                            <select name="school" lay-search lay-filter="school">
+                                <option value="">请选择学校</option>
+                            </select>
+                            <span class="confirmSchool">确认</span>
+                        </div>
+                    </div>
+                    <div class="layui-form-item C_studentType">
+                        <label class="layui-form-label">班级</label>
+                        <div class="layui-input-inline" style="width: 180px;">
+                            <select name="grade"
+                                    lay-verify="required">
+                                <option value="">请选年级</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline" style="width: 180px;margin-right: 0;">
+                            <select name="class"
+                                    lay-verify="required">
+                                <option value="">请选班级</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item C_worksType">
+                        <label class="layui-form-label">单位名称</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="company"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入单位名称"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item C_worksType">
+                        <label class="layui-form-label">职位</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="professional"
+                                   placeholder="请输入职位"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item C_worksType">
+                        <label class="layui-form-label">身份证号</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="idCard"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入证件号"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="formDemo">提交资料</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="C_teacherEnroll C_shutBox">
+            <div class="C_titleAndShut">
+                <span class="C_shut"></span>
+                <p>教师报名</p>
+            </div>
+            <p class="C_identifyLabel">选择报名对象 > 填写报名信息</p>
+            <div class="C_formTeacher">
+                <form class="layui-form" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">姓名</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="teacherName"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入姓名"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联系方式</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="phone"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入联系方式（必填项）"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">身份</label>
+                        <div class="layui-input-block" id="C_identifyRadio2">
+                            <input type="radio" name="identify" value="任课老师" title="任课老师" checked>
+                            <input type="radio" name="identify" value="班主任" title="班主任">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">学历</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="education"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入学历（必填项）"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">地区</label>
+                        <div class="layui-input-inline" style="width: 180px;">
+                            <select name="city" lay-verify="required" lay-filter="city">
+                                <option value="">请选择市</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline" style="width: 180px;margin-right: 0;">
+                            <select name="street" lay-verify="required" lay-filter="street">
+                                <option value="">请选择区</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">学校</label>
+                        <div class="layui-input-block selectTypeClk poR">
+                            <select name="school" lay-search lay-filter="school">
+                                <option value="">请选择学校</option>
+                            </select>
+                            <span class="confirmSchool">确认</span>
+                        </div>
+                    </div>
+                    <div class="layui-form-item C_teacherHeadType">
+                        <label class="layui-form-label">班级</label>
+                        <div class="layui-input-inline" style="width: 180px;">
+                            <select name="grade" lay-verify="required">
+                                <option value="">请选年级</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline" style="width: 180px;margin-right: 0;">
+                            <select name="class" lay-verify="required">
+                                <option value="">请选班级</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">身份证号</label>
+                        <div class="layui-input-block">
+                            <input type="text"
+                                   name="idCard"
+                                   required
+                                   lay-verify="required"
+                                   placeholder="请输入证件号"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="formDemo">提交资料</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--loading-->
+    <div class="C_progress" id="C_progress">
+        <svg viewBox="0 0 240 240"
+             style="width: 120px; height: 120px; position: absolute; left: 50%; top: 50%; margin-left: -60px; margin-top: -60px; "
+             version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="circle" class="g-circles g-circles--v1">
+                <circle id="12" transform="translate(35, 16.698730) rotate(-30) translate(-35, -16.698730) " cx="35"
+                        cy="16.6987298" r="10"></circle>
+                <circle id="11" transform="translate(16.698730, 35) rotate(-60) translate(-16.698730, -35) "
+                        cx="16.6987298" cy="35" r="10"></circle>
+                <circle id="10" transform="translate(10, 60) rotate(-90) translate(-10, -60) " cx="10" cy="60"
+                        r="10"></circle>
+                <circle id="9" transform="translate(16.698730, 85) rotate(-120) translate(-16.698730, -85) "
+                        cx="16.6987298" cy="85" r="10"></circle>
+                <circle id="8" transform="translate(35, 103.301270) rotate(-150) translate(-35, -103.301270) " cx="35"
+                        cy="103.30127" r="10"></circle>
+                <circle id="7" cx="60" cy="110" r="10"></circle>
+                <circle id="6" transform="translate(85, 103.301270) rotate(-30) translate(-85, -103.301270) " cx="85"
+                        cy="103.30127" r="10"></circle>
+                <circle id="5" transform="translate(103.301270, 85) rotate(-60) translate(-103.301270, -85) "
+                        cx="103.30127" cy="85" r="10"></circle>
+                <circle id="4" transform="translate(110, 60) rotate(-90) translate(-110, -60) " cx="110" cy="60"
+                        r="10"></circle>
+                <circle id="3" transform="translate(103.301270, 35) rotate(-120) translate(-103.301270, -35) "
+                        cx="103.30127" cy="35" r="10"></circle>
+                <circle id="2" transform="translate(85, 16.698730) rotate(-150) translate(-85, -16.698730) " cx="85"
+                        cy="16.6987298" r="10"></circle>
+                <circle id="1" cx="60" cy="10" r="10"></circle>
+            </g>
+            <use xlink:href="#circle" class="use"/>
+        </svg>
+    </div>
+</div>
+<!--活动-->
+<div id="hotActivity" class="hotActivity">
+    <div class="itemTop" style="background-image: url(img/index27.png);">
+        <p>热门推荐</p>
+        <a href="moreHot.html">更多></a>
+    </div>
+    <ul class="hotL">
+        <li><a href="#" style="background-image: url(img/index33.png);"></a></li>
+        <li><a href="#" style="background-image: url(img/index33.png);"></a></li>
+        <li><a href="#" style="background-image: url(img/index33.png);"></a></li>
+    </ul>
+</div>
+</body>
+</html>

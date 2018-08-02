@@ -1,0 +1,1044 @@
+input {
+    font-size: 14px;
+}
+
+html, body {
+    background: #ffffff;
+    min-width: 1250px;
+}
+
+.layui-btn {
+    background-color: #f05858;
+    width: 200px;
+}
+
+.layui-form-radio > i:hover, .layui-form-radioed > i {
+    color: #f05858;
+}
+
+.layui-form-select dl dd.layui-this {
+    background-color: #f05858;
+}
+
+header {
+    width: 100%;
+    height: 126px;
+}
+
+#C_header {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+}
+
+.C_topRed {
+    width: 100%;
+    height: 34px;
+    background: #ed6363;
+}
+
+.C_bottomWhite {
+    width: 100%;
+    height: 92px;
+}
+
+.C_topRed > div, .C_bottomWhite > div {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.C_topL {
+    float: left;
+    font-size: 12px;
+}
+
+.C_unlogin {
+    display: block;
+    color: #ffffff;
+    font-size: 12px;
+    overflow: hidden;
+    line-height: 34px;
+}
+
+.C_topL.hasLogin > .C_login {
+    display: block;
+}
+
+.C_topL.hasLogin > .C_unlogin {
+    display: none;
+}
+
+.C_lOrR {
+    color: #ffffff;
+    font-size: 12px;
+    padding-left: 20px;
+    float: left;
+}
+
+.C_unlogin > p {
+    float: left;
+}
+
+.C_lOrR > a {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.C_login {
+    display: none;
+    color: #ffffff;
+    font-size: 12px;
+    overflow: hidden;
+    line-height: 34px;
+}
+
+.C_login > a {
+    color: #ffffff;
+    font-size: 12px;
+    display: block;
+    float: left;
+}
+
+.C_userImg {
+    display: block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin: 7px 12px 0 0;
+    background-image: url("../img/login.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.C_userName {
+    float: left;
+    margin-right: 25px;
+}
+
+.C_topR {
+    float: right;
+    overflow: hidden;
+    line-height: 34px;
+}
+
+.C_topR > a {
+    display: block;
+    padding-left: 24px;
+    float: left;
+    color: #ffffff;
+    font-size: 12px;
+    background-image: url("../img/index3.png");
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background-size: 20px 20px;
+}
+
+.C_topR > span {
+    display: block;
+    padding-left: 24px;
+    float: left;
+    margin-left: 20px;
+    color: #ffffff;
+    font-size: 12px;
+    background-image: url("../img/index15.png");
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background-size: 20px 20px;
+}
+
+.C_logo {
+    width: 136px;
+    height: 52px;
+    background-image: url("../img/index2.png");
+    background-repeat: no-repeat;
+    float: left;
+    margin-top: 20px;
+}
+
+.C_centerBox {
+    float: left;
+    margin-left: 20px;
+    padding-left: 225px;
+    position: relative;
+}
+
+.C_cityBox {
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    left: 15px;
+    top: 28px;
+    z-index: 2;
+}
+
+.C_cityBox > div {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.C_cityBox > div:hover {
+    overflow: visible;
+}
+
+.C_cityInner {
+    position: absolute;
+    left: -36px;
+    top: -32px;
+    z-index: 3;
+    width: 298px;
+    height: 220px;
+    background-repeat: no-repeat;
+    background-image: url("../img/index35.png");
+    padding: 45px 0 0 50px;
+}
+
+.C_actCity {
+    width: 40px;
+    font-size: 14px;
+    color: #333333;
+    padding-right: 10px;
+    background-image: url("../img/index36.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.C_tabs {
+    overflow: hidden;
+    margin: 40px 0 0 -7px;
+}
+
+.C_tabs > li {
+    float: left;
+    cursor: pointer;
+    font-size: 14px;
+    height: 26px;
+    line-height: 24px;
+    color: #666666;
+    padding: 0 16px;
+    background: #fafafa;
+    border-radius: 13px;
+    border: 1px solid #eeeeee;
+    margin: 6px 5px;
+}
+
+.C_tabs > li.active, .C_tabs > li:hover {
+    background: #ec5559;
+    border: 1px solid #ec5559;
+    color: #ffffff;
+}
+
+.C_indexTabs {
+    overflow: hidden;
+    padding-top: 30px;
+}
+
+.C_indexTabs > li {
+    float: left;
+}
+
+.C_indexTabs > li > a {
+    display: block;
+    font-size: 16px;
+    height: 38px;
+    color: #222222;
+    margin-right: 74px;
+    line-height: 35px;
+    font-weight: bold;
+}
+
+.C_indexTabs > li.active > a, .C_indexTabs > li > a:hover {
+    border-bottom: 3px solid #ea6262;
+}
+
+.C_indexTabs > li:last-of-type > a {
+    margin-right: 0;
+}
+
+.C_centerR {
+    float: right;
+    overflow: hidden;
+    padding-top: 30px;
+}
+
+.C_search {
+    background-image: url("../img/index28.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    float: left;
+    display: block;
+    font-size: 16px;
+    color: #222222;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    margin-right: 40px;
+    padding-left: 28px;
+}
+
+.C_enroll {
+    float: left;
+    display: block;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: bold;
+    background: #ed6363;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.C_search:hover {
+    color: #222222;
+}
+
+.C_enroll:hover {
+    color: #ffffff;
+}
+
+#C_searchArea {
+    display: none;
+    width: 340px;
+    height: 37px;
+    background: #ed6363;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    border-radius: 2px;
+    padding: 1px;
+    z-index: 999999999;
+}
+
+.C_SearchBar {
+    width: 338px;
+    height: 35px;
+    overflow: hidden;
+}
+
+.C_SearchBar > input {
+    display: block;
+    height: 100%;
+    width: 281px;
+    background: #ffffff;
+    border: 1px solid #ed6363;
+    float: left;
+    padding: 0 10px;
+}
+
+.C_SearchBar > a {
+    display: block;
+    float: right;
+    height: 100%;
+    width: 57px;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.C_resultBox {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e4e4e4;
+    margin-top: 10px;
+}
+
+.C_resultList > li > a {
+    display: block;
+    width: 336px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 11px;
+    color: #555555;
+    font-size: 14px;
+}
+
+.C_resultList > li > a:hover {
+    background: #f0f0f0;
+    color: #555555;
+}
+
+.C_resultBox > p {
+    width: 336px;
+    height: 40px;
+    background: #fcfcfc;
+    color: #333333;
+    line-height: 40px;
+    text-align: center;
+}
+
+footer {
+    width: 100%;
+    height: 376px;
+    background: #ffffff;
+    border-top: 1px solid #e5e6eb;
+}
+
+#C_footer {
+    width: 100%;
+    height: 100%;
+}
+
+#C_footer > .C_footerInner {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 78px 0 0 88px;
+    overflow: hidden;
+}
+
+.C_fListOuter {
+    width: 150px;
+    min-height: 156px;
+    border-right: 1px solid #e5e6eb;
+    float: left;
+    margin-right: 15px;
+}
+
+.C_fListT {
+    font-size: 16px;
+    color: #222222;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.C_fList > li {
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.C_fList > li > a {
+    display: block;
+    float: left;
+    color: #999999;
+}
+
+.C_fList > li > a:hover {
+    color: #ec5559;
+}
+
+.C_code {
+    float: right;
+    padding: 0 90px 0 32px;
+    border-left: 1px solid #e5e6eb;
+    overflow: hidden;
+}
+
+.C_WxCode {
+    float: left;
+    padding-top: 110px;
+    width: 99px;
+    margin-right: 32px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-image: url("../img/WxCode.png");
+    font-size: 12px;
+    color: #999999;
+    text-align: center;
+}
+
+.C_AppCode {
+    float: left;
+    padding-top: 110px;
+    width: 99px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-image: url("../img/AppCode.png");
+    font-size: 12px;
+    color: #999999;
+    text-align: center;
+}
+
+.C_enrollShadow {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.C_identifyBox {
+    width: 652px;
+    height: 420px;
+    background: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -210px 0 0 -326px;
+}
+
+.C_titleAndShut {
+    width: 622px;
+    height: 72px;
+    line-height: 72px;
+    border-bottom: 1px solid #eeeeee;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    color: #333333;
+    font-weight: 600;
+}
+
+.C_titleAndShut > p {
+    text-align: center;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.C_shut, .C_shutAll {
+    float: right;
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 25px 12px 0 0;
+    background-image: url("../img/shutAlert.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.C_identifyLabel {
+    width: 486px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #999999;
+    padding: 18px 0 42px 12px;
+}
+
+.C_identifyClk {
+    width: 486px;
+    margin: 0 auto;
+}
+
+.C_identifyClk > div {
+    width: 142px;
+    height: 186px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    float: left;
+    margin: 0 10px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 118px;
+}
+
+.C_identify1 {
+    background-image: url("../img/yy.png");
+}
+
+.C_identify2 {
+    background-image: url("../img/rz.png");
+}
+
+.C_identify3 {
+    background-image: url("../img/ls.png");
+}
+
+.C_childEnroll, .C_ownEnroll, .C_teacherEnroll {
+    display: none;
+    width: 652px;
+    height: 672px;
+    background: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 99999;
+    left: 50%;
+    top: 50%;
+    margin: -336px 0 0 -326px;
+}
+
+.C_formChild, .C_formOwn, .C_formTeacher {
+    width: 480px;
+    margin: 0 auto;
+}
+
+.C_worksType, .C_teacherHeadType {
+    display: none;
+}
+
+.C_progress {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.l-wrapper {
+    position: absolute;
+    width: 480px;
+    height: 300px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+}
+
+svg {
+    height: 120px;
+    width: 120px;
+    margin: 0 2em 2em;
+    overflow: visible;
+    /*   border: 1px solid red; */
+}
+
+.g-circles {
+    -webkit-transform: scale(0.9) translate(7px, 7px);
+    -ms-transform: scale(0.9) translate(7px, 7px);
+    transform: scale(0.9) translate(7px, 7px);
+}
+
+circle {
+    fill: rgb(237, 99, 99);
+    fill-opacity: 0;
+    -webkit-animation: opacity 1.2s linear infinite;
+    animation: opacity 1.2s linear infinite;
+}
+
+circle:nth-child(12n + 1) {
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+}
+
+circle:nth-child(12n + 2) {
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+}
+
+circle:nth-child(12n + 3) {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+}
+
+circle:nth-child(12n + 4) {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+}
+
+circle:nth-child(12n + 5) {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+
+circle:nth-child(12n + 6) {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+
+circle:nth-child(12n + 7) {
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+}
+
+circle:nth-child(12n + 8) {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+circle:nth-child(12n + 9) {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+circle:nth-child(12n + 10) {
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
+}
+
+circle:nth-child(12n + 11) {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+circle:nth-child(12n + 12) {
+    -webkit-animation-delay: -1.2s;
+    animation-delay: -1.2s;
+}
+
+.g-circles--v2 circle {
+    fill-opacity: 0;
+    stroke-opacity: 0;
+    stroke-width: 1;
+    stroke: yellowgreen;
+    -webkit-animation-name: opacity-stroke, colors, colors-stroke, transform-2;
+    animation-name: opacity-stroke, colors, colors-stroke, transform-2;
+}
+
+.g-circles--v3 circle {
+    fill-opacity: 1;
+    -webkit-animation-name: opacity, colors;
+    animation-name: opacity, colors;
+}
+
+.g-circles--v4 circle {
+    fill-opacity: 1;
+    fill: orange;
+    -webkit-transform-origin: 60px 60px;
+    -ms-transform-origin: 60px 60px;
+    transform-origin: 60px 60px;
+    -webkit-animation-name: opacity, colors-3, transform;
+    animation-name: opacity, colors-3, transform;
+}
+
+@-webkit-keyframes opacity {
+    3% {
+        fill-opacity: 1;
+    }
+
+    75% {
+        fill-opacity: 0;
+    }
+}
+
+@keyframes opacity {
+    3% {
+        fill-opacity: 1;
+    }
+
+    75% {
+        fill-opacity: 0;
+    }
+}
+
+@-webkit-keyframes opacity-stroke {
+    10% {
+        stroke-opacity: 1;
+    }
+
+    85% {
+        stroke-opacity: 0;
+    }
+}
+
+@keyframes opacity-stroke {
+    10% {
+        stroke-opacity: 1;
+    }
+
+    85% {
+        stroke-opacity: 0;
+    }
+}
+
+@-webkit-keyframes colors {
+    0% {
+        fill: yellowgreen;
+    }
+
+    10% {
+        fill: gold;
+    }
+
+    75% {
+        fill: crimson;
+    }
+}
+
+@keyframes colors {
+    0% {
+        fill: yellowgreen;
+    }
+
+    10% {
+        fill: gold;
+    }
+
+    75% {
+        fill: crimson;
+    }
+}
+
+@-webkit-keyframes colors-stroke {
+    0% {
+        stroke: yellowgreen;
+    }
+
+    10% {
+        stroke: gold;
+    }
+
+    75% {
+        stroke: crimson;
+    }
+}
+
+@keyframes colors-stroke {
+    0% {
+        stroke: yellowgreen;
+    }
+
+    10% {
+        stroke: gold;
+    }
+
+    75% {
+        stroke: crimson;
+    }
+}
+
+@-webkit-keyframes colors-2 {
+    0% {
+        fill: yellow;
+    }
+
+    50% {
+        fill: red;
+    }
+
+    65% {
+        fill: orangered;
+    }
+
+    95% {
+        fill: gold;
+    }
+}
+
+@keyframes colors-2 {
+    0% {
+        fill: yellow;
+    }
+
+    50% {
+        fill: red;
+    }
+
+    65% {
+        fill: orangered;
+    }
+
+    95% {
+        fill: gold;
+    }
+}
+
+@-webkit-keyframes colors-3 {
+    0% {
+        fill: yellowgreen;
+    }
+
+    50% {
+        fill: turquoise;
+    }
+
+    65% {
+        fill: yellow;
+    }
+
+    95% {
+        fill: orange;
+    }
+}
+
+@keyframes colors-3 {
+    0% {
+        fill: yellowgreen;
+    }
+
+    50% {
+        fill: turquoise;
+    }
+
+    65% {
+        fill: yellow;
+    }
+
+    95% {
+        fill: orange;
+    }
+}
+
+@-webkit-keyframes transform {
+    10% {
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+    }
+}
+
+@keyframes transform {
+    10% {
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+    }
+}
+
+@-webkit-keyframes transform-2 {
+    40% {
+        -webkit-transform: scale(0.85);
+        transform: scale(0.85);
+    }
+
+    60% {
+        stroke-width: 20;
+    }
+}
+
+@keyframes transform-2 {
+    40% {
+        -webkit-transform: scale(0.85);
+        transform: scale(0.85);
+    }
+
+    60% {
+        stroke-width: 20;
+    }
+}
+/*729hot*/
+.hotActivity {
+    width: 380px;
+    float: right;
+}
+
+.hotL {
+    background: #ffffff;
+    height: 430px;
+    padding: 30px;
+}
+
+.hotL > li {
+    width: 320px;
+    height: 112px;
+    margin-bottom: 20px;
+}
+
+.hotL > li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+/*730*/
+.confirmSchool{
+    width: 60px;
+    line-height: 38px;
+    text-align: center;
+    color: #5991e3;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    cursor:pointer;
+}
+.shadow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.alertArea {
+    width: 768px;
+    height: 442px;
+    border-radius: 8px;
+    background: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -221px 0 0 -384px;
+}
+
+.alertTop {
+    width: 710px;
+    height: 72px;
+    border-bottom: 1px solid #eeeeee;
+    margin: 0 auto;
+}
+
+.alertTop > p {
+    line-height: 72px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 90px;
+}
+
+.alertShut {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/shutAlert.png");
+    float: right;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+.alertDetail {
+    overflow: hidden;
+    padding: 25px 60px;
+}
+
+.alertSimple {
+    float: left;
+    width: 218px;
+}
+
+.alertContext {
+    float: right;
+    width: 395px;
+}
+
+.alertSimple > img {
+    display: block;
+    width: 218px;
+    height: 121px;
+}
+
+.alertName {
+    font-size: 16px;
+    color: #333333;
+    font-weight: 600;
+    padding-bottom: 12px;
+    padding-top: 15px;
+}
+
+.alertTime, .alertPosition {
+    font-size: 12px;
+    color: #999999;
+    line-height: 16px;
+    padding-left: 22px;
+    background-image: url("../img/time.png");
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+}
+
+.alertPosition {
+    background-image: url("../img/pos.png");
+    margin-top: 2px;
+}
+
+.alertContext {
+    height: 300px;
+    overflow-y: auto;
+}
+
+.alertContext > p {
+    font-size: 14px;
+    color: #333333;
+    line-height: 18px;
+    padding-bottom: 12px;
+}

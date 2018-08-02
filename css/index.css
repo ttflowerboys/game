@@ -1,0 +1,580 @@
+.container {
+    background: #f2f3f4;
+    padding-bottom: 45px;
+}
+
+.banner {
+    width: 100%;
+    height: 451px;
+    background-image: url("../img/index1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+}
+.centerCont {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.toTitlePage {
+    overflow: hidden;
+    padding: 28px 0;
+}
+
+.toTitlePage > li {
+    width: 194px;
+    height: 80px;
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 7px;
+}
+
+.toTitlePage > li:nth-child(1) {
+    background-image: url("../img/index18.png");
+    margin-left: 0;
+}
+
+.toTitlePage > li:nth-child(2) {
+    background-image: url("../img/index19.png");
+}
+
+.toTitlePage > li:nth-child(3) {
+    background-image: url("../img/index17.png");
+}
+
+.toTitlePage > li:nth-child(4) {
+    background-image: url("../img/index20.png");
+}
+
+.toTitlePage > li:nth-child(5) {
+    background-image: url("../img/index24.png");
+}
+
+.toTitlePage > li:nth-child(6) {
+    background-image: url("../img/index21.png");
+}
+
+.toTitlePage > li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0 0 28px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.toTitlePage > li > a > span {
+    display: block;
+    margin-top: 6px;
+    text-align: center;
+    width: 48px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 9px;
+    font-size: 12px;
+    color: #ffffff;
+    background: #f54e33;
+}
+
+.itemTop {
+    width: 100%;
+    height: 65px;
+    line-height: 65px;
+    background-color: #fcfcfc;
+    padding: 0 26px 0 65px;
+    background-repeat: no-repeat;
+    background-position: 30px center;
+}
+
+.itemTop > p {
+    color: #222222;
+    font-size: 22px;
+    float: left;
+    font-weight: 600;
+}
+
+.itemTop > a {
+    display: block;
+    color: #666666;
+    font-size: 12px;
+    float: right;
+}
+
+.itemTop > a:hover {
+    color: #f54e33;
+}
+
+.starAndHot {
+    overflow: hidden;
+}
+
+.smallStar {
+    width: 790px;
+    float: left;
+}
+
+.smallStarL {
+    overflow: hidden;
+    background: #ffffff;
+    height: 430px;
+    padding: 20px 25px;
+}
+
+.smallStarL > li {
+    float: left;
+    width: 167px;
+    height: 180px;
+    margin: 12px 9px;
+}
+
+.smallStarL > li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.smallStarL > li > a > div {
+    width: 100%;
+    height: 124px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.smallStarL > li > a > p {
+    color: #222222;
+    font-size: 16px;
+    padding: 10px 10px 5px 10px;
+    font-weight: 600;
+}
+
+.smallStarL > li > a > span {
+    font-size: 12px;
+    color: #666666;
+    display: block;
+    padding: 0 10px;
+}
+
+.hotActivity {
+    width: 380px;
+    float: right;
+}
+
+.hotL {
+    background: #ffffff;
+    height: 430px;
+    padding: 30px;
+}
+
+.hotL > li {
+    width: 320px;
+    height: 112px;
+    margin-bottom: 20px;
+}
+
+.hotL > li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.showType, .voteType, .bookType {
+    overflow: hidden;
+    margin-top: 28px;
+}
+
+.moreActivity {
+    float: left;
+    width: 194px;
+    height: 323px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.moreActivity > p {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 46px;
+}
+
+.moreActivity > a {
+    display: block;
+    width: 100px;
+    margin: 14px auto;
+    font-size: 14px;
+    color: #ffffff;
+    height: 36px;
+    line-height: 36px;
+    padding-left: 26px;
+    box-sizing: border-box;
+    border-radius: 18px;
+    background-image: url("../img/index26.png");
+    background-repeat: no-repeat;
+    background-position: 70px center;
+}
+
+.showList {
+    float: right;
+    background: #ffffff;
+    overflow: hidden;
+    width: 1006px;
+    height: 323px;
+    padding: 30px 44px;
+}
+
+.showList > li {
+    width: 286px;
+    float: left;
+    margin: 0 10px;
+}
+
+.showList > li > a {
+    display: block;
+    width: 100%;
+    height: 214px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.showList > li > a > div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.showList > li > a > div > span {
+    display: block;
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -26px 0 0 -26px;
+    background-image: url("../img/play.png");
+    background-repeat: no-repeat;
+}
+
+.showList > li > a.haveVideo:hover > div {
+    opacity: 1;
+}
+
+.showList > li > p {
+    font-size: 16px;
+    color: #222222;
+    font-weight: 600;
+    padding: 10px 10px 6px 10px;
+}
+
+.showList > li > span {
+    font-size: 12px;
+    color: #666666;
+    padding: 0 10px;
+}
+
+.voteList {
+    float: right;
+    background: #ffffff;
+    overflow: hidden;
+    width: 1006px;
+    height: 323px;
+    padding: 30px 44px;
+}
+
+.voteList > li {
+    width: 286px;
+    float: left;
+    margin: 0 10px;
+    position: relative;
+}
+
+.voteList > li > a {
+    display: block;
+    width: 100%;
+    height: 214px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.voteList > li > a > div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.voteList > li > a > div > span {
+    display: block;
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -26px 0 0 -26px;
+    background-image: url("../img/play.png");
+    background-repeat: no-repeat;
+}
+
+.voteList > li > a.haveVideo:hover > div {
+    opacity: 1;
+}
+
+.voteList > li > p {
+    font-size: 16px;
+    color: #222222;
+    font-weight: 600;
+    padding: 10px 10px 6px 10px;
+    max-width: 142px;
+}
+
+.voteList > li > span {
+    font-size: 12px;
+    color: #666666;
+    padding: 0 10px;
+    max-width: 142px;
+}
+
+.clkZanBox {
+    width: 126px;
+    height: 38px;
+    background: #fdf6e7;
+    border-radius: 19px;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    padding-left: 10px;
+}
+
+.clkZanBox > p {
+    font-size: 12px;
+    line-height: 17px;
+    color: #ed6263;
+    height: 17px;
+    margin: 10px 0 0 0;
+    border-right: 1px solid #f8e2cc;
+    width: 60px;
+    text-align: center;
+    float: left;
+}
+
+.clkZan {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-image: url("../img/index5.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: right;
+    margin: 9px 20px 0 0;
+}
+
+.clkZan.active {
+    background-image: url("../img/index6.png");
+}
+
+.bookList {
+    float: right;
+    background: #ffffff;
+    overflow: hidden;
+    width: 1006px;
+    height: 323px;
+    padding: 30px 44px;
+}
+
+.bookList > li {
+    width: 286px;
+    float: left;
+    margin: 0 10px;
+    position: relative;
+}
+
+.bookList > li > a {
+    display: block;
+    width: 100%;
+    height: 214px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.bookList > li > p {
+    font-size: 16px;
+    color: #222222;
+    font-weight: 600;
+    padding: 10px 10px 6px 10px;
+    max-width: 280px;
+}
+
+.bookList > li > span {
+    font-size: 12px;
+    color: #666666;
+    padding: 0 10px;
+    max-width: 150px;
+    display: block;
+}
+
+.bookLikeManNum {
+    position: absolute;
+    right: 12px;
+    bottom: -2px;
+    height: 18px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #666666;
+    padding-left: 20px;
+    background-image: url("../img/index11.png");
+    background-repeat: no-repeat;
+    background-position: 0 center;
+}
+
+.imgAndQus {
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.answerQus {
+    width: 585px;
+    float: left;
+}
+
+.answerQusList {
+    background: #ffffff;
+    height: 289px;
+    padding: 30px;
+}
+
+.answerQusList > li {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.answerQusListL {
+    float: left;
+    color: #ffffff;
+    background: #ed6263;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.answerQusListR {
+    float: right;
+    width: 485px;
+    border-bottom: 1px solid #f2f3f4;
+    position: relative;
+}
+
+.answerQusList > li:last-of-type .answerQusListR {
+    border: none;
+}
+
+.title {
+    font-size: 14px;
+    color: #222222;
+    line-height: 18px;
+    display: block;
+}
+
+.title:hover {
+    color: #ed6263;
+}
+
+.answerQusNum {
+    font-size: 12px;
+    line-height: 18px;
+    color: #666666;
+    padding-left: 20px;
+    background-image: url("../img/index13.png");
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    margin: 10px 0 12px 0;
+}
+
+.type2 > .title {
+    width: 390px;
+}
+
+.type2 > .img {
+    width: 86px;
+    height: 64px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.question {
+    width: 585px;
+    float: left;
+    margin-left: 30px;
+}
+
+.questionList {
+    background: #ffffff;
+    height: 289px;
+    padding: 30px;
+}
+
+.questionList > li {
+    width: 520px;
+    border-bottom: 1px solid #f2f3f4;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.questionList > li:last-of-type {
+    border: none;
+}
+
+.questionList > li > a {
+    font-size: 14px;
+    color: #222222;
+    line-height: 18px;
+    display: block;
+    width: 420px;
+}
+
+.questionList > li > a:hover {
+    color: #ed6263;
+}
+
+.questionList > li > .QusNum {
+    font-size: 12px;
+    line-height: 18px;
+    color: #666666;
+    padding-left: 20px;
+    background-image: url("../img/index31.png");
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    margin: 10px 0 12px 0;
+}
+
+.questionList > li > .img {
+    width: 86px;
+    height: 64px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/*730*/
+#bannerIndex{
+    height: 451px!important;
+}
+
+

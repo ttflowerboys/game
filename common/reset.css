@@ -1,0 +1,128 @@
+html,
+body,
+div,
+p,
+ul,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+input,
+select,
+button,
+textarea,
+iframe,
+table,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+    box-sizing:border-box;
+}
+
+a,button{
+/*删除选中*/
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;  /*Non-prefixed version, currently*/
+    box-sizing:border-box;
+/*删除选中*/
+}
+
+img {
+    border: 0 none;
+    vertical-align: top;
+    box-sizing:border-box;
+}
+
+ul,
+li {
+    list-style-type: none;
+    box-sizing:border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 14px;
+    box-sizing:border-box;
+}
+
+body,
+input,
+select,
+button,
+textarea {
+    font-size: 12px;
+    font-family: "Microsoft YaHei", "微软雅黑", Tahoma, Geneva, sans-serif;
+    box-sizing:border-box;
+}
+
+button {
+    cursor: pointer;
+    box-sizing:border-box;
+}
+
+i,
+em,
+cite {
+    font-style: normal;
+    box-sizing:border-box;
+}
+
+body {
+    background: #fff;
+    line-height: 1.2;
+    box-sizing:border-box;
+}
+
+a,
+a:link {
+    text-decoration: none;
+}
+
+a:active,
+a:hover {
+    text-decoration: none
+}
+
+a:focus {
+    outline: none
+}
+
+.clear{
+    display: block;
+    clear: both;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+.pointTxt{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    word-break: break-all;
+}
+.pointTxtS{
+    display: -webkit-box !important;
+    word-break: break-all;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2
+}
+input:focus{outline: 1px solid #e52c3f;}

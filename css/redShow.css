@@ -1,0 +1,51 @@
+html,body{background: #f2f3f4;}
+.banner{width: 100%;height: 350px;background-image: url("../img/redShow.png");background-repeat: no-repeat;background-position: center;}
+.centerCont{width: 1218px;margin: 0 auto;}
+
+.redAreaList{overflow: hidden;padding: 25px 0;}
+.redAreaList>li{width: 386px;height:293px;background: #ffffff;border-radius: 5px;float: left;margin: 0 10px 30px 10px;}
+.redAreaList>li:hover{box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);}
+.areaLink{width: 100%;height: 220px;box-sizing:border-box;display: block;position: relative;border-radius: 5px 5px 0 0;padding: 168px 25px 28px 25px;background-repeat: no-repeat;background-size: 100% 100%;}
+.bottomFix{position: absolute;left: 0;bottom: 0;width: 100%;overflow: hidden;padding: 12px 25px;}
+.timeBox{float: left;height: 24px;overflow: hidden;}
+.timeLabel{display: block;float: left;line-height: 24px;font-size: 12px;color: #ffffff;border-radius: 12px 0 0 12px;background: #ee5357;padding: 0 8px;}
+.timeDate{display: block;float: left;line-height: 24px;font-size: 12px;color: #ffffff;border-radius: 0 12px 12px 0;background: #9f9f9f;padding: 0 8px;}
+.visitNum{float: right;height: 24px;line-height: 24px;font-size: 12px;color: #ffffff;padding-left: 22px;background-image: url("../img/index31.png");background-repeat: no-repeat;background-position: 0 center;}
+
+.listItemSim{padding: 18px 23px 0 23px;}
+.simpleT{overflow: hidden;}
+.title{font-size: 14px;color: #333333;}
+.simpleB{overflow: hidden;padding-top: 6px;}
+.address{font-size: 12px;color: #999999;}
+
+.addMore{width: 360px; height: 42px;line-height: 42px;cursor: pointer;background: #e9eaea;color: #9e9f9f;text-align: center;margin: 0 auto 50px auto;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

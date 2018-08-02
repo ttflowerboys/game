@@ -1,0 +1,46 @@
+html,body{background: #f2f3f4;}
+.banner{width: 100%;height: 350px;background-image: url("../img/culture.png");background-repeat: no-repeat;background-position: center;}
+
+.centerCont{overflow: hidden;width: 1200px;margin: 0 auto;padding: 32px 0 80px 0;}
+.contL{float: left;width: 790px;}
+.contR{float: right;}
+.hotActivity{width: 380px;float: right;}
+.itemTop{width: 100%;height: 65px;line-height: 65px;background-color: #fcfcfc;padding: 0 26px 0 65px;background-repeat: no-repeat;background-position: 30px center;}
+.itemTop>p{color: #222222;font-size: 22px;float: left;font-weight: 600;}
+.itemTop>a{display: block; color: #666666;font-size: 12px;float: right;}
+.itemTop>a:hover{color: #f54e33;}
+.hotL{background: #ffffff;height: 430px;padding: 30px;}
+.hotL>li{width: 320px; height: 112px;margin-bottom: 20px;}
+.hotL>li>a{display: block;width: 100%;height: 100%;background-repeat: no-repeat;background-size: 100% 100%;}
+
+.introduceArea{background: #ffffff;width: 100%;padding-bottom: 1px;}
+.introduceList{border-bottom: 1px solid #eeeeee;overflow: hidden;}
+.introduceList>li{font-size: 18px;color: #333333;line-height: 20px;float: left;margin: 22px 25px;font-weight: 600;position: relative;}
+.introduceList>li>p{cursor: pointer;}
+.introduceList>li>span{display: none;width: 48px;height: 3px;border-radius: 1px;background: #ec5559;position: absolute;left: 50%;bottom:0;margin: 0 0 -22px -24px;}
+.introduceList>li.active>span{display: block;}
+.introduceList>li.active>p{color: #ec5559;}
+.introduceCont{padding: 26px;}
+.introduceCont>li{overflow: hidden;margin-bottom: 20px;}
+.introduceCont>li>img{display: block;float: left;border: none;width: 196px;height: 146px;}
+.contextBox{float: right;width: 536px;height: 146px;border-bottom: 1px solid #eeeeee;padding-left: 26px;}
+.context{height: 90px;font-size: 16px;line-height: 20px;padding-top: 10px;overflow: hidden;}
+.context>a{color: #333333;}
+.context>a:hover{color: #ec5559;}
+.webAndTime{overflow: hidden;padding-top: 10px;}
+.website{display: block;float: left;font-size: 12px;color: #999999;}
+.time{display: block;float: right;font-size: 12px;color: #999999;}
+
+.addMore{width: 360px; height: 42px;line-height: 42px;cursor: pointer;background: #e9eaea;color: #9e9f9f;text-align: center;margin: 0 auto 50px auto;}
+
+
+
+
+
+
+
+
+
+
+
+

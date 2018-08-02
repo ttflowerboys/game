@@ -1,0 +1,694 @@
+html, body {
+    background: #f2f3f4;
+}
+
+.banner {
+    width: 100%;
+    background: #f25b51;
+}
+
+.location {
+    height: 40px;
+    width: 1200px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: #ffffff;
+    line-height: 40px;
+}
+
+.location > a {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.bannerCont {
+    width: 1200px;
+    height: 380px;
+    background: #ffffff;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 40px 30px;
+}
+
+.contImg {
+    float: left;
+    width: 498px;
+    height: 282px;
+}
+
+.contSimple {
+    float: right;
+    width: 610px;
+}
+
+.simpleT {
+    overflow: hidden;
+}
+
+.areaName {
+    float: left;
+    font-size: 24px;
+    color: #222222;
+}
+
+.areaComment {
+    float: right;
+    overflow: hidden;
+}
+
+.commentNum {
+    float: left;
+    font-size: 12px;
+    color: #666666;
+    height: 30px;
+    line-height: 30px;
+}
+
+.commentImg {
+    float: left;
+    margin: 7px 10px 0 10px;
+    display: block;
+}
+
+.commentScore {
+    float: left;
+    font-size: 20px;
+    color: #222222;
+    height: 30px;
+    line-height: 30px;
+}
+
+.simpleDetail {
+    width: 100%;
+    background: #f9f9f9;
+    padding: 16px 20px;
+    margin-top: 24px;
+}
+
+.simpleItem {
+    overflow: hidden;
+    padding: 6px 0;
+}
+
+.simpleItem > .label {
+    font-size: 12px;
+    color: #666666;
+    line-height: 16px;
+    float: left;
+    display: block;
+    width: 74px;
+}
+
+.simpleItem > p {
+    font-size: 14px;
+    color: #333333;
+    line-height: 16px;
+    float: left;
+}
+
+.appointment {
+    display: block;
+    width: 150px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    background: #ec5559;
+    margin-top: 22px;
+    cursor: pointer;
+}
+
+.appointment > input {
+    display: block;
+    width: 0;
+    height: 0;
+    border: none;
+    opacity: 0;
+}
+
+.centerCont {
+    overflow: hidden;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 32px 0 80px 0;
+}
+
+.contL {
+    float: left;
+    width: 790px;
+}
+
+.contR {
+    float: right;
+}
+
+.hotActivity {
+    width: 380px;
+    float: right;
+}
+
+.itemTop {
+    width: 100%;
+    height: 65px;
+    line-height: 65px;
+    background-color: #fcfcfc;
+    padding: 0 26px 0 65px;
+    background-repeat: no-repeat;
+    background-position: 30px center;
+}
+
+.itemTop > p {
+    color: #222222;
+    font-size: 22px;
+    float: left;
+    font-weight: 600;
+}
+
+.itemTop > a {
+    display: block;
+    color: #666666;
+    font-size: 12px;
+    float: right;
+}
+
+.itemTop > a:hover {
+    color: #f54e33;
+}
+
+.hotL {
+    background: #ffffff;
+    height: 430px;
+    padding: 30px;
+}
+
+.hotL > li {
+    width: 320px;
+    height: 112px;
+    margin-bottom: 20px;
+}
+
+.hotL > li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.introduceArea {
+    background: #ffffff;
+    width: 100%;
+}
+
+.introduceList {
+    border-bottom: 1px solid #eeeeee;
+    overflow: hidden;
+}
+
+.introduceList > li {
+    font-size: 18px;
+    color: #333333;
+    line-height: 20px;
+    float: left;
+    margin: 22px 25px;
+    font-weight: 600;
+    position: relative;
+}
+
+.introduceList > li > p {
+    cursor: pointer;
+}
+
+.introduceList > li > span {
+    display: none;
+    width: 48px;
+    height: 3px;
+    border-radius: 1px;
+    background: #ec5559;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin: 0 0 -22px -24px;
+}
+
+.introduceList > li.active > span {
+    display: block;
+}
+
+.introduceCont {
+    width: 100%;
+    height: 430px;
+    padding: 30px;
+}
+
+.timeLine {
+    position: relative;
+    padding-left: 100px;
+    padding-top: 10px;
+}
+
+.yd {
+    background: url("../img/bigdian.png") no-repeat center;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -58px;
+}
+.sy {
+    background: url("../img/sy.png") no-repeat center;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.xy{
+    background: url("../img/xy.png") no-repeat center;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.line {
+    width: 3px;
+    background-color: #aaa;
+    height: 100%;
+    position: absolute;
+    left: 50px;
+    top: 0px;
+}
+
+.writeComment {
+    overflow: hidden;
+    background: #ffffff;
+    margin-top: 30px;
+    padding: 40px 30px;
+}
+
+.myUserImg {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    float: left;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.writeCommentArea {
+    float: right;
+    width: 680px;
+}
+
+.commentForm {
+    overflow: hidden;
+}
+
+.commentInputArea {
+    float: left;
+    width: 360px;
+    border: 1px solid #e5e5e5;
+}
+
+.commentFaceArea {
+    float: right;
+    width: 286px;
+}
+
+.commentTitle {
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px solid #e5e5e5;
+    line-height: 35px;
+    color: #555555;
+    background: #f3f3f3;
+    padding: 0 18px;
+}
+
+.commentPlace {
+    display: block;
+    width: 100%;
+    height: 100px;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.commentPicture {
+    width: 100%;
+    height: 82px;
+    overflow: hidden;
+    padding: 10px 20px;
+}
+
+.commentPicture > div {
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin-right: 10px;
+}
+
+.addImg {
+    border: 1px dashed #e5e5e5;
+    font-size: 12px;
+    color: #999999;
+    text-align: center;
+    padding-top: 38px;
+    cursor: pointer;
+    background-image: url("../img/camera.png");
+    background-repeat: no-repeat;
+    background-position: center 13px;
+}
+
+.showImg {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.showImg > div {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    line-height: 60px;
+    text-align: center;
+    display: none;
+}
+
+.showImg:hover > div {
+    display: block;
+}
+
+.commentLabel {
+    font-size: 15px;
+    color: #333333;
+    font-weight: 600;
+    line-height: 18px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+}
+
+.faceBox {
+    overflow: hidden;
+    padding: 10px 0 28px 0;
+}
+
+.faceClk {
+    float: left;
+    overflow: hidden;
+}
+
+.faceClk > div {
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+    background-repeat: no-repeat;
+    float: left;
+    cursor: pointer;
+}
+
+.faceType1 {
+    background-image: url("../img/face1.png");
+}
+
+.faceType1.active {
+    background-image: url("../img/face11.png");
+}
+
+.faceType2 {
+    background-image: url("../img/face2.png");
+}
+
+.faceType2.active {
+    background-image: url("../img/face22.png");
+}
+
+.faceType3 {
+    background-image: url("../img/face3.png");
+}
+
+.faceType3.active {
+    background-image: url("../img/face33.png");
+}
+
+.faceType4 {
+    background-image: url("../img/face4.png");
+}
+
+.faceType4.active {
+    background-image: url("../img/face44.png");
+}
+
+.faceType5 {
+    background-image: url("../img/face5.png");
+}
+
+.faceType5.active {
+    background-image: url("../img/face55.png");
+}
+
+.faceTxt {
+    float: right;
+    font-size: 12px;
+    color: #999999;
+    line-height: 24px;
+}
+
+.fireTheStar {
+    padding-top: 5px;
+}
+
+.fireTheStar > li {
+    margin-top: 10px;
+}
+
+.fireStar {
+    overflow: hidden;
+}
+
+.fireStarLabelL {
+    color: #777777;
+    font-size: 12px;
+    line-height: 16px;
+    float: left;
+}
+
+.clkStarBox {
+    float: left;
+    height: 16px;
+    overflow: hidden;
+}
+
+.clkStar {
+    width: 18px;
+    height: 16px;
+    background-image: url("../img/xx1.png");
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.clkStar.active {
+    background-image: url("../img/xx2.png");
+}
+
+.fireStarLabelR {
+    color: #cccccc;
+    font-size: 12px;
+    line-height: 16px;
+    float: right;
+}
+
+.subBtn {
+    width: 150px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    background: #ec5559;
+    margin-top: 22px;
+    cursor: pointer;
+}
+
+.userComment {
+    background: #ffffff;
+}
+
+.userCommentTitle {
+    border-bottom: 1px solid #e5e5e5;
+    padding-left: 34px;
+    overflow: hidden;
+}
+
+.userC {
+    display: block;
+    font-size: 18px;
+    color: #333333;
+    line-height: 40px;
+    font-weight: 600;
+    float: left;
+    position: relative;
+}
+
+.userC > span {
+    display: block;
+    width: 42px;
+    height: 3px;
+    border-radius: 2px;
+    background: #e15b5b;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin: 0 0 0 -21px;
+}
+
+.userN {
+    display: block;
+    font-size: 14px;
+    color: #333333;
+    line-height: 40px;
+    float: left;
+    padding-left: 10px;
+}
+
+.userCommentList {
+    padding: 30px 30px 54px 30px;
+}
+
+.userCommentList > li {
+    overflow: hidden;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 16px;
+}
+
+.userPhoto {
+    float: left;
+    width: 38px;
+    height: 38px;
+    border-radius: 19px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.userCommentBox {
+    float: right;
+    width: 675px;
+}
+
+.userName {
+    font-size: 14px;
+    color: #333333;
+}
+
+.userInfo {
+    overflow: hidden;
+    padding: 3px 0 10px 0;
+}
+
+.organization {
+    float: left;
+    font-size: 12px;
+    color: #999999;
+    line-height: 16px;
+}
+
+.timeAndScore {
+    float: right;
+    overflow: hidden;
+}
+
+.timeAndScore > div {
+    float: left;
+}
+
+.commentTime {
+    font-size: 12px;
+    color: #999999;
+    line-height: 16px;
+    border-right: 1px solid #eeeeee;
+    padding-right: 10px;
+}
+
+.userScoreImg {
+    width: 76px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    margin: 0 10px;
+}
+
+.score0 {
+    background-image: url("../img/0.png");
+}
+
+.score1 {
+    background-image: url("../img/1.png");
+}
+
+.score2 {
+    background-image: url("../img/2.png");
+}
+
+.score3 {
+    background-image: url("../img/3.png");
+}
+
+.score4 {
+    background-image: url("../img/4.png");
+}
+
+.score5 {
+    background-image: url("../img/5.png");
+}
+
+.userScoreTxt {
+    font-size: 14px;
+    color: #ec5559;
+    line-height: 16px;
+}
+
+.commentContext {
+    font-size: 14px;
+    color: #333333;
+    line-height: 18px;
+}
+
+.commentContextImgBox {
+    overflow: hidden;
+}
+
+.commentContextImg {
+    float: left;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 152px;
+    height: 115px;
+    margin: 10px 10px 0 0;
+}
+
+.commentContextImg:nth-child(4n) {
+    margin: 10px 0 0 0;
+}
+
+/*730*/
+#mySlide {
+    width: 498px !important;
+}
+
+
+
+
+

@@ -1,0 +1,855 @@
+.w1200 {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.container_inner {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -600px;
+    height: 451px;
+}
+
+.login {
+    .container {
+        padding-bottom: 0;
+        position: relative;
+        .form_wrap {
+            width: 312px;
+            padding: 30px 40px;
+            position: absolute;
+            right: 0;
+            top: 30px;
+            background: #fff;
+            .toggle_nav {
+                font-size: 0;
+                padding-bottom: 38px;
+                text-align: center;
+                a {
+                    display: inline-block;
+                    font-size: 16px;
+                    color: #333;
+                    padding: 0 20px;
+                    border-right: 1px solid #d9d9d9;
+                    line-height: 16px;
+                }
+                a:last-of-type {
+                    border-right: none;
+                }
+                a.active {
+                    font-size: 20px;
+                    position: relative;
+                }
+                a.active:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -13px;
+                    height: 3px;
+                    width: 26px;
+                    bottom: -12px;
+                    background: #ec5559;
+                }
+            }
+            .form_inner {
+
+                .form_bottom {
+                    >a {
+                        font-size: 12px;
+                        color: #333;
+                        text-align: right;
+                        display: block;
+                        padding-top: 12px;
+                    }
+                    >a:hover {
+                        color: #ff674f;
+                    }
+                    .other_login {
+                        margin-top: 20px;
+                        h3 {
+                            font-size: 12px;
+                            color: #d8d8d8;
+                        }
+                        h3:before {
+                            content: "";
+                            height: 1px;
+                            background: #d8d8d8;
+                            width: 60px;
+                            display: inline-block;
+                            vertical-align: middle;
+                            margin-right: 20px;
+                        }
+                        h3:after {
+                            content: "";
+                            height: 1px;
+                            background: #d8d8d8;
+                            width: 60px;
+                            display: inline-block;
+                            vertical-align: middle;
+                            margin-left: 20px;
+                        }
+                        ul {
+                            width: 100%;
+                            display: table;
+                            padding-top: 20px;
+                            li {
+                                display: table-cell;
+                                text-align: justify;
+                                width: 40px;
+                                height: 40px;
+                            }
+                            li.weixin {
+                                background: url(../img/person/weixin.png)no-repeat center center;
+                                background-size: 40px 40px;
+                            }
+                            li.weibo {
+                                background: url(../img/person/weibo.png)no-repeat center center;
+                                background-size: 40px 40px;
+                            }
+                            li.qq {
+                                background: url(../img/person/qq.png)no-repeat center center;
+                                background-size: 40px 40px;
+                            }
+                        }
+                    }
+                }
+                .other {
+                    color: #333;
+                    padding-bottom: 30px;
+                    padding-top: 10px;
+                    input[type=checkbox] {
+                        font-size: 12px;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    input[type=checkbox]:focus {
+                        outline: none;
+                    }
+                    p {
+                        display: inline-block;
+                        vertical-align: middle;
+                        padding-left: 5px;
+                        cursor: pointer;
+                        a {
+                            font-size: 12px;
+                            color: #555;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.input_control {
+    width: 100%;
+    background: #fff;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    line-height: 40px;
+    box-sizing: border-box;
+    font-size: 0;
+    .tel {
+        background: url(../img/person/tel.png)no-repeat center center;
+        background-size: 12px 16px;
+        width: 20%;
+        height: 16px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .valid {
+        background: url(../img/person/valid.png)no-repeat center center;
+        background-size: 14px 13px;
+        width: 20%;
+        height: 16px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .valid_btn {
+        width: 92px;
+        height: 24px;
+        background: #ed6363;
+        cursor:pointer;
+        border-radius: 12px;
+        color: #fff;
+        font-size: 14px;
+        line-height: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        margin-left: 10px;
+    }
+    .password {
+        background: url(../img/person/password.png)no-repeat center center;
+        background-size: 14px 16px;
+        width: 20%;
+        height: 16px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    input[type=text],
+    input[type=password] {
+        width: 70%;
+        border: none;
+        background: none;
+        line-height: 40px;
+        color: #333;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    input.valid {
+        width: 30%;
+    }
+    input:focus {
+        outline: none;
+    }
+}
+
+.submit_box {
+    width: 100%;
+    input[type=button] {
+        width: 100%;
+        height: 40px;
+        background: #ff674f;
+        color: #fff;
+        font-size: 15px;
+        border-radius: 5px;
+        border: none;
+    }
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+}
+
+
+
+
+
+
+
+
+/* 荆楚问答 */
+
+.jingchuQA {
+    .main_box {
+        margin-top: 30px;
+        .main_list {
+            padding: 30px;
+            background: #fff;
+            width: 790px;
+            box-sizing: border-box;
+            .top_item {
+                border-bottom: 1px solid #f2f3f4;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+                .top_nav {
+                    a {
+                        font-size: 18px;
+                        color: #333;
+                        text-align: center;
+                        margin-right: 40px;
+                    }
+                    a.active {
+                        color: #e15b5b;
+                        position: relative;
+                    }
+                    a.active:after {
+                        content: "";
+                        display: block;
+                        height: 3px;
+                        background: #ec5559;
+                        width: 42px;
+                        position: absolute;
+                        bottom: -29px;
+                        left: 50%;
+                        margin-left: -21px;
+                        transition: left .5s linear;
+                    }
+                }
+                .addQ {
+                    background: url(../img/person/plus.png)no-repeat left center;
+                    background-size: 15px 15px;
+                    font-size: 16px;
+                    height: 40px;
+                    padding-left: 25px;
+                    color: #e15b5b;
+                    line-height: 40px;
+                    cursor: pointer;
+                }
+            }
+            .list_box {
+                ul {
+                    li {
+                        padding: 30px;
+                        background: url(../img/person/wen.png)no-repeat left 30px;
+                        background-size: 20px 20px;
+                        padding-left: 30px;
+                        position: relative;
+                        padding-right: 0;
+                        border-bottom: 1px solid #f2f3f4;
+                        height: 200px;
+                        .list_left {
+                            width: 500px;
+                            .title {
+                                font-size: 16px;
+                                color: #000;
+                                padding-bottom: 10px;
+                            }
+                            .intro {
+                                font-size: 14px;
+                                color: #999;
+                                line-height: 1.5;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 3;
+                                -webkit-box-orient: vertical;
+                            }
+                            .list_foot {
+                                background: url(../img/person/sort.png)no-repeat left center;
+                                background-size: 12px 12px;
+                                font-size: 12px;
+                                color: #777;
+                                padding-left: 20px;
+                                position: absolute;
+                                bottom: 30px;
+                                left: 30px;
+                            }
+                        }
+                        .list_right {
+                            width: 170px;
+                            height: 140px;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                display: block;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .right_list {}
+    }
+    .ask_box {
+        padding: 30px 44px;
+        padding-bottom: 0;
+        .input_item {
+            margin-bottom: 20px;
+            label {
+                font-size: 14px;
+                color: #555;
+                display: block;
+                padding-bottom: 10px;
+            }
+            .textarea_wrap {
+                border: 1px solid #eee;
+                padding: 20px;
+                position: relative;
+            }
+            textarea {
+                font-size: 14px;
+                color: #555;
+                width: 100%;
+                border: none;
+                resize: none
+            }
+            textarea:focus {
+                outline: none;
+            }
+            textarea.title {
+                height: 62px;
+            }
+            textarea.detail {
+                height: 157px;
+            }
+            .text_Count {
+                position: absolute;
+                bottom: 10px;
+                right: 5px;
+                color: #ccc;
+                font-size: 14px;
+            }
+
+            .add_pic {
+                padding: 15px 0 0 0px;
+                border-top: 1px solid #eee;
+                .add_pic_btn {
+                    background: url(../img/person/add.png)no-repeat center center;
+                    background-size: 60px 60px;
+                    width: 60px;
+                    height: 60px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .btn {
+            width: 100%;
+            margin-top: 30px;
+            input[type=button] {
+                width: 280px;
+                height: 40px;
+                color: #fff;
+                font-size: 16px;
+                text-align: center;
+                border-radius: 5px;
+                margin: 0 auto;
+                background: #ec5357;
+                border: none;
+                display: block;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+/* 问答详情 */
+
+.jingchuQAdetail {
+    .main_box {
+        .main_list {
+            width: 790px;
+            .top_question {
+                background: #fff;
+                margin-bottom: 20px;
+                padding: 36px;
+                h2 {
+                    font-size: 20px;
+                    color: #333;
+                    padding-bottom: 15px;
+                }
+
+                .intro {
+                    padding-bottom: 20px;
+                    p {
+                        font-size: 14px;
+                        color: #999;
+                    }
+                }
+
+                .pics {
+                    ul {
+
+                        li {
+                            padding: 7px;
+                            width: 152px;
+                            height: 114px;
+                            box-sizing: border-box;
+                            overflow: hidden;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                        li:first-of-type {
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+            .form_wrap {
+                padding: 36px;
+                background: #fff;
+                .form_inner {
+                    position: relative;
+                    margin-left: 50px;
+                    border: 1px solid #ddd;
+                    textarea {
+                        width: 100%;
+                        height: 200px;
+                        padding: 20px;
+                        border: none;
+                        resize: none;
+                    }
+                    .avatar {
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        position: absolute;
+                        left: -50px;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            display: block;
+                        }
+                    }
+                    .add_pic {
+                        border-top: 1px solid #ddd;
+                        padding: 15px 20px;
+                        .default {
+                            background: url(../img/person/add.png)no-repeat center center;
+                            background-size: 60px 60px;
+                            width: 60px;
+                            height: 60px;
+                        }
+                    }
+                }
+                .btn {
+                    margin-top: 20px;
+                    input[type=button] {
+                        background: #ed6363;
+                        width: 120px;
+                        height: 44px;
+                        border-radius: 5px;
+                        color: #fff;
+                        font-size: 16px;
+                        text-align: center;
+                        border: none;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .answer_wrap {
+                background: #fff;
+                .answer_inner {
+                    padding: 36px;
+                    .answer_count {
+                        border-bottom: 1px solid #ddd;
+                        p {
+                            font-size: 16px;
+                            color: #333;
+                            position: relative;
+                            padding-bottom: 10px;
+                        }
+                        p:after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            height: 3px;
+                            width: 73px;
+                            bottom: 0;
+                            left: 0;
+                            background: #e15b5b;
+                        }
+                    }
+                    ul {
+                        li {
+                            padding: 25px 0;
+                            border-bottom: 1px solid #eee;
+                            .avatar {
+                                width: 36px;
+                                height: 36px;
+                                overflow: hidden;
+                                border-radius: 50%;
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+                            .l_right {
+                                padding-left: 15px;
+                                width: 668px;
+                                position: relative;
+                                userName {
+                                    font-size: 14px;
+                                    color: #333;
+                                }
+                                .add {
+                                    font-size: 12px;
+                                    color: #999;
+                                }
+                                .zan {
+                                    font-size: 14px;
+                                    color: #ccc;
+                                    position: absolute;
+                                    right: 0;
+                                    top: 0;
+                                    background: url(../img/person/zan.png)no-repeat left center;
+                                    background-size: 16px 16px;
+                                    padding-left: 20px;
+                                }
+                                .content {
+                                    font-size: 14px;
+                                    color: #333;
+                                    padding-top: 20px;
+                                    line-height: 1.5;
+                                }
+                                .pics {
+                                    padding-top: 25px;
+                                    li {
+                                        width: 152px;
+                                        height: 114px;
+                                        overflow: hidden;
+                                        padding: 0;
+                                        margin-right: 10px;
+
+                                        img {
+                                            width: 100%;
+                                            height: 100%;
+                                            display: block;
+                                            object-fit: cover;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.page_nav p {
+    padding: 20px 0;
+    a {
+        font-size: 14px;
+        color: #999;
+    }
+}
+
+.more {
+    color: #aaa;
+    font-size: 14px;
+    text-align: center;
+    width: 360px;
+    height: 44px;
+    background: #eee;
+    margin: 0 auto;
+    line-height: 44px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/* 问卷 */
+
+.wenjuan {
+    .main_box {
+        margin-top: 30px;
+        .main_list {
+            padding: 30px;
+            background: #fff;
+            width: 790px;
+            box-sizing: border-box;
+            padding-bottom: 50px;
+            >ul {
+                li {
+                    border-bottom: 1px solid #eee;
+                    padding: 20px 0;
+                    a {
+                        position: relative;
+                        display: block;
+                        .l_left {
+                            h2 {
+                                font-size: 16px;
+                                color: #000;
+                            }
+                            p.sort {
+                                font-size: 12px;
+                                color: #777;
+                                background: url(../img/person/person.png)no-repeat left center;
+                                background-size: 12px 12px;
+                                padding-left: 20px;
+                                position: absolute;
+                                bottom: 0;
+                            }
+                        }
+                        .l_right {
+                            width: 174px;
+                            height: 130px;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                }
+            }
+            .title_box {
+                padding: 45px 0;
+                border-bottom: 1px solid #ddd;
+                h2 {
+                    font-size: 24px;
+                    color: #333;
+                    text-align: center;
+                    font-weight: normal;
+                }
+            }
+            .question_list_box {
+                padding: 40px 65px;
+                .quest_list {
+                    .list {
+                        padding-bottom: 40px;
+                        h3 {
+                            font-size: 16px;
+                            color: #333;
+                        }
+                        .item {
+                            padding-top: 10px;
+                            li {
+                                padding: 5px 0;
+                                label {
+                                    font-size: 16px;
+                                    color: #333;
+                                    input[type=radio] {
+                                        opacity: 0;
+                                    }
+                                    span {
+                                        background: url(../img/person/radio.png)no-repeat center center;
+                                        background-size: 14px 14px;
+                                        display: inline-block;
+                                        width: 14px;
+                                        height: 14px;
+                                    }
+                                    input:checked~span {
+                                        background: url(../img/person/select_radio.png)no-repeat center center;
+                                        background-size: 14px 14px;
+                                        animation: scalec .3s linear;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .btn {
+                margin-top: 10px;
+                input {
+                    width: 150px;
+                    height: 44px;
+                    background: #f05858;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 16px;
+                    margin: 0 auto;
+                    border: none;
+                    display: block;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes scalec {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+input[type=button]:focus {
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* 个人中心 */
+
+.personalCenter {
+    .main_box {
+        padding-top: 30px;
+        .small_banner {
+            background: url(../img/person/small_banner.png)#fff no-repeat top center;
+            background-size: 100% 170px;
+            height: 270px;
+            padding-bottom: 70px;
+            .user_info_wrap {
+                padding: 110px 30px 0 30px;
+                .user_info_box {
+                    font-size: 0;
+                    height: 90px;
+                    .avatar {
+                        width: 90px;
+                        height: 90px;
+                        border-radius: 50%;
+                        border: 4px solid #dedede;
+                        overflow: hidden;
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-right: 20px;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .user_name {
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-top: 20px;
+                        h2 {
+                            font-size: 22px;
+                            color: #fff;
+                            margin-bottom: 20px;
+                            font-weight: normal;
+                        }
+                        h3 {
+                            font-size: 14px;
+                            color: #c7c6c6;
+                        }
+                    }
+                }
+            }
+            .edit_info{
+                font-size:16px;
+                color: #fff;
+                width:114px;
+                height: 30px;
+                background:rgba(0,0,0,.5);
+                text-align: center;
+                line-height: 30px;
+                margin-top: 130px;
+                margin-right: 30px;
+            }
+        }
+        .main_list{
+            margin-top:20px;
+        }
+    }
+}
+
+.container{background:#f2f3f4;padding: 1px 0 45px 0;}
+.itemTop{width: 100%;height: 65px;line-height: 65px;background-color: #fcfcfc;padding: 0 26px 0 65px;background-repeat: no-repeat;background-position: 30px center;}
+.itemTop>p{color: #222222;font-size: 22px;float: left;font-weight: 600;}
+.itemTop>a{display: block; color: #666666;font-size: 12px;float: right;}
+.itemTop>a:hover{color: #f54e33;}
+
+.starAndHot{overflow: hidden;}
+.smallStar{width: 790px;float: left;}
+.smallStarL{overflow: hidden;background: #ffffff;height: 430px;padding: 20px 25px;}
+.smallStarL>li{float: left;width: 167px;height: 180px;margin: 12px 9px;}
+.smallStarL>li>a{display: block;width: 100%;height: 100%;}
+.smallStarL>li>a>div{width: 100%;height: 124px;background-repeat: no-repeat;background-size: 100% 100%;}
+.smallStarL>li>a>p{color: #222222;font-size: 16px;padding: 10px 10px 5px 10px;font-weight: 600;}
+.smallStarL>li>a>span{font-size: 12px;color: #666666;display: block;padding: 0 10px;}
+
+.hotActivity{width: 380px;float: right;}
+.hotL{background: #ffffff;height: 430px;padding: 30px;}
+.hotL>li{width: 320px; height: 112px;margin-bottom: 20px;}
+.hotL>li>a{display: block;width: 100%;height: 100%;background-repeat: no-repeat;background-size: 100% 100%;}
