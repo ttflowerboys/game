@@ -32,6 +32,11 @@ const gamehdzx = r => require.ensure([], () => r(require('../pages/game/hdzx')),
 
 const server = r => require.ensure([], () => r(require('../pages/server/index')), 'server')
 
+// wap
+const wap = r => require.ensure([], () => r(require('../wap/layout')), 'wap')
+const wap_login = r => require.ensure([], () => r(require('../wap/login/login')), 'wap_login')
+const wap_join = r => require.ensure([], () => r(require('../wap/join/join')), 'wap_join')
+
 const notFound = r => require.ensure([], () => r(require('components/error/404')), 'notFound')
 
 const routes = [
@@ -71,7 +76,20 @@ const routes = [
   { path: '/login', component: login, meta: { title: '登录' }},
   { path: '/join', component: join, meta: { title: '注册' }},
   { path: '/forget', component: forget, meta: { title: '找回密码' }},
-  { path: "/*", name: "error", component: notFound, meta: { title: '404-页面不存在' }}
+  
+  // 手机端
+  {
+    path: '/h5',
+    name: 'wap',
+    component: wap,
+    redirect: { name: 'wap_login' },
+    meta: { title: '789W' },
+    children: [
+      { path: 'login', name: 'wap_login', component: wap_login, meta: { title: '登录' }},
+      { path: 'join', name: 'wap_join', component: wap_join, meta: { title: '注册' }}
+    ]
+  },
+  { path: "/*", name: "error", component: notFound, meta: { title: '404-页面不存在' }},
 ]
 
 Vue.use(Router)
