@@ -2,7 +2,7 @@
     <div class="wap_login_bg">
         <div class="jump"><router-link to="/h5/join">注册</router-link></div>
         <div class="logo"><img src="~assets/images/wap/logo.png" alt="logo"></div>
-         <Form class="custom-form" :model="form" ref="form" :rules="form.rule">
+         <Form class="wap-custom-form" :model="form" ref="form" :rules="form.rule">
             <FormItem prop="phone">
                 <Input v-model.trim="form.phone" placeholder="用户名"></Input>
             </FormItem>
@@ -10,10 +10,10 @@
                 <Input type="password" v-model.trim="form.password" placeholder="密码"></Input>
             </FormItem>
         </Form>
-        <Button class="button-custom-red" :loading="form.loading" @click.prevent="handleLogin('form')">登录</Button>
-        <div class="other_login">
+        <Button class="wap-button-custom-red" :loading="form.loading" @click.prevent="handleLogin('form')">登录</Button>
+        <!-- <div class="other_login">
             <span>手机动态登录</span>
-        </div>
+        </div> -->
     </div>
 </template>
 
