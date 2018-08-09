@@ -1,5 +1,6 @@
 <template>
     <div class="wap_login_bg">
+        <div class="jump"><router-link to="/h5/login">登录</router-link></div>
         <div class="logo"><img src="~assets/images/wap/logo.png" alt="logo"></div>
          <Form class="custom-form" :model="form" ref="form" :rules="form.rule">
             <FormItem prop="username">
@@ -119,7 +120,8 @@
                         this.form.loading = true;
                         let data = {
                             username: self.form.username,
-                            password: self.form.password
+                            password: self.form.password,
+                            mid: 5001
                         }
                         ajaxJoin(data).then(res => {
                             if(res.status === 'success'){
