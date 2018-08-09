@@ -1,5 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import { ToastPlugin } from 'vux'
+
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -14,6 +16,9 @@ Vue.use(iView)
 
 import filters from 'src/filters/'
 Object.keys(filters).forEach(key => Vue.filter(key, filters[key]))
+
+// 全局注册vux
+Vue.use(ToastPlugin)
 
 /* eslint-disable no-new */
 new Vue({
