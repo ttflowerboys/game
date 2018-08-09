@@ -124,17 +124,13 @@
                             mid: 5001
                         }
                         ajaxJoin(data).then(res => {
-                            if(res.status === 'success'){
-                                let data = {
-                                    token: res.data,   // 因为只有token
-                                    data: {
-                                        username: self.form.username // TODO，登录成功后后台应该回显用户基本信息
-                                    }
-                                }
-                                self.recordUserInfo(data)
-                                let redirect = decodeURIComponent(self.$route.query.redirect || '/ucenter');
-                                self.$router.push({
-                                    path: redirect
+                            if(res.status === '10000'){
+                                self.$vux.toast.show({
+                                     text: '注册成功',
+                                     time: 1000,
+                                     onHide () {
+                                        window.location = res.data
+                                     }
                                 })
                             }else{
                                 self.$Message.error(res.message)
