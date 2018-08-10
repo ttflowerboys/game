@@ -144,6 +144,7 @@
             selectPayType(value){
                 if(value !== '1'){
                     this.$Message.error('暂不支持此支付方式！');
+                    this.pay.type = 1
                     return false;
                 }else{
                     this.pay.type = value;

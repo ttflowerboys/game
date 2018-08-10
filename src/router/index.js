@@ -36,6 +36,7 @@ const server = r => require.ensure([], () => r(require('../pages/server/index'))
 const wap = r => require.ensure([], () => r(require('../wap/layout')), 'wap')
 const wap_login = r => require.ensure([], () => r(require('../wap/login/login')), 'wap_login')
 const wap_join = r => require.ensure([], () => r(require('../wap/join/join')), 'wap_join')
+const wap_pay = r => require.ensure([], () => r(require('../wap/pay')), 'wap_pay')
 
 const notFound = r => require.ensure([], () => r(require('components/error/404')), 'notFound')
 
@@ -86,7 +87,8 @@ const routes = [
     meta: { title: '789W' },
     children: [
       { path: 'login', name: 'wap_login', component: wap_login, meta: { title: '登录' }},
-      { path: 'join', name: 'wap_join', component: wap_join, meta: { title: '注册' }}
+      { path: 'join', name: 'wap_join', component: wap_join, meta: { title: '注册' }},
+      { path: 'pay', name: 'wap_pay', component: wap_pay, meta: { title: '充值中心' }}
     ]
   },
   { path: "/*", name: "error", component: notFound, meta: { title: '404-页面不存在' }},
