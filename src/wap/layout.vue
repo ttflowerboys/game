@@ -1,8 +1,6 @@
 <template>
-    <div id="Layout" class="Layout">
-        <div id="Main" class="Main">
-            <router-view></router-view>
-        </div>
+    <div id="Layout" class="Wap_layout">
+        <router-view></router-view>
     </div>
 </template>
 
@@ -14,3 +12,8 @@
         }
     }
 </script>
+<style lang="less">
+	.Wap_layout{
+		background-color: #eee;
+	}	
+</style>
