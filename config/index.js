@@ -35,6 +35,12 @@ module.exports = {
         pathRewrite: {
           '^/gameDetail': '/gameDetail'
         }
+      },
+      '/pay': {
+        target: 'http://www.798wan.com:8082',
+        pathRewrite: {
+          '^/pay': '/'
+        }
       }
     },
 

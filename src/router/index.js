@@ -77,8 +77,6 @@ const routes = [
   { path: '/login', component: login, meta: { title: '登录' }},
   { path: '/join', component: join, meta: { title: '注册' }},
   { path: '/forget', component: forget, meta: { title: '找回密码' }},
-  
-  // 手机端
   {
     path: '/h5',
     name: 'wap',
