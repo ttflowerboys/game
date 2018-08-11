@@ -2,7 +2,7 @@
 	<div class="wap_layout">
 		<x-header class="wap_header" :left-options="{backText: ''}">充值中心</x-header>
 		<div class="wap_pay">
-			<div class="money">充值金额 <b class="t-red">0</b> 元</div>
+			<div class="money">充值金额 <b class="t-red">{{parmas.money}}</b> 元</div>
 			<div class="wap_group">
 				<group title="请选择支付方式">
 			      <radio v-model="pay.type" :options="config.type" disabled>
@@ -18,11 +18,14 @@
 			    </div>
 		    </div>
 		</div>
+		<div ref="Pay" style="display: none;"></div>
 	</div>
 </template>
 
 <script>
-	import { XHeader, Radio, Group } from 'vux'
+	import { XHeader, Radio, Group, querystring } from 'vux'
+    import { ajaxPay, ajaxToPay } from 'src/apis/wap'
+
 	export default {
         name: 'wap_pay',
         components: {
@@ -39,15 +42,43 @@
             	config:{
                     type: [
                         { value: '支付宝', key: '1', icon: '/static/images/wap/pay_alipay.gif' },
-                        { value: '网上银行(快钱)', key: '2', icon: '/static/images/wap/pay_99bill.png' },
-                        { value: '微信支付', key: '10', icon: '/static/images/wap/pay_wechat.gif' }
+                        // { value: '网上银行(快钱)', key: '2', icon: '/static/images/wap/pay_99bill.png' },
+                        { value: '微信支付', key: '2', icon: '/static/images/wap/pay_wechat.gif' }
                     ]
                 }
             }
         },
         methods: {
         	handlePay(){
-
+        		const self = this;
+        		let data = this.parmas;
+        			data = Object.assign(data, { pid: this.pay.type})
+        		self.$vux.loading.show({
+					text: '加载中...'
+				})
+        		ajaxPay(data).then(res => {
+        			if(res.status === '10000'){
+        				let datas = {
+        					oid: res.data,
+        					mid: data.mid
+        				}
+        				ajaxToPay(datas).then(r => {
+        					self.$refs.Pay.innerHTML = r
+        					setTimeout(function(){
+        						document.forms[0].submit()
+        						self.$vux.loading.hide()
+        					},1000)
+        				})
+        			}else{
+        				self.$vux.loading.hide()
+        				self.$Message.error('操作失败！')
+        			}
+        		})
+        	}
+        },
+        computed:{
+        	parmas(){
+        		return querystring.parse(location.search)
         	}
         }
     }
