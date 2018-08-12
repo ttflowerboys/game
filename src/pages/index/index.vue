@@ -6,7 +6,7 @@
             </CarouselItem>
         </Carousel>
         <div class="wrapped clearfix">
-            <div class="Left">
+            <!-- <div class="Left"> -->
                 <!-- <div class="lbox">
                     <h3 class="tjyx">推荐游戏</h3>
                     <div class="tjyx-list">
@@ -75,7 +75,7 @@
                     </div>
                 </div> -->
 
-            </div>
+            <!-- </div> -->
             <!-- <div class="Right">
                 <div class="rbox">
                     <h3>{{news.title}}</h3>
