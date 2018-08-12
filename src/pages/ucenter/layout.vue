@@ -30,9 +30,9 @@
                     <!-- <router-link to="/ucenter/data/">我的账号</router-link>
                     <router-link to="/ucenter/game/">我的游戏</router-link> -->
                     <router-link to="/ucenter/index/">个人资料</router-link>
-                    <!-- <router-link to="/ucenter/avatar/">修改头像</router-link>
+                    <!-- <router-link to="/ucenter/avatar/">修改头像</router-link> -->
                     <router-link to="/ucenter/safety/">账号安全</router-link>
-                    <router-link to="/ucenter/news/">站内消息</router-link>
+                    <!-- <router-link to="/ucenter/news/">站内消息</router-link>
                     <router-link to="/ucenter/recycling/">账号回收</router-link> -->
                 </ul>
             </div>
@@ -74,4 +74,14 @@
 </script>
 <style lang="less">
     @import "~assets/styles/center.less";
+.dataform td.label{width:95px;padding-right:10px;text-align:right;color:#333;font-size: 14px;}
+.dataform td.label strong{color:#fe0000;margin-left:3px}
+.dataform td label{color:#666;margin-right:10px}
+.dataform td.full{color:#666}
+.dataform td.textarea{height:200px}
+.dataform button{width:90px;height:34px;display:block;text-align:center;background:#1891d7;border-radius:5px;color:#fff;cursor:pointer;margin:16px 0 0 110px}
+.dataform button:hover{background:#1dacff}
+.dataform td.upload-screen{height:77px;overflow:hidden}
+.dataform td .upload-file input{width:63px;height:63px;opacity:0;filter:alpha(opacity=0);cursor:pointer}
+
 </style>

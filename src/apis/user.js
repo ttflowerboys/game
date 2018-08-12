@@ -28,3 +28,5 @@ export const AjaxEidtUserinfo = (data) => fetch({ url: '/api/center/updateUser',
 export const AjaxSendSMS = (params) => fetch({ url: '/auth/getSmsCode', method: 'get', params })
 
 export const AjaxForgetPassword = (data) => fetch({ url: '/auth/getforgetCode', method: 'post', data})
+
+export const AjaxUserFcm = (data) => fetch({ url: '/api/member/fcm', method: 'post', data }) //防沉迷

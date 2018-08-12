@@ -1,50 +1,61 @@
 <template>
     <div>
         <div class="personal-data">
-            	<h4 style="height: 68px;">个人资料</h4>
-                <div>
-                	<!-- 所有input的长度通过size来控制 -->
-                    
-                    <form class="dataform" onsubmit="return false">
-                    	<table>
-                        	<tbody><tr>
-                            	<td class="label">账号：</td>                   
-                                <td class="full">{{userData.username ? userData.username : '未填写'}}</td>
-                            </tr>
-                            <tr data="show">
-                            	<td class="label">昵称：</td>
-                    			<td class="full">
-                                    <span  v-if="!isEdit">{{userData.nick_name ? userData.nick_name : '未填写'}}</span>
-                                    <Input v-if="isEdit" v-model="editinfo.nick_name"></Input>
-                                </td>
-                            </tr>
-                            <tr data="show">
-                            	<td class="label">电话：</td>
-                                <td class="full">
-                                    <span  v-if="!isEdit">{{userData.phone ? userData.phone : '未填写'}}</span>
-                                    <Input v-if="isEdit" v-model="editinfo.phone"></Input>
-                                </td>
-                            </tr>
-                            <tr data="show">
-                            	<td class="label">姓名：</td>
-                                <td class="full">
-                                    <span  v-if="!isEdit">{{userData.real_name ? userData.real_name : '未填写'}}</span>
-                                    <Input v-if="isEdit" v-model="editinfo.real_name"></Input>
-                                </td>
-                            </tr>
-                            <tr>
-                            	<td class="label">身份证：</td>
-                                <td class="full">
-                                    <span  v-if="!isEdit">{{userData.idcard ? userData.idcard : '未填写'}}</span>
-                                    <Input v-if="isEdit" v-model="editinfo.idcard"></Input>
-                                </td>
-                            </tr>
-                        </tbody></table>                                         
-                        <button style="background-color: #363533;" @click="edit" v-if="!isEdit">编辑资料</button>
-                        <button style="background-color: #363533;" @click="updata" v-if="isEdit">保存资料</button>
-                    </form>
+            <h4 style="height: 68px;">防沉迷认证</h4>
+            <div class="fcm">
+                <div class="fcm-status">
+                    <p>真实姓名：<span v-if="userData.real_name">{{userData.real_name}}</span><strong v-else>您未认证</strong></p>
+                    <p>身份证号：<span v-if="userData.idcard">{{userData.idcard}}</span><span v-else><strong>请尽快进行</strong><a href="/ucenter/safety/" target="_blank">防沉迷认证</a></span></p>
                 </div>
-           	</div>
+                <div class="fcm-info">
+                    <p>根据政府相关规定，未满18周岁的玩家将被纳入防沉迷范围；届时被纳入防沉迷的玩家，游戏收益将会受损；未填写身份证玩家在游戏内3小时后会被踢下线或收益减半5小时后被踢下线，请各位玩家尽快填写真实姓名、身份证信息，以便顺畅游戏。此账号的身份证信息只能填写一次，是判断账号归属的重要依据。</p>
+                </div>
+            </div>
+
+        	<h4 style="height: 68px;">个人资料</h4>
+            <div>
+            	<!-- 所有input的长度通过size来控制 -->
+                
+                <form class="dataform" onsubmit="return false">
+                	<table>
+                    	<tbody><tr>
+                        	<td class="label">账号：</td>                   
+                            <td class="full">{{userData.username ? userData.username : '未填写'}}</td>
+                        </tr>
+                        <tr data="show">
+                        	<td class="label">昵称：</td>
+                			<td class="full">
+                                <span  v-if="!isEdit">{{userData.nick_name ? userData.nick_name : '未填写'}}</span>
+                                <Input v-if="isEdit" v-model="editinfo.nick_name"></Input>
+                            </td>
+                        </tr>
+                        <tr data="show">
+                        	<td class="label">电话：</td>
+                            <td class="full">
+                                <span  v-if="!isEdit">{{userData.phone ? userData.phone : '未填写'}}</span>
+                                <Input v-if="isEdit" v-model="editinfo.phone"></Input>
+                            </td>
+                        </tr>
+                        <tr data="show">
+                        	<td class="label">姓名：</td>
+                            <td class="full">
+                                <span v-if="userData.real_name">{{userData.real_name}}</span><strong v-else>您未认证</strong>
+                                <!-- <Input v-if="isEdit" v-model="editinfo.real_name"></Input> -->
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td class="label">身份证：</td>
+                            <td class="full">
+                                <span v-if="userData.idcard">{{userData.idcard}}</span><span v-else><strong>请尽快进行</strong><a href="/ucenter/safety/" target="_blank">防沉迷认证</a></span>
+                                <!-- <Input v-if="isEdit" v-model="editinfo.idcard"></Input> -->
+                            </td>
+                        </tr>
+                    </tbody></table>                                         
+                    <button style="background-color: #363533;" @click="edit" v-if="!isEdit">编辑资料</button>
+                    <button style="background-color: #363533;" @click="updata" v-if="isEdit">保存资料</button>
+                </form>
+            </div>
+       	</div>
     </div>    
 </template>
 <script>
@@ -133,16 +144,6 @@
     }
 </script>
 <style lang="less">
-.dataform td.label{width:95px;padding-right:10px;text-align:right;color:#333}
-.dataform td.label strong{color:#fe0000;margin-left:3px}
-.dataform td label{color:#666;margin-right:10px}
-.dataform td.full{color:#666}
-.dataform td.textarea{height:200px}
-.dataform button{width:90px;height:34px;display:block;text-align:center;background:#1891d7;border-radius:5px;color:#fff;cursor:pointer;margin:16px 0 0 110px}
-.dataform button:hover{background:#1dacff}
-.dataform td.upload-screen{height:77px;overflow:hidden}
-.dataform td .upload-file input{width:63px;height:63px;opacity:0;filter:alpha(opacity=0);cursor:pointer}
-
 .personal-data{
     h4{
         height: 16px;
