@@ -5,8 +5,8 @@
         <div class="head_nav clearfix">
             <a href="/"><span class="head_nav01">进入官网</span></a>
             <a href=""><span class="head_nav02">领取礼包</span></a>
-            <a href=""><span class="head_nav03">用户充值</span></a>
-            <a href="" style="border-right:none;"><span class="head_nav04">游戏论坛</span></a>
+            <a href="/pay"><span class="head_nav03">用户充值</span></a>
+            <a href="/help" style="border-right:none;"><span class="head_nav04">游戏客服</span></a>
         </div>
         <div class="logn_head">用户登录</div>
         <div class="logn_state">

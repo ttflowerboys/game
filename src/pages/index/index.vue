@@ -7,7 +7,7 @@
         </Carousel>
         <div class="wrapped clearfix">
             <div class="Left">
-                <div class="lbox">
+                <!-- <div class="lbox">
                     <h3 class="tjyx">推荐游戏</h3>
                     <div class="tjyx-list">
                         <ul>
@@ -29,19 +29,19 @@
                             <li class="loading-list" v-for="i in loads" v-if="loading.tjyx"></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="lbox">
                     <h3 class="rmyx">热门游戏</h3>
                     <div class="rmyx-list">
                         <ul>
                             <li v-for="item in hotGameList" v-if="!loading.rmyx">
-                                <a :href="router.game + item.game_show_code" :title="item.name" target="_blank" class="rmyx-img"><img :src="item.pic" :alt="item.name"></a>
-                                <div class="rmyx-links"><a :href="router.game + item.game_show_code" :title="item.name" target="_blank" class="rmyx-name">{{item.name}}</a>
-                                    <a :href="router.game + item.game_show_code" target="_blank" class="start">开始游戏</a>
-                                    <a :href="router.game + item.game_show_code" target="_blank">领礼包</a>
+                                <a :href="router.server + item.game_show_code" :title="item.name" target="_blank" class="rmyx-img"><img :src="item.pic" :alt="item.name"></a>
+                                <div class="rmyx-links"><a :href="router.server + item.game_show_code" :title="item.name" target="_blank" class="rmyx-name">{{item.name}}</a>
+                                    <a :href="router.server + item.game_show_code" target="_blank" class="start">开始游戏</a>
+                                    <a :href="router.server + item.game_show_code" target="_blank">领礼包</a>
                                     <span>|</span>
-                                    <a :href="router.game + item.game_show_code" target="_blank">官网</a>
+                                    <a :href="router.server + item.game_show_code" target="_blank">官网</a>
                                 </div>
                             </li>
                             <li class="loading-list" v-for="i in loads" v-if="loading.rmyx"></li>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
 
-                <div class="lbox">
+                <!-- <div class="lbox">
                     <h3 :class="gift.type">{{gift.name}}</h3>
                     <div :class="gift.type + '-list'">
                         <ul class="clearfix">
@@ -62,9 +62,9 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="lbox">
+                <!-- <div class="lbox">
                     <h3 :class="other.type">{{other.name}}</h3>
                     <div :class="other.type + '-list'">
                         <ul>
@@ -73,10 +73,10 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
             </div>
-            <div class="Right">
+            <!-- <div class="Right">
                 <div class="rbox">
                     <h3>{{news.title}}</h3>
                     <div :class="news.type + '-list border'">
@@ -127,7 +127,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
      </div>
 
@@ -141,10 +141,11 @@
         data() {
             return {
                 router: {
-                    game: '/game/'
+                    game: '/game/',
+                    server: '/server/'
                 },
                 bannerList: [],
-                recommendGameList: [],
+                // recommendGameList: [],
                 hotGameList: [],
                 loading: {
                     tjyx: true,
@@ -213,17 +214,17 @@
             }
         },
         methods: {
-            getRecommendGames(){
-                const self = this;
-                AjaxRecommendGames().then(res => {
-                    if(res.status === 'success'){
-                        self.recommendGameList = res.data;
-                        self.loading.tjyx = false;
-                    }else{
-                        self.$Message.error(res.message)
-                    }
-                })
-            },
+            // getRecommendGames(){
+            //     const self = this;
+            //     AjaxRecommendGames().then(res => {
+            //         if(res.status === 'success'){
+            //             self.recommendGameList = res.data;
+            //             self.loading.tjyx = false;
+            //         }else{
+            //             self.$Message.error(res.message)
+            //         }
+            //     })
+            // },
             getHotGames(){
                 const self = this;
                 AjaxHotGames().then(res => {
@@ -248,7 +249,7 @@
             },
             init(){
                 this.getBanner()
-                this.getRecommendGames()
+                // this.getRecommendGames()
                 this.getHotGames()
             }
         },
