@@ -40,6 +40,8 @@
     import { AjaxGameDetail, AjaxGameLogin } from 'src/apis/game'
     import { AjaxJoin, AjaxLogin } from 'src/apis/user'
 
+    import * as basicConfig from 'src/config/basicConfig'
+
     import JoinPopup from "@/components/popup/join";
     import LoginPopup from "@/components/popup/login";
     import { mapGetters, mapActions } from 'vuex'
@@ -86,6 +88,7 @@
                         self.docList = res.data.servers;
                         self.gameId = res.data.gid;
                         self.bgImage = res.data.login_img;
+                        document.title = (res.data.servers && res.data.servers[0] ? res.data.servers[0].game_name : '') + basicConfig.title
                     }else{
                         self.$Message.error(res.message)
                     }
@@ -158,7 +161,7 @@
                 if (r!=null) return (r[2]); return null; 
             },
             init(){
-                this.getDoc()
+                this.getDoc() 
             }
         },
         computed: {
