@@ -1,9 +1,9 @@
 <template>
 <div class="Help">
     <div class="service-banner service-index">
-    <p>客服QQ：3458333481</p>
+    <p>客服QQ：{{qq}}</p>
     <li>
-        <a target="iframe_qq" href="http://wpa.qq.com/msgrd?v=3&uin=3458333481&site=qq&menu=yes">在线咨询</a>
+        <a target="iframe_qq" :href="href">在线咨询</a>
     </li>
 </div>
 <div class="wrapped">
@@ -26,10 +26,13 @@
 </template>
 
 <script>
+    import * as basicConfig from 'src/config/basicConfig'
     export default {
         name: 'help',
         data() {
             return {
+                qq: basicConfig.qq,
+                href: 'http://wpa.qq.com/msgrd?v=3&uin='+ this.qq +'&site=qq&menu=yes',
                 helpArr: [
                     { name: '常见问题', url: '', icon: 'cjwt', children: [ { name: '账号问题', url: '' }, { name: '账号丢失申诉', url: '' },{ name: '物品被盗申诉', url: '' }] },
                     { name: '账号申诉', url: '', icon: 'zhss', children: [ { name: '账号丢失申诉', url: '' }, { name: '物品被盗申诉', url: '' }] },

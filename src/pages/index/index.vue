@@ -39,8 +39,8 @@
                                 <a :href="router.server + item.game_show_code" :title="item.name" target="_blank" class="rmyx-img"><img :src="item.pic" :alt="item.name"></a>
                                 <div class="rmyx-links"><a :href="router.server + item.game_show_code" :title="item.name" target="_blank" class="rmyx-name">{{item.name}}</a>
                                     <a :href="router.server + item.game_show_code" target="_blank" class="start">开始游戏</a>
-                                    <a :href="router.server + item.game_show_code" target="_blank">领礼包</a>
-                                    <span>|</span>
+                                    <!-- <a :href="router.server + item.game_show_code" target="_blank">领礼包</a>
+                                    <span>|</span> -->
                                     <a :href="router.server + item.game_show_code" target="_blank">官网</a>
                                 </div>
                             </li>
@@ -152,7 +152,7 @@
                     rmyx: true,
                     banner: true
                 },
-                loads: 3,
+                loads: 4,
                 gift: {
                     name: '热门礼包',
                     type: 'rmlb',
