@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import { AjaxCheckAuth } from 'src/apis/user'
 import store from 'src/store'
 import * as types from 'src/store/mutation-types'
+import * as basicConfig from 'src/config/basicConfig'
 
 const layout = r => require.ensure([], () => r(require('../pages/layout')), 'layout')
 
@@ -48,7 +49,7 @@ const routes = [
     redirect: '/index',
     meta: { title: '789W' },
     children: [
-      { path: '/index', name: 'index', component: index, meta: { title: '首页' }},
+      { path: '/index', name: 'index', component: index, meta: { title: '' }},
       { path: '/pay', component: pay, meta: { title: '充值中心', requireAuth: true }}, //充值中心
       { path: '/help', component: help, meta: { title: '客服中心' }},  //客服中心
       { path: '/ucenter', component: ucenter, redirect: '/ucenter/index', meta: { title: '个人中心', requireAuth: true },// 个人中心
@@ -89,7 +90,7 @@ const routes = [
       { path: 'pay', name: 'wap_pay', component: wap_pay, meta: { title: '充值中心' }}
     ]
   },
-  { path: "/*", name: "error", component: notFound, meta: { title: '404-页面不存在' }},
+  { path: "/*", name: "error", component: notFound, meta: { title: '页面不存在' }},
 ]
 
 Vue.use(Router)
@@ -109,7 +110,7 @@ if (localStorage.getItem('userData')) {
 }
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title ? to.meta.title : '798游戏';
+  document.title = to.meta.title ? to.meta.title + basicConfig.title : '798玩_游戏就该这么玩';
   if (to.matched.some(r => r.meta.requireAuth)) {
     if(!localStorage.getItem('userToken')){
       next({
