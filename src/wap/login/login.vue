@@ -8,11 +8,11 @@
                 <h3 class="loginIndex_text">请选择登录方式</h3> 
                 <div class="loginIndex_way"> 
                     <div class="items">
-                        <i class="qq"></i>
+                        <i class="way-qq"></i>
                         <span class="text">QQ登录</span> 
                     </div> 
                     <div class="items" @click="pop.state = !pop.state"> 
-                        <i class="count"></i>
+                        <i class="way-count"></i>
                         <span class="text">账号登录</span> 
                     </div>
                 </div> 
@@ -62,6 +62,7 @@
 </template>
 
 <script>
+    import { querystring } from 'vux'
     import { ajaxLogin, ajaxGameImage } from 'src/apis/wap'
 
     export default {
@@ -146,10 +147,8 @@
             },
             getBackground(){
                 const self = this;
-                let data = {
-                    gid: '',
-                    mid: ''
-                }
+                console.log(this.parmas, 150)
+                let data = this.parmas
                 ajaxGameImage(data).then(res => {
                     if(res.status === '10000'){
                         let resource = res.data;
@@ -157,6 +156,11 @@
                         self.bg.web = resource.backImage;
                     }
                 })
+            }
+        },
+        computed:{
+            parmas(){
+                return querystring.parse(location.search)
             }
         },
         created(){
