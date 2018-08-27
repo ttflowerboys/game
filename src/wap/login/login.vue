@@ -7,7 +7,7 @@
             <div class="login_box_main"> 
                 <h3 class="loginIndex_text">请选择登录方式</h3> 
                 <div class="loginIndex_way"> 
-                    <div class="items">
+                    <div class="items" @click="loginWithQQ">
                         <i class="way-qq"></i>
                         <span class="text">QQ登录</span> 
                     </div> 
@@ -147,7 +147,6 @@
             },
             getBackground(){
                 const self = this;
-                console.log(this.parmas, 150)
                 let data = this.parmas
                 ajaxGameImage(data).then(res => {
                     if(res.status === '10000'){
@@ -156,6 +155,12 @@
                         self.bg.web = resource.backImage;
                     }
                 })
+            },
+            loginWithQQ(){
+                var qqAppId = '101499316';
+                var qqAuthPath = 'http://www.798wan.com/qq';
+                var state = `${this.parmas.mid}@${this.parmas.gid}`;
+                window.location = `https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=${qqAppId}&redirect_uri=${encodeURIComponent(qqAuthPath)}&state=${state}`;
             }
         },
         computed:{
